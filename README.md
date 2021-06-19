@@ -1,2 +1,2 @@
 # Chicago-transportation-notebooks
-Demo notebooks uscing public city of Chicago Transportation datasets.
+Demo notebooks using public city of [Chicago Transportation datasets](https://data.cityofchicago.org/browse?category=Transportation).
