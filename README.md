@@ -15,3 +15,27 @@ Demo notebooks using public city of [Chicago Transportation datasets](https://da
 - [Chicago Average Daily Traffic Counts Deck.gl Map](https://observablehq.com/@randomfractals/chicago-average-daily-traffic-counts-deck-gl-map)
 - [Chicago Traffic Crashes Deck.gl Heatmap](https://observablehq.com/@randomfractals/chicago-traffic-crashes-deck-gl-heatmap)
 - [Chicago Traffic Tracker](https://observablehq.com/@randomfractals/chicago-traffic-tracker)
+
+## JS Notebook 📓 Inspector 🕵️ Views
+
+You can use my [JS Notebook Inspector](https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.js-notebook-inspector) extension to load them in VSCode:
+
+### Notebook View 📓
+
+![Notebook 📓 View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-notebook-view.png?raw=true 
+ "JS Notebook 📓 View")
+
+### Notebook Info Graph ⎇ View
+
+![Notebook 📓 Info Graph ⎇ View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-notebook-info-graph.png?raw=true 
+ "Notebook 📓 Info Graph ⎇ View")
+
+### Notebook Files 📚 View
+
+![Notebook Files 📚 View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-notebook-files.png?raw=true 
+ "Notebook Files 📚 View")
+
+### Notebook Webpage 🌐 View
+
+![JS Notebook 📓 Webpage 🌐 View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-webpage.png?raw=true 
+ "JS Notebook 📓 Webpage 🌐 View")
