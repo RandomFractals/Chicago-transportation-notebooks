@@ -1,0 +1,183 @@
+md`# Chicago Traffic Crashes
+
+Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Traffic Crashes](https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if)
+`
+
+map = {
+  // create map container
+  let mapContainer = DOM.element('div', { style: `width:${width}px;height:${width/1.6}px` });
+  yield mapContainer;
+  
+  // create leaflet map with attributions
+  let map = L.map(mapContainer).setView([41.85, -87.68], 10); // Chicago origins
+  let osmLayer = L.tileLayer( // 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png')
+    'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors, &copy; <a href=\"http://cartodb.com/attributions\">CartoDB</a>',
+    detectRetina: false,
+    maxZoom: 18,
+    minZoom: 10,
+    noWrap: false,
+    subdomains: 'abc'
+  }).addTo(map);
+
+  // create hit points for the heatmap layer
+  let hitPoints = geoData.features.map(feature => 
+    feature.geometry.coordinates.slice().reverse().concat([0.1])); // intensity
+  
+  // add heat layer
+  let heatmapLayer = heatLayer(hitPoints, {
+    minOpacity: 0.12,
+    maxZoom: 18,
+    max: 1.0,
+    radius: 8,
+    blur: 5,
+    gradient: null
+  }).addTo(map);
+  
+  // red dot marker
+  const marker = {
+    radius: 6,
+    fillColor: "#ff4e3b",
+    color: "#ff0000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
+  };
+  
+  // map markers
+  const pointToLayer = function (feature, latlng) {
+    return L.circleMarker(latlng, marker);
+  }
+  
+  // add markers
+  let markers = markerCluster({});
+  let geoLayer = L.geoJson(geoData, {
+    pointToLayer: pointToLayer,    
+    onEachFeature: function (feature, layer) {
+      const data = feature.properties;
+      layer.bindTooltip(`${data.street_no} ${data.street_direction} ${data.street_name} <br />
+        at ${data.crash_date} <br /> ${data.crash_type}`, {sticky: true});
+    }
+  });  
+  
+  markers.addLayer(geoLayer);
+  map.addLayer(markers);
+  
+  // map.fitBounds(markers.getBounds());
+}
+
+viewof year = Inputs.select(years, {value: 2021, label: 'Select Year:', format: year => year})
+
+dayPlot = Plot.plot({
+  height: 180,
+  x: {
+    axis: null,
+    padding: 0,
+  },
+  y: {
+    padding: 0,
+    tickFormat: Plot.formatWeekday('en', 'narrow'),
+    tickSize: 0
+  },
+  fy: {
+    reverse: true
+  },
+  facet: {
+    data: crashesByDate,
+    y: d => d.date.getUTCFullYear()
+  },
+  marks: [
+    Plot.cell(crashesByDate, {
+      x: d => d3.utcWeek.count(d3.utcYear(d.date), d.date),
+      y: d => d.date.getUTCDay(),
+      fill: 'count',
+      title: d => `${d.date.toLocaleDateString()}: ${d.count.toLocaleString()} crashes`,
+      inset: 0.5
+    })
+  ]
+})
+
+md`## Data`
+
+viewof tableView = Inputs.table(data, {
+  columns: columns,
+  reverse: true
+})
+
+md`## Data Queries and Filters`
+
+years = [2020, 2021]
+
+columns = [
+  'crash_date',
+  'crash_type',
+  'posted_speed_limit',
+  'weather_condition',
+  'lighting_condition',
+  'first_crash_type',
+  'trafficway_type',
+  'alignment',
+  'roadway_sourface_cond',
+  'road_defect',
+  'report_type',
+  'private_property',
+  'hit_and_run_i',
+  'damage',
+  'date_police_notified',
+  'prim_contributory_cause',
+  'sec_contributory_cause',
+  'street_no',
+  'street_direction',
+  'street_name',
+  'beat_of_occurrence',
+  'photos_taken_i',
+  'num_units',
+  'most_severe_injury',
+  'injuries_total',
+  'injuries_fatal',
+  'injuries_incapacitating',
+  'injuries_reported_not_evident',
+  'injuries_no_indication',
+  'injuries_unknown',
+  'crash_hour',
+  'crash_day_of_week',
+  'crash_month',
+  'latitude',
+  'longitude'
+]
+
+dataUrl = 'https://data.cityofchicago.org/resource/85ca-t3if.json'
+
+query = `?$limit=100000&$where=crash_date between '${year}-01-01T00:00:00' and '${year}-12-31T23:59:59'`
+
+data = await fetch(dataUrl + query).then(data => data.json())
+
+geoData = getGeoDataPoints(data)
+
+dataTable = aq.from(data)
+  .derive({
+    date_time: d => op.parse_date(d.crash_date)
+  })
+  .spread({crash_date: d => op.split(d.crash_date, 'T')}, {as: ['date', 'time']})
+  .orderby('posted_speed_limit')
+
+crashesByDate = dataTable.groupby('date').count()
+  .derive({
+    date: d => op.parse_date(d.date)
+  })
+
+md`## Imports`
+
+import { aq, op } from '@uwdata/arquero'
+
+import { getGeoDataPoints } from '@randomfractals/geo-data-utils'
+
+leafletStyles = html`<link href='${resolve('leaflet@1.7.1/dist/leaflet.css')}' rel='stylesheet' />`
+
+L = require('leaflet@1.7.1')
+
+heatLayer = L, require('leaflet.heat').catch(() =>  L.heatLayer)
+
+markerClusterStyles = html`<link href='${resolve('leaflet.markercluster@1.2.0/dist/MarkerCluster.Default.css')}' rel='stylesheet' />`
+
+markerCluster = L, require('leaflet.markercluster@1.2.0').catch(() => L.markerClusterGroup)
