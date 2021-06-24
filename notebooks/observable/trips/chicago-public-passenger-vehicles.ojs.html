@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hpcc-js/common/font-awesome/css/font-awesome.min.css">
+    <style>
+    body {
+        padding: 0px;
+        margin: 8px;
+        background: white;
+        color: black;
+    }
+    #placeholder {
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        right: 8px;
+        bottom: 8px;
+    }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@hpcc-js/observable-md/dist/index.full.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var omdMod = window["@hpcc-js/observable-md"]
+    </script>
+
+</head>
+
+<body onresize="doResize()">
+    <div id="placeholder">
+    </div>
+    <script>
+        var app = new omdMod.Observable()
+            .target("placeholder")
+            .showValues(true)
+            .mode("ojs")
+            .text(`md\`# Chicago Public Passenger Vehicles
+
+Data Source: [Chicago Community Economic Development](https://data.cityofchicago.org/browse?q=community%20economic%20development&sortBy=relevance) / [Public Passenger Vehicle Licenses](https://data.cityofchicago.org/Community-Economic-Development/Public-Passenger-Vehicle-Licenses/tfm3-3j95)
+
+Chicago Data Portal: [Public Passenger Vehicle Licenses - Dashboard](https://data.cityofchicago.org/Community-Economic-Development/Public-Passenger-Vehicle-Licenses-Dashboard/atnw-8huh)
+\`
+
+md\`## Data\`
+
+viewof dataSummaryView = SummaryTable(data, {label: 'Public Passenger Vehicles Data'})
+
+viewof tableView = Inputs.table(data, {
+  sort: 'record_id',
+  reverse: false
+})
+
+dataUrl = 'https://data.cityofchicago.org/resource/tfm3-3j95.json'
+
+query = \`?\$limit=20000\`
+
+data = await fetch(dataUrl + query).then(data => data.json())
+
+md\`## Imports\`
+
+import {SummaryTable} from '@observablehq/summary-table'
+`)
+            ;
+
+        doResize();
+
+        function doResize() {
+        if (app) {
+            app
+                .resize()
+                .lazyRender()
+                ;
+        }
+    }
+    </script>
+</body>
+
+</html>

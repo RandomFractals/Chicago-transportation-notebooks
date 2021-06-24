@@ -1,0 +1,125 @@
+{
+  "id": "bc073404747347f6",
+  "slug": "chicago-public-passenger-vehicles",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "public",
+  "forks": 0,
+  "fork_of": null,
+  "update_time": "2021-06-24T11:38:53.505Z",
+  "publish_time": "2021-06-24T11:21:51.570Z",
+  "publish_version": 36,
+  "thumbnail": "ec4a1d4341c3bd0dfd4fc41aab721bdd99ddf0156f30b43e225434e5f5c63213",
+  "default_thumbnail": "ec4a1d4341c3bd0dfd4fc41aab721bdd99ddf0156f30b43e225434e5f5c63213",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak",
+    "type": "individual"
+  },
+  "creator": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak"
+  },
+  "collections": [
+    {
+      "id": "cf858224d6488195",
+      "type": "public",
+      "slug": "transportation",
+      "title": "Transportation",
+      "description": "Public transportation notebooks",
+      "update_time": "2021-06-04T03:34:03.975Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "ec4a1d4341c3bd0dfd4fc41aab721bdd99ddf0156f30b43e225434e5f5c63213",
+      "listing_count": 13,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "version": 36,
+  "title": "Chicago Public Passenger Vehicles",
+  "license": null,
+  "copyright": "",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "md`# Chicago Public Passenger Vehicles\n\nData Source: [Chicago Community Economic Development](https://data.cityofchicago.org/browse?q=community%20economic%20development&sortBy=relevance) / [Public Passenger Vehicle Licenses](https://data.cityofchicago.org/Community-Economic-Development/Public-Passenger-Vehicle-Licenses/tfm3-3j95)\n\nChicago Data Portal: [Public Passenger Vehicle Licenses - Dashboard](https://data.cityofchicago.org/Community-Economic-Development/Public-Passenger-Vehicle-Licenses-Dashboard/atnw-8huh)\n`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 8,
+      "value": "md`## Data`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 29,
+      "value": "viewof dataSummaryView = SummaryTable(data, {label: 'Public Passenger Vehicles Data'})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 20,
+      "value": "viewof tableView = Inputs.table(data, {\n  sort: 'record_id',\n  reverse: false\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 11,
+      "value": "dataUrl = 'https://data.cityofchicago.org/resource/tfm3-3j95.json'",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 16,
+      "value": "query = `?$limit=20000`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 14,
+      "value": "data = await fetch(dataUrl + query).then(data => data.json())",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 23,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 26,
+      "value": "import {SummaryTable} from '@observablehq/summary-table'",
+      "pinned": false,
+      "mode": "js"
+    }
+  ]
+}

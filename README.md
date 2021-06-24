@@ -15,6 +15,7 @@ Demo notebooks using public city of [Chicago Transportation datasets](https://da
 - [Chicago Average Daily Traffic Counts Deck.gl Map](https://observablehq.com/@randomfractals/chicago-average-daily-traffic-counts-deck-gl-map)
 - [Chicago Traffic Crashes Deck.gl Heatmap](https://observablehq.com/@randomfractals/chicago-traffic-crashes-deck-gl-heatmap)
 - [Chicago Traffic Tracker](https://observablehq.com/@randomfractals/chicago-traffic-tracker)
+- [Chicago Public Passenger Vehicles](https://observablehq.com/@randomfractals/chicago-public-passenger-vehicles)
 
 ## JS Notebook 📓 Inspector 🕵️ Views
 
