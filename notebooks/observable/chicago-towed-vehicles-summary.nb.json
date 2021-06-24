@@ -1,0 +1,320 @@
+{
+  "id": "d93908fb8a708e49",
+  "slug": "chicago-towed-vehicles-summary",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "public",
+  "forks": 0,
+  "fork_of": {
+    "id": "a113647eff1742ea",
+    "slug": "chicago-towed-vehicles",
+    "title": "Chicago Towed Vehicles",
+    "owner": {
+      "id": "17b72db66175b428",
+      "github_login": "RandomFractals",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+      "login": "randomfractals",
+      "name": "Taras Novak",
+      "bio": "I map 🌐 & graph  📈 data 🈸 ",
+      "home_url": "https://www.linkedin.com/in/tarasnovak",
+      "type": "individual"
+    },
+    "version": 134
+  },
+  "update_time": "2021-06-18T01:58:48.611Z",
+  "publish_time": "2021-06-18T01:58:48.611Z",
+  "publish_version": 143,
+  "thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
+  "default_thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak",
+    "type": "individual"
+  },
+  "creator": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak"
+  },
+  "collections": [
+    {
+      "id": "c30622739accf157",
+      "type": "public",
+      "slug": "arquero",
+      "title": "Arquero",
+      "description": "Notebooks using Arquero JS library for manipulating data.",
+      "update_time": "2021-06-08T11:51:29.570Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
+      "listing_count": 8,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "3a2bf0501500f229",
+      "type": "public",
+      "slug": "plot",
+      "title": "Plot",
+      "description": "Notebooks using new Plot library",
+      "update_time": "2021-06-08T11:51:15.611Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "thumbnail": "5b3e44e84b3e82afdc8d852c1f183c3d8686bbfaa5d3abd2411a926dfbb8997c",
+      "listing_count": 6,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "cf858224d6488195",
+      "type": "public",
+      "slug": "transportation",
+      "title": "Transportation",
+      "description": "Public transportation notebooks",
+      "update_time": "2021-06-04T03:34:03.975Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
+      "listing_count": 12,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "3bf482fdf6a5e174",
+      "type": "public",
+      "slug": "vega",
+      "title": "Vega",
+      "description": "Random collections of my Vega notebooks in the works",
+      "update_time": "2018-09-13T16:28:32.315Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
+      "listing_count": 13,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "version": 143,
+  "title": "Chicago Towed Vehicles Summary",
+  "license": null,
+  "copyright": "",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "md`# Chicago Towed Vehicles Summary\n\nInformation about the vehicles that have been towed and impounded by the City of Chicago within the last 90 days.\n\nData Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Towed Vehicles](https://data.cityofchicago.org/Transportation/Towed-Vehicles/ygr5-vcbg)\n`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 119,
+      "value": "md`## Towed Vehicles`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 109,
+      "value": "Plot.plot({\n  width: width,\n  height: 200,\n  padding: 0,\n  x: {\n    axis: 'top',\n    label: 'Month Day'\n  },\n  y: {\n    label: 'Month',\n    tickFormat: Plot.formatMonth('en', 'short')\n  },\n  color: {\n    scheme: 'BuYlRd'\n  },\n  marks: [\n    Plot.cell(towByDate, {\n      x: d => d.date.getUTCDate(),\n      y: d => d.date.getUTCMonth(),\n      fill: 'count',\n      inset: 0.5\n    }),\n    Plot.text(towByDate, {\n        x: d => d.date.getUTCDate(),\n        y: d => d.date.getUTCMonth(),\n        text: d => d.count\n      }\n    ) \n  ]\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 132,
+      "value": "md`### Towed Vehicles by Make, Style, and Color`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 56,
+      "value": "towedMakePlot = vl.markBar()\n  .data(towByMake)\n  .encode(\n    vl.x().fieldO('make').axis({labelAngle: 60}),\n    vl.y().fieldQ('count'),\n    vl.tooltip().fieldN('count')\n  )\n  .height(200)\n  .render()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 97,
+      "value": "towedStylePlot = vl.markBar()\n  .data(towByStyle)\n  .encode(\n    vl.x().fieldO('style').axis({labelAngle: 60}),\n    vl.y().fieldQ('count'),\n    vl.tooltip().fieldN('count')\n  )\n  .height(200)\n  .render()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 69,
+      "value": "towedColorPlot = vl.markBar()\n  .data(towByColor)\n  .encode(\n    vl.x().fieldO('color').axis({labelAngle: 60}),\n    vl.y().fieldQ('count'),\n    vl.tooltip().fieldN('count')\n  )\n  .height(200)\n  .render()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 125,
+      "value": "md`## Data`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 47,
+      "value": "viewof make = Inputs.select(towByMake, {\n  label: 'Vehicle Make',\n  format: x => `${x.make} (${x.count})`,\n  value: x => x.make\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 88,
+      "value": "viewof style = Inputs.select(towByStyle, {\n  label: 'Vehicle Style',\n  format: x => `${x.style} (${x.count})`,\n  value: x => x.style\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 81,
+      "value": "viewof color = Inputs.select(towByColor, {\n  label: 'Vehicle Color',\n  format: x => `${x.color} (${x.count})`,\n  value: x => x.color\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 140,
+      "value": "viewof dataSummaryView = SummaryTable(data, {label: 'Towed Vehicles Data'})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 29,
+      "value": "viewof tableView = Inputs.table(data, {\n  reverse: true\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 129,
+      "value": "md`## Data Queries and Filters`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 13,
+      "value": "year = new Date().getFullYear()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 5,
+      "value": "dataUrl = 'https://data.cityofchicago.org/resource/ygr5-vcbg.json'",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 16,
+      "value": "query = `?$limit=100000&$where=tow_date between '${year}-01-01T00:00:00' and '${year}-12-31T23:59:59'`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 8,
+      "value": "data = await fetch(dataUrl + query).then(data => data.json())",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 39,
+      "value": "dataTable = aq.from(data)\n  .derive({\n    date: d => op.parse_date(d.tow_date)\n  })",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 105,
+      "value": "towByDate = dataTable.groupby('date').count()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 43,
+      "value": "towByMake = dataTable.select('make').groupby('make').count().orderby(aq.desc('count'))",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 92,
+      "value": "towByStyle = dataTable.select('style').groupby('style').count().orderby(aq.desc('count'))",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 76,
+      "value": "towByColor = dataTable.select('color').groupby('color').count().orderby(aq.desc('count'))",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 66,
+      "value": "towByState = dataTable.select('state').groupby('state').count().orderby(aq.desc('count'))",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 102,
+      "value": "towToAddress = dataTable.select('towed_to_address').groupby('towed_to_address').count().orderby(aq.desc('count'))",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 36,
+      "value": "import { aq, op } from '@uwdata/arquero'",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 137,
+      "value": "import {SummaryTable} from '@observablehq/summary-table'",
+      "pinned": false,
+      "mode": "js"
+    }
+  ]
+}

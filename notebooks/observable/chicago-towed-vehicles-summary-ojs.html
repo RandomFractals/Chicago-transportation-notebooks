@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hpcc-js/common/font-awesome/css/font-awesome.min.css">
+    <style>
+    body {
+        padding: 0px;
+        margin: 8px;
+        background: white;
+        color: black;
+    }
+    #placeholder {
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        right: 8px;
+        bottom: 8px;
+    }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@hpcc-js/observable-md/dist/index.full.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var omdMod = window["@hpcc-js/observable-md"]
+    </script>
+
+</head>
+
+<body onresize="doResize()">
+    <div id="placeholder">
+    </div>
+    <script>
+        var app = new omdMod.Observable()
+            .target("placeholder")
+            .showValues(true)
+            .mode("ojs")
+            .text(`md\`# Chicago Towed Vehicles Summary
+
+Information about the vehicles that have been towed and impounded by the City of Chicago within the last 90 days.
+
+Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Towed Vehicles](https://data.cityofchicago.org/Transportation/Towed-Vehicles/ygr5-vcbg)
+\`
+
+md\`## Towed Vehicles\`
+
+Plot.plot({
+  width: width,
+  height: 200,
+  padding: 0,
+  x: {
+    axis: 'top',
+    label: 'Month Day'
+  },
+  y: {
+    label: 'Month',
+    tickFormat: Plot.formatMonth('en', 'short')
+  },
+  color: {
+    scheme: 'BuYlRd'
+  },
+  marks: [
+    Plot.cell(towByDate, {
+      x: d => d.date.getUTCDate(),
+      y: d => d.date.getUTCMonth(),
+      fill: 'count',
+      inset: 0.5
+    }),
+    Plot.text(towByDate, {
+        x: d => d.date.getUTCDate(),
+        y: d => d.date.getUTCMonth(),
+        text: d => d.count
+      }
+    ) 
+  ]
+})
+
+md\`### Towed Vehicles by Make, Style, and Color\`
+
+towedMakePlot = vl.markBar()
+  .data(towByMake)
+  .encode(
+    vl.x().fieldO('make').axis({labelAngle: 60}),
+    vl.y().fieldQ('count'),
+    vl.tooltip().fieldN('count')
+  )
+  .height(200)
+  .render()
+
+towedStylePlot = vl.markBar()
+  .data(towByStyle)
+  .encode(
+    vl.x().fieldO('style').axis({labelAngle: 60}),
+    vl.y().fieldQ('count'),
+    vl.tooltip().fieldN('count')
+  )
+  .height(200)
+  .render()
+
+towedColorPlot = vl.markBar()
+  .data(towByColor)
+  .encode(
+    vl.x().fieldO('color').axis({labelAngle: 60}),
+    vl.y().fieldQ('count'),
+    vl.tooltip().fieldN('count')
+  )
+  .height(200)
+  .render()
+
+md\`## Data\`
+
+viewof make = Inputs.select(towByMake, {
+  label: 'Vehicle Make',
+  format: x => \`\${x.make} (\${x.count})\`,
+  value: x => x.make
+})
+
+viewof style = Inputs.select(towByStyle, {
+  label: 'Vehicle Style',
+  format: x => \`\${x.style} (\${x.count})\`,
+  value: x => x.style
+})
+
+viewof color = Inputs.select(towByColor, {
+  label: 'Vehicle Color',
+  format: x => \`\${x.color} (\${x.count})\`,
+  value: x => x.color
+})
+
+viewof dataSummaryView = SummaryTable(data, {label: 'Towed Vehicles Data'})
+
+viewof tableView = Inputs.table(data, {
+  reverse: true
+})
+
+md\`## Data Queries and Filters\`
+
+year = new Date().getFullYear()
+
+dataUrl = 'https://data.cityofchicago.org/resource/ygr5-vcbg.json'
+
+query = \`?\$limit=100000&\$where=tow_date between '\${year}-01-01T00:00:00' and '\${year}-12-31T23:59:59'\`
+
+data = await fetch(dataUrl + query).then(data => data.json())
+
+dataTable = aq.from(data)
+  .derive({
+    date: d => op.parse_date(d.tow_date)
+  })
+
+towByDate = dataTable.groupby('date').count()
+
+towByMake = dataTable.select('make').groupby('make').count().orderby(aq.desc('count'))
+
+towByStyle = dataTable.select('style').groupby('style').count().orderby(aq.desc('count'))
+
+towByColor = dataTable.select('color').groupby('color').count().orderby(aq.desc('count'))
+
+towByState = dataTable.select('state').groupby('state').count().orderby(aq.desc('count'))
+
+towToAddress = dataTable.select('towed_to_address').groupby('towed_to_address').count().orderby(aq.desc('count'))
+
+import { aq, op } from '@uwdata/arquero'
+
+import {SummaryTable} from '@observablehq/summary-table'`)
+            ;
+
+        doResize();
+
+        function doResize() {
+        if (app) {
+            app
+                .resize()
+                .lazyRender()
+                ;
+        }
+    }
+    </script>
+</body>
+
+</html>
