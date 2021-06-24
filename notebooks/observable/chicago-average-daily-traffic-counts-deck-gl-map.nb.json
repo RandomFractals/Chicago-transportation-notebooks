@@ -1,0 +1,266 @@
+{
+  "id": "f01a9780696e22e1",
+  "slug": "chicago-average-daily-traffic-counts-deck-gl-map",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "public",
+  "forks": 0,
+  "fork_of": {
+    "id": "3c6a1ee56e29e7ef",
+    "slug": "chicago-average-daily-traffic-counts",
+    "title": "Chicago Average Daily Traffic Counts",
+    "owner": {
+      "id": "17b72db66175b428",
+      "github_login": "RandomFractals",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+      "login": "randomfractals",
+      "name": "Taras Novak",
+      "bio": "I map 🌐 & graph  📈 data 🈸 ",
+      "home_url": "https://www.linkedin.com/in/tarasnovak",
+      "type": "individual"
+    },
+    "version": 159
+  },
+  "update_time": "2021-06-16T17:31:02.674Z",
+  "publish_time": "2021-06-14T22:36:23.753Z",
+  "publish_version": 332,
+  "thumbnail": "016eca60f485d3b0bb66a1b1b2eb2972d362eace78b475b1fbd5c296ede25099",
+  "default_thumbnail": "016eca60f485d3b0bb66a1b1b2eb2972d362eace78b475b1fbd5c296ede25099",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak",
+    "type": "individual"
+  },
+  "creator": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak"
+  },
+  "collections": [
+    {
+      "id": "55a954f45c0be7c8",
+      "type": "public",
+      "slug": "deckgl",
+      "title": "DeckGL",
+      "description": "DeckGL maps",
+      "update_time": "2021-06-16T20:19:49.324Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "thumbnail": "38c7f53b846da4e440f0c8bb1266c6f744884a3b6f4c56601d8bc7ee040492a7",
+      "listing_count": 4,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "cf858224d6488195",
+      "type": "public",
+      "slug": "transportation",
+      "title": "Transportation",
+      "description": "Public transportation notebooks",
+      "update_time": "2021-06-04T03:34:03.975Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
+      "listing_count": 12,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "cc3985e6b82c86b0",
+      "type": "public",
+      "slug": "maps",
+      "title": "Maps",
+      "description": "Various Maps",
+      "update_time": "2018-09-28T13:20:05.815Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "855f4654e70feece820af1cd690a1484039e8d6ca1d77d5d080bf96fcbbcb192",
+      "listing_count": 16,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "version": 332,
+  "title": "Chicago Average Daily Traffic Counts Deck.gl Map",
+  "license": null,
+  "copyright": "",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "md`# Chicago Average Daily Traffic Counts Deck.gl Map\n\nData Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Average Daily Traffic Counts](https://dev.socrata.com/foundry/data.cityofchicago.org/pf56-35rv)\n\nChicago Data Portal: [Average Daily Traffic Counts Map](https://data.cityofchicago.org/Transportation/Average-Daily-Traffic-Counts-Map/pf56-35rv)\n`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 186,
+      "value": "mapContainer = html `<div style=\"height:${width*.6}px\">\n  <div class=\"data-panel\">\n    <b>${data.length.toLocaleString()}</b> Traffic Counters\n  </div>\n  <div id=\"tooltip\"></div>\n</div>`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 205,
+      "value": "heaxagonLayer = {\n  const hexagonLayer = new deck.HexagonLayer({\n    id: 'heatmap',\n    colorRange,\n    data: data,\n    elevationRange: [0, 1000],\n    elevationScale: data && data.length ? 20 : 0,\n    extruded: true,\n    getPosition: d => [Number(d.longitude), Number(d.latitude)],\n    opacity: .1,\n    radius: 100,\n    coverage: 0.9,\n    upperPercentile: 95,\n    lightSettings,\n    pickable: true,\n    autoHighlight: true,\n    onHover: onHover,\n    transitions: {\n      elevationScale: 1000\n    },\n    material: {\n      ambient: 0.64,\n      diffuse: 0.6,\n      shininess: 32,\n      specularColor: [51, 51, 51]\n    }\n  });\n  \n  deckgl.setProps({layers: [hexagonLayer]});\n  return hexagonLayer;\n}",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 7,
+      "value": "md`## Data`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 38,
+      "value": "viewof tableView = Inputs.table(data, {\n  columns: columns,\n  reverse: true\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 10,
+      "value": "md`## Data Queries and Filters`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 40,
+      "value": "columns = [\n  'id',\n  'date_of_count',\n  'traffic_volume_count_location_address',\n  'street',\n  'total_passing_vehicle_volume',\n  'vehicle_volume_by_each_direction_of_traffic',\n  'latitude',\n  'longitude'\n]",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 19,
+      "value": "dataUrl = 'https://data.cityofchicago.org/resource/pf56-35rv.json'",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 22,
+      "value": "query = `?$limit=100000`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 31,
+      "value": "data = await fetch(dataUrl + query).then(data => data.json())",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 246,
+      "value": "md`## Map Elements and Styles`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 286,
+      "value": "deckgl = {\n  return new deck.DeckGL({\n    container: mapContainer,\n    map: mapboxgl,\n    mapboxAccessToken: '',\n    mapboxApiAccessToken: 'pk.eyJ1IjoiZGF0YXBpeHkiLCJhIjoiY2tnM3ZhZWJjMDE1ajJxbGY1eTNlemduciJ9.YZ9CJEza0hvAQmTRBhubmQ',\n    mapStyle: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',\n    initialViewState: {\n      latitude: 41.82,\n      longitude: -87.65,\n      zoom: 10,\n      minZoom: 8,\n      maxZoom: 15,\n      pitch: 30,\n      bearing: 0\n    },\n    controller: true\n  });\n}",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 249,
+      "value": "colorRange = {\n  return [\n    [1, 152, 189],\n    [73, 227, 206],\n    [216, 254, 181],\n    [254, 237, 177],\n    [254, 173, 84],\n    [209, 55, 78]\n  ];\n}",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 260,
+      "value": "lightSettings = {\n  return {\n    lightsPosition: [-0.144528, 49.739968, 8000, -3.807751, 54.104682, 8000],\n    ambientRatio: 0.4,\n    diffuseRatio: 0.6,\n    specularRatio: 0.2,\n    lightsStrength: [0.8, 0.0, 0.8, 0.0],\n    numberOfLights: 2\n  };\n}",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 253,
+      "value": "tooltip = mapContainer.querySelector('#tooltip')",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 257,
+      "value": "function onHover (info) {\n  const pointsObject = info.object;\n  if (pointsObject && pointsObject.points && pointsObject.points.length > 0) {\n    const data = pointsObject.points[0].source;\n    const dateTime = data.date_of_count.split('T');\n    const trafficDirectionVolume = data.vehicle_volume_by_each_direction_of_traffic.split('/');\n    tooltip.style.left = `${info.x}px`;\n    tooltip.style.top = `${info.y}px`;\n    tooltip.innerHTML = `<b>${data.traffic_volume_count_location_address} ${data.street}</b><br />\n      Vehicle Volume: <b>${Number(data.total_passing_vehicle_volume).toLocaleString()}</b><br />\n      ${trafficDirectionVolume[0]}<br />\n      ${trafficDirectionVolume[1]}<br />\n      Recorded on: <b>${new Date(dateTime[0]).toLocaleDateString()}</b>`;\n  } else { \n    tooltip.innerHTML = '';\n  }\n}",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 263,
+      "value": "html`<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css' rel='stylesheet' />\nmapbox-gl.css`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 266,
+      "value": "tooltipStyle = html `\n<style>\n#tooltip:empty {\n  display: none;\n}\n#tooltip {\n  font-family: Helvetica, Arial, sans-serif;\n  font-size: 12px;\n  position: absolute;\n  padding: 4px;\n  margin: 8px;\n  border-radius: 3px;\n  background: rgba(0, 0, 0, 0.7);\n  color: #fff;\n  max-width: 300px;\n  z-index: 9;\n  pointer-events: none;\n}\n</style>\n`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 311,
+      "value": "dataPanelStyle = html `\n<style type=\"text/css\">\n.data-panel {\n  position: absolute;\n  top: 0;\n  font-family: Nunito, sans-serif;\n  font-size: 12px;\n  background-color: #f6f6f6;\n  padding: 8px;\n  border-radius: 3px;\n  box-shadow: 1px 2px 4px #888;\n  z-index: 10;\n}\n</style>\n`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 12,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 172,
+      "value": "mapboxgl = require('mapbox-gl@^2.3.0/dist/mapbox-gl.js')",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 174,
+      "value": "deck = require.alias({\n  // optional dependencies\n  h3: {},\n  s2Geometry: {}\n})('deck.gl@^8.4.17/dist.min.js')",
+      "pinned": false,
+      "mode": "js"
+    }
+  ]
+}

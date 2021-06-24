@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hpcc-js/common/font-awesome/css/font-awesome.min.css">
+    <style>
+    body {
+        padding: 0px;
+        margin: 8px;
+        background: white;
+        color: black;
+    }
+    #placeholder {
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        right: 8px;
+        bottom: 8px;
+    }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@hpcc-js/observable-md/dist/index.full.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var omdMod = window["@hpcc-js/observable-md"]
+    </script>
+
+</head>
+
+<body onresize="doResize()">
+    <div id="placeholder">
+    </div>
+    <script>
+        var app = new omdMod.Observable()
+            .target("placeholder")
+            .showValues(true)
+            .mode("ojs")
+            .text(`md\`# Chicago Average Daily Traffic Counts Deck.gl Map
+
+Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Average Daily Traffic Counts](https://dev.socrata.com/foundry/data.cityofchicago.org/pf56-35rv)
+
+Chicago Data Portal: [Average Daily Traffic Counts Map](https://data.cityofchicago.org/Transportation/Average-Daily-Traffic-Counts-Map/pf56-35rv)
+\`
+
+mapContainer = html \`<div style="height:\${width*.6}px">
+  <div class="data-panel">
+    <b>\${data.length.toLocaleString()}</b> Traffic Counters
+  </div>
+  <div id="tooltip"></div>
+</div>\`
+
+heaxagonLayer = {
+  const hexagonLayer = new deck.HexagonLayer({
+    id: 'heatmap',
+    colorRange,
+    data: data,
+    elevationRange: [0, 1000],
+    elevationScale: data && data.length ? 20 : 0,
+    extruded: true,
+    getPosition: d => [Number(d.longitude), Number(d.latitude)],
+    opacity: .1,
+    radius: 100,
+    coverage: 0.9,
+    upperPercentile: 95,
+    lightSettings,
+    pickable: true,
+    autoHighlight: true,
+    onHover: onHover,
+    transitions: {
+      elevationScale: 1000
+    },
+    material: {
+      ambient: 0.64,
+      diffuse: 0.6,
+      shininess: 32,
+      specularColor: [51, 51, 51]
+    }
+  });
+  
+  deckgl.setProps({layers: [hexagonLayer]});
+  return hexagonLayer;
+}
+
+md\`## Data\`
+
+viewof tableView = Inputs.table(data, {
+  columns: columns,
+  reverse: true
+})
+
+md\`## Data Queries and Filters\`
+
+columns = [
+  'id',
+  'date_of_count',
+  'traffic_volume_count_location_address',
+  'street',
+  'total_passing_vehicle_volume',
+  'vehicle_volume_by_each_direction_of_traffic',
+  'latitude',
+  'longitude'
+]
+
+dataUrl = 'https://data.cityofchicago.org/resource/pf56-35rv.json'
+
+query = \`?\$limit=100000\`
+
+data = await fetch(dataUrl + query).then(data => data.json())
+
+md\`## Map Elements and Styles\`
+
+deckgl = {
+  return new deck.DeckGL({
+    container: mapContainer,
+    map: mapboxgl,
+    mapboxAccessToken: '',
+    mapboxApiAccessToken: 'pk.eyJ1IjoiZGF0YXBpeHkiLCJhIjoiY2tnM3ZhZWJjMDE1ajJxbGY1eTNlemduciJ9.YZ9CJEza0hvAQmTRBhubmQ',
+    mapStyle: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+    initialViewState: {
+      latitude: 41.82,
+      longitude: -87.65,
+      zoom: 10,
+      minZoom: 8,
+      maxZoom: 15,
+      pitch: 30,
+      bearing: 0
+    },
+    controller: true
+  });
+}
+
+colorRange = {
+  return [
+    [1, 152, 189],
+    [73, 227, 206],
+    [216, 254, 181],
+    [254, 237, 177],
+    [254, 173, 84],
+    [209, 55, 78]
+  ];
+}
+
+lightSettings = {
+  return {
+    lightsPosition: [-0.144528, 49.739968, 8000, -3.807751, 54.104682, 8000],
+    ambientRatio: 0.4,
+    diffuseRatio: 0.6,
+    specularRatio: 0.2,
+    lightsStrength: [0.8, 0.0, 0.8, 0.0],
+    numberOfLights: 2
+  };
+}
+
+tooltip = mapContainer.querySelector('#tooltip')
+
+function onHover (info) {
+  const pointsObject = info.object;
+  if (pointsObject && pointsObject.points && pointsObject.points.length > 0) {
+    const data = pointsObject.points[0].source;
+    const dateTime = data.date_of_count.split('T');
+    const trafficDirectionVolume = data.vehicle_volume_by_each_direction_of_traffic.split('/');
+    tooltip.style.left = \`\${info.x}px\`;
+    tooltip.style.top = \`\${info.y}px\`;
+    tooltip.innerHTML = \`<b>\${data.traffic_volume_count_location_address} \${data.street}</b><br />
+      Vehicle Volume: <b>\${Number(data.total_passing_vehicle_volume).toLocaleString()}</b><br />
+      \${trafficDirectionVolume[0]}<br />
+      \${trafficDirectionVolume[1]}<br />
+      Recorded on: <b>\${new Date(dateTime[0]).toLocaleDateString()}</b>\`;
+  } else { 
+    tooltip.innerHTML = '';
+  }
+}
+
+html\`<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css' rel='stylesheet' />
+mapbox-gl.css\`
+
+tooltipStyle = html \`
+<style>
+#tooltip:empty {
+  display: none;
+}
+#tooltip {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  position: absolute;
+  padding: 4px;
+  margin: 8px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  max-width: 300px;
+  z-index: 9;
+  pointer-events: none;
+}
+</style>
+\`
+
+dataPanelStyle = html \`
+<style type="text/css">
+.data-panel {
+  position: absolute;
+  top: 0;
+  font-family: Nunito, sans-serif;
+  font-size: 12px;
+  background-color: #f6f6f6;
+  padding: 8px;
+  border-radius: 3px;
+  box-shadow: 1px 2px 4px #888;
+  z-index: 10;
+}
+</style>
+\`
+
+md\`## Imports\`
+
+mapboxgl = require('mapbox-gl@^2.3.0/dist/mapbox-gl.js')
+
+deck = require.alias({
+  // optional dependencies
+  h3: {},
+  s2Geometry: {}
+})('deck.gl@^8.4.17/dist.min.js')`)
+            ;
+
+        doResize();
+
+        function doResize() {
+        if (app) {
+            app
+                .resize()
+                .lazyRender()
+                ;
+        }
+    }
+    </script>
+</body>
+
+</html>
