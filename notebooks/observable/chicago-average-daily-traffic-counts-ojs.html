@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hpcc-js/common/font-awesome/css/font-awesome.min.css">
+    <style>
+    body {
+        padding: 0px;
+        margin: 8px;
+        background: white;
+        color: black;
+    }
+    #placeholder {
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        right: 8px;
+        bottom: 8px;
+    }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@hpcc-js/observable-md/dist/index.full.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var omdMod = window["@hpcc-js/observable-md"]
+    </script>
+
+</head>
+
+<body onresize="doResize()">
+    <div id="placeholder">
+    </div>
+    <script>
+        var app = new omdMod.Observable()
+            .target("placeholder")
+            .showValues(true)
+            .mode("ojs")
+            .text(`md\`# Chicago Average Daily Traffic Counts
+
+Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Average Daily Traffic Counts](https://dev.socrata.com/foundry/data.cityofchicago.org/pf56-35rv)
+
+Chicago Data Portal: [Average Daily Traffic Counts Map](https://data.cityofchicago.org/Transportation/Average-Daily-Traffic-Counts-Map/pf56-35rv)
+\`
+
+map = {
+  // create map container
+  let mapContainer = DOM.element('div', { style: \`width:\${width}px;height:\${width/1.6}px\` });
+  yield mapContainer;
+  
+  // create leaflet map with attributions
+  let map = L.map(mapContainer).setView([41.85, -87.68], 10); // Chicago origins
+  let osmLayer = L.tileLayer( // 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png')
+    'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href=\\"http://www.openstreetmap.org/copyright\\">OpenStreetMap</a> contributors, &copy; <a href=\\"http://cartodb.com/attributions\\">CartoDB</a>',
+    detectRetina: false,
+    maxZoom: 18,
+    minZoom: 10,
+    noWrap: false,
+    subdomains: 'abc'
+  }).addTo(map);
+
+  // create hit points for the heatmap layer
+  let hitPoints = geoData.features.map(feature => 
+    feature.geometry.coordinates.slice().reverse().concat([0.1])); // intensity
+  
+  // add heat layer
+  let heatmapLayer = heatLayer(hitPoints, {
+    minOpacity: 0.12,
+    maxZoom: 18,
+    max: 1.0,
+    radius: 8,
+    blur: 5,
+    gradient: null
+  }).addTo(map);
+  
+  // dot marker
+  const marker = {
+    radius: 6,
+    fillColor: "steelblue",
+    color: "#0000ff",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
+  };
+  
+  // map markers
+  const pointToLayer = function (feature, latlng) {
+    return L.circleMarker(latlng, marker);
+  }
+  
+  // add markers
+  let markers = markerCluster({});
+  let geoLayer = L.geoJson(geoData, {
+    pointToLayer: pointToLayer,    
+    onEachFeature: function (feature, layer) {
+      const data = feature.properties;
+      const html = \`<div class="popup">
+          <h3>\${data.traffic_volume_count_location_address} \${data.street}</h3>
+          <p>Vehicle Volume: \${data.total_passing_vehicle_volume.toLocaleString()}</p>
+          <p>\${data.vehicle_volume_by_each_direction_of_traffic}</p>
+          <p>Recorded on: \${data.date.toLocaleDateString()}</p>
+        </div>\`;
+      layer.bindPopup(html);
+      layer.bindTooltip(\`\${data.traffic_volume_count_location_address}  \${data.street} <br />
+        Vehicle Volume: \${data.total_passing_vehicle_volume.toLocaleString()}\`, {sticky: true});
+    }
+  });  
+  
+  markers.addLayer(geoLayer);
+  map.addLayer(markers);
+  
+  // map.fitBounds(markers.getBounds());
+}
+
+markerStyles = html\`
+<style type="text/css">
+  div.popup p { 
+    margin: 4px 0;
+    font-size: 14px;
+  }
+</style>\`
+
+md\`## Data\`
+
+viewof tableView = Inputs.table(data, {
+  columns: columns,
+  reverse: true
+})
+
+md\`## Data Queries and Filters\`
+
+columns = [
+  'id',
+  'date_of_count',
+  'traffic_volume_count_location_address',
+  'street',
+  'total_passing_vehicle_volume',
+  'vehicle_volume_by_each_direction_of_traffic',
+  'latitude',
+  'longitude'
+]
+
+dataUrl = 'https://data.cityofchicago.org/resource/pf56-35rv.json'
+
+query = \`?\$limit=100000\`
+
+data = await fetch(dataUrl + query).then(data => data.json())
+
+geoData = getGeoDataPoints(dataTable.objects())
+
+dataTable = aq.from(data)
+  .derive({
+    date: d => op.parse_date(d.date_of_count)
+  })
+  .orderby('total_passing_vehicle_volume')
+
+md\`## Imports\`
+
+import { aq, op } from '@uwdata/arquero'
+
+import { getGeoDataPoints } from '@randomfractals/geo-data-utils'
+
+leafletStyles = html\`<link href='\${resolve('leaflet@1.7.1/dist/leaflet.css')}' rel='stylesheet' />\`
+
+L = require('leaflet@1.7.1')
+
+heatLayer = L, require('leaflet.heat').catch(() =>  L.heatLayer)
+
+markerClusterStyles = html\`<link href='\${resolve('leaflet.markercluster@1.2.0/dist/MarkerCluster.Default.css')}' rel='stylesheet' />\`
+
+markerCluster = L, require('leaflet.markercluster@1.2.0').catch(() => L.markerClusterGroup)`)
+            ;
+
+        doResize();
+
+        function doResize() {
+        if (app) {
+            app
+                .resize()
+                .lazyRender()
+                ;
+        }
+    }
+    </script>
+</body>
+
+</html>
