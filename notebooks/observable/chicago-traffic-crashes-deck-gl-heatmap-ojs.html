@@ -1,0 +1,334 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hpcc-js/common/font-awesome/css/font-awesome.min.css">
+    <style>
+    body {
+        padding: 0px;
+        margin: 8px;
+        background: white;
+        color: black;
+    }
+    #placeholder {
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        right: 8px;
+        bottom: 8px;
+    }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@hpcc-js/observable-md/dist/index.full.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var omdMod = window["@hpcc-js/observable-md"]
+    </script>
+
+</head>
+
+<body onresize="doResize()">
+    <div id="placeholder">
+    </div>
+    <script>
+        var app = new omdMod.Observable()
+            .target("placeholder")
+            .showValues(true)
+            .mode("ojs")
+            .text(`md\`# Chicago Traffic Crashes Deck.gl Heatmap
+
+Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Traffic Crashes](https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if)
+\`
+
+mapContainer = html \`<div style="height:\${width*.6}px">
+  <div class="data-panel">
+    <b>\${data.length.toLocaleString()}</b> crashes in <b>\${year}</b>
+    <div class="data-list"></div>
+  </div>
+  <div id="tooltip"></div>
+</div>\`
+
+heaxagonLayer = {
+  const hexagonLayer = new deck.HexagonLayer({
+    id: 'heatmap',
+    colorRange,
+    data: data,
+    elevationRange: [0, 1000],
+    elevationScale: data && data.length ? 20 : 0,
+    extruded: true,
+    getPosition: d => [Number(d.longitude), Number(d.latitude)],
+    opacity: .1,
+    radius: 100,
+    coverage: 0.9,
+    upperPercentile: 95,
+    lightSettings,
+    pickable: true,
+    autoHighlight: true,
+    onHover: onHover,
+    onClick: onClick,
+    transitions: {
+      elevationScale: 1000
+    },
+    material: {
+      ambient: 0.64,
+      diffuse: 0.6,
+      shininess: 32,
+      specularColor: [51, 51, 51]
+    }
+  });
+  
+  deckgl.setProps({layers: [hexagonLayer]});
+  return hexagonLayer;
+}
+
+viewof year = Inputs.select(years, {value: 2021, label: 'Select Year:', format: year => year})
+
+dayPlot = Plot.plot({
+  height: 180,
+  x: {
+    axis: null,
+    padding: 0,
+  },
+  y: {
+    padding: 0,
+    tickFormat: Plot.formatWeekday('en', 'narrow'),
+    tickSize: 0
+  },
+  fy: {
+    reverse: true
+  },
+  facet: {
+    data: crashesByDate,
+    y: d => d.date.getUTCFullYear()
+  },
+  marks: [
+    Plot.cell(crashesByDate, {
+      x: d => d3.utcWeek.count(d3.utcYear(d.date), d.date),
+      y: d => d.date.getUTCDay(),
+      fill: 'count',
+      title: d => \`\${d.date.toLocaleDateString()}: \${d.count.toLocaleString()} crashes\`,
+      inset: 0.5
+    })
+  ]
+})
+
+md\`## Data\`
+
+viewof tableView = Inputs.table(data, {
+  columns: columns,
+  reverse: true
+})
+
+md\`## Data Queries and Filters\`
+
+years = [2020, 2021]
+
+columns = [
+  'crash_date',
+  'crash_type',
+  'posted_speed_limit',
+  'weather_condition',
+  'lighting_condition',
+  'first_crash_type',
+  'trafficway_type',
+  'alignment',
+  'roadway_sourface_cond',
+  'road_defect',
+  'report_type',
+  'private_property',
+  'hit_and_run_i',
+  'damage',
+  'date_police_notified',
+  'prim_contributory_cause',
+  'sec_contributory_cause',
+  'street_no',
+  'street_direction',
+  'street_name',
+  'beat_of_occurrence',
+  'photos_taken_i',
+  'num_units',
+  'most_severe_injury',
+  'injuries_total',
+  'injuries_fatal',
+  'injuries_incapacitating',
+  'injuries_reported_not_evident',
+  'injuries_no_indication',
+  'injuries_unknown',
+  'crash_hour',
+  'crash_day_of_week',
+  'crash_month',
+  'latitude',
+  'longitude'
+]
+
+dataUrl = 'https://data.cityofchicago.org/resource/85ca-t3if.json'
+
+query = \`?\$limit=100000&\$where=crash_date between '\${year}-01-01T00:00:00' and '\${year}-12-31T23:59:59'\`
+
+data = await fetch(dataUrl + query).then(data => data.json())
+
+dataTable = aq.from(data)
+  .derive({
+    date_time: d => op.parse_date(d.crash_date)
+  })
+  .spread({crash_date: d => op.split(d.crash_date, 'T')}, {as: ['date', 'time']})
+  .orderby('posted_speed_limit')
+
+crashesByDate = dataTable.groupby('date').count()
+  .derive({
+    date: d => op.parse_date(d.date)
+  })
+
+md\`## Map Elements and Styles\`
+
+deckgl = {
+  return new deck.DeckGL({
+    container: mapContainer,
+    map: mapboxgl,
+    mapboxAccessToken: '',
+    mapboxApiAccessToken: 'pk.eyJ1IjoiZGF0YXBpeHkiLCJhIjoiY2tnM3ZhZWJjMDE1ajJxbGY1eTNlemduciJ9.YZ9CJEza0hvAQmTRBhubmQ',
+    mapStyle: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+    initialViewState: {
+      latitude: 41.82,
+      longitude: -87.65,
+      zoom: 10,
+      minZoom: 8,
+      maxZoom: 15,
+      pitch: 30,
+      bearing: 0
+    },
+    controller: true
+  });
+}
+
+tooltip = mapContainer.querySelector('#tooltip')
+
+function onHover (info) {
+  const {x, y, object} = info;
+  if (object) {
+    tooltip.style.left = \`\${x}px\`;    
+    tooltip.style.top = \`\${y}px\`;
+    tooltip.innerHTML = \`\${object.points.length} crash reports\`;
+  } else { 
+    tooltip.innerHTML = '';
+  }
+}
+
+dataList = mapContainer.querySelector('.data-list')
+
+function onClick(info) {
+  const mapPoints = info.object.points;
+  const dataPoints = mapPoints;
+  dataList.innerHTML = dataPoints.reduce((html, d) => {
+      const data = d.source;
+      const dateTime = data.crash_date.split('T');
+      return html + 
+        \`<hr class="data-item"><b>\${data.street_no} \${data.street_direction} \${data.street_name}</b><br />
+        at <b>\${dateTime[1].replace('.000', '')}</b>
+        on <b>\${dateTime[0]}</b><br />
+        \${data.crash_type}<br />
+        \${data.prim_contributory_cause}<br />
+        <b>\${data.damage} damage</b><br /></hr>\`;
+    }, '');
+}
+
+colorRange = {
+  return [
+    [1, 152, 189],
+    [73, 227, 206],
+    [216, 254, 181],
+    [254, 237, 177],
+    [254, 173, 84],
+    [209, 55, 78]
+  ];
+}
+
+lightSettings = {
+  return {
+    lightsPosition: [-0.144528, 49.739968, 8000, -3.807751, 54.104682, 8000],
+    ambientRatio: 0.4,
+    diffuseRatio: 0.6,
+    specularRatio: 0.2,
+    lightsStrength: [0.8, 0.0, 0.8, 0.0],
+    numberOfLights: 2
+  };
+}
+
+html\`<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css' rel='stylesheet' />
+mapbox-gl.css\`
+
+tooltipStyle = html \`
+<style>
+#tooltip:empty {
+  display: none;
+}
+#tooltip {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  position: absolute;
+  padding: 4px;
+  margin: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  max-width: 300px;
+  font-size: 10px;
+  z-index: 9;
+  pointer-events: none;
+}
+</style>
+\`
+
+dataPanelStyle = html \`
+<style type="text/css">
+.data-panel {
+  position: absolute;
+  top: 0;
+  font-family: Nunito, sans-serif;
+  font-size: 12px;
+  background-color: #f6f6f6;
+  padding: 8px;
+  border-radius: 3px;
+  box-shadow: 1px 2px 4px #888;
+  z-index: 10;
+}
+.data-list {
+  max-height: \${width*.6 - 100}px;
+  width: 270px;
+  overflow: auto;
+}
+.data-item {
+  padding: 10px;
+  margin: 0px;
+}
+</style>
+\`
+
+md\`## Imports\`
+
+import { aq, op } from '@uwdata/arquero'
+
+import { getGeoDataPoints } from '@randomfractals/geo-data-utils'
+
+mapboxgl = require('mapbox-gl@^2.3.0/dist/mapbox-gl.js')
+
+deck = require.alias({
+  // optional dependencies
+  h3: {},
+  s2Geometry: {}
+})('deck.gl@^8.4.17/dist.min.js')`)
+            ;
+
+        doResize();
+
+        function doResize() {
+        if (app) {
+            app
+                .resize()
+                .lazyRender()
+                ;
+        }
+    }
+    </script>
+</body>
+
+</html>
