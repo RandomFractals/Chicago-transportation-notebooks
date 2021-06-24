@@ -1,0 +1,500 @@
+{
+  "id": "c1947355b4b729d1",
+  "slug": "chicago-traffic-crash-plots",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "public",
+  "forks": 0,
+  "fork_of": {
+    "id": "59ba6f4a102f4f95",
+    "slug": "chicago-traffic-crashes",
+    "title": "Chicago Traffic Crashes",
+    "owner": {
+      "id": "17b72db66175b428",
+      "github_login": "RandomFractals",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+      "login": "randomfractals",
+      "name": "Taras Novak",
+      "bio": "I map 🌐 & graph  📈 data 🈸 ",
+      "home_url": "https://www.linkedin.com/in/tarasnovak",
+      "type": "individual"
+    },
+    "version": 113
+  },
+  "update_time": "2021-06-14T16:52:05.362Z",
+  "publish_time": "2021-06-13T10:39:11.483Z",
+  "publish_version": 510,
+  "thumbnail": "01e11008baaefe2bd624970086fdaa60e66b997fa9eecaeb82d724e825a0d118",
+  "default_thumbnail": "01e11008baaefe2bd624970086fdaa60e66b997fa9eecaeb82d724e825a0d118",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak",
+    "type": "individual"
+  },
+  "creator": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak"
+  },
+  "collections": [
+    {
+      "id": "c30622739accf157",
+      "type": "public",
+      "slug": "arquero",
+      "title": "Arquero",
+      "description": "Notebooks using Arquero JS library for manipulating data.",
+      "update_time": "2021-06-08T11:51:29.570Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
+      "listing_count": 8,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "3a2bf0501500f229",
+      "type": "public",
+      "slug": "plot",
+      "title": "Plot",
+      "description": "Notebooks using new Plot library",
+      "update_time": "2021-06-08T11:51:15.611Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "thumbnail": "5b3e44e84b3e82afdc8d852c1f183c3d8686bbfaa5d3abd2411a926dfbb8997c",
+      "listing_count": 6,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "cf858224d6488195",
+      "type": "public",
+      "slug": "transportation",
+      "title": "Transportation",
+      "description": "Public transportation notebooks",
+      "update_time": "2021-06-04T03:34:03.975Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
+      "listing_count": 12,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "3bf482fdf6a5e174",
+      "type": "public",
+      "slug": "vega",
+      "title": "Vega",
+      "description": "Random collections of my Vega notebooks in the works",
+      "update_time": "2018-09-13T16:28:32.315Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
+      "listing_count": 13,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "version": 510,
+  "title": "Chicago Traffic Crash Plots",
+  "license": null,
+  "copyright": "",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "md`# Chicago Traffic Crash Plots\n\nData Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Traffic Crashes](https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if)\n\nChicago Data Portal: [Traffic Crashes Dashboard](https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes-Dashboard/8tdq-a5dp)\n`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 24,
+      "value": "viewof year = Inputs.select(years, {value: 2021, label: 'Select Year:', format: year => year})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 98,
+      "value": "dayPlot = Plot.plot({\n  height: 180,\n  x: {\n    axis: null,\n    padding: 0,\n  },\n  y: {\n    label: 'Week Day',\n    padding: 0,\n    tickFormat: Plot.formatWeekday('en', 'narrow'),\n    tickSize: 0\n  },\n  fy: {\n    reverse: true\n  },\n  facet: {\n    data: crashesByDate,\n    y: d => d.date.getUTCFullYear()\n  },\n  color: {\n    scheme: \"BuYlRd\"\n  },\n  marks: [\n    Plot.cell(crashesByDate, {\n      x: d => d3.utcWeek.count(d3.utcYear(d.date), d.date),\n      y: d => d.date.getUTCDay(),\n      fill: 'count',\n      title: d => `${d.date.toLocaleDateString()}: ${d.count.toLocaleString()} crashes`,\n      inset: 0.5\n    })\n  ]\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 141,
+      "value": "Plot.plot({\n  width: width,\n  height: 300,\n  padding: 0,\n  x: {\n    axis: 'top',\n    label: 'Month Day'\n  },\n  y: {\n    label: 'Month',\n    tickFormat: Plot.formatMonth('en', 'short')\n  },\n  color: {\n    scheme: 'BuYlRd'\n  },\n  marks: [\n    Plot.cell(crashesByDate, {\n      x: d => d.date.getUTCDate(),\n      y: d => d.date.getUTCMonth(),\n      fill: 'count',\n      inset: 0.5\n    }),\n    Plot.text(crashesByDate, {\n        x: d => d.date.getUTCDate(),\n        y: d => d.date.getUTCMonth(),\n        text: d => d.count\n      }\n    ) \n  ]\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 130,
+      "value": "{\n  const brush = vl.selectInterval().encodings('x');\n  const x = vl.x().fieldT('date').title('date');\n  \n  const base = vl.markArea()\n    .encode(x, vl.y().fieldQ('count').title('crash count'))\n    .width(700);\n  \n  return vl.data(crashesByDate)\n    .vconcat(\n      base.encode(x.scale({domain: brush})),\n      base.params(brush).height(60)\n    )\n    .title('Crashes by Date')\n    .render();\n}",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 283,
+      "value": "md`### Crashes per Month, Day of the Week and Hour`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 271,
+      "value": "monthPlot = Plot.plot({\n  width: width/3,\n  height: 320,\n  x: {\n    label: 'month',\n    tickFormat: Plot.formatMonth('en', 'short')\n  },\n  marks: [\n    Plot.barY(crashesByMonth, {\n      x: 'crash_month', \n      y: 'count', \n      fill: 'steelblue',\n      title: d => `${d.count.toLocaleString()} crashes`\n    })\n  ]\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 291,
+      "value": "dayOfWeekPlot = Plot.plot({\n  width: width/4,\n  height: 320,\n  x: {\n    label: 'day of the week',\n    tickFormat: Plot.formatWeekday('en', 'narrow')\n  },\n  marks: [\n    Plot.barY(crashesByDayOfWeek, {\n      x: 'crash_day_of_week', \n      y: 'count', \n      fill: 'steelblue',\n      title: d => `${d.count.toLocaleString()} crashes`,\n    })\n  ]\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 294,
+      "value": "hourPlot = vl.markBar()\n  .data(crashesByHour)\n  .encode(\n    vl.x().fieldQ('crash_hour')\n      .axis({title: 'hour'}),\n    vl.y().fieldQ('count')\n      .axis({title: 'total crashes'}),\n    vl.tooltip().fieldN('count')\n  )\n  .width(24 * 14)\n  .render()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 277,
+      "value": "md`### Injuries`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 378,
+      "value": "injuriesTotalPlot = vl.markBar().data(injuriesCount).encode(\n  vl.y().fieldO('injury_type').sort({encoding: 'x'}).axis({title: 'Type'}),\n  vl.x().fieldQ('count').axis({title: 'Total'}),\n  vl.tooltip().fieldN('count')\n).width(width - 200).render()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 199,
+      "value": "injuriesPlot = {\n  const hover = vl.selectSingle('hover')\n    .on('mouseover')\n    .encodings('x')\n    .nearest(true)\n    .clear('moouseout')\n    .init({x: {year: year, month: 1, date: 1}});\n  \n  const lineAndPoint = vl.layer(vl.markLine(), vl.markPoint().transform(vl.filter(hover)))\n    .encode(\n      vl.y().fieldQ('injury_count'),\n      vl.color().fieldN('injury_type')\n    );\n  \n  const rule = vl.markRule({strokeWidth: 0.5, tooltip: true})\n    .transform(vl.pivot('injury_type').value('injury_count').groupby(['date']))\n    .encode(vl.opacity().value(0).if(hover, vl.value(0.7)),\n      vl.tooltip([\n        vl.fieldT('date'),\n        'injuries_total',\n        'injuries_reported_not_evident',\n        'injuries_incapacitating',      \n        'injuries_fatal',      \n      ])\n    ).select(hover);\n\n  return vl.layer(lineAndPoint, rule)\n    .encode(vl.x().fieldT('date'))\n    .data(injuriesByDate)\n    .width(width - 240)\n    .height(300)\n    .render();\n}",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 494,
+      "value": "injuriesByMonthPlot = Plot.plot({\n    width: width/3,\n    y: {\n      grid: true, \n      label: 'Injuries',\n      tickFormat: 's'\n    },\n    fx: {\n      label: 'month',      \n      tickFormat: Plot.formatMonth('en', 'short')\n    },\n    facet: {\n      data: injuriesByMonth, \n      x: 'crash_month'\n    },\n    marks: [\n      Plot.barY(injuriesByMonth,\n        Plot.stackY(Plot.groupZ({y: 'sum'}, {y: 'injury_count', fill: 'injury_type'}))\n      )\n    ]\n  })",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 280,
+      "value": "md`### Damages`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 388,
+      "value": "damagesTotalPlot = vl.markBar().data(damagesCount).encode(\n  vl.y().fieldO('damage').sort({encoding: 'x'}).axis({title: 'Type'}),\n  vl.x().fieldQ('count').axis({title: 'Total'}),\n  vl.tooltip().fieldN('count')\n).width(width - 200).render()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 219,
+      "value": "damagesPlot = {\n  const hover = vl.selectSingle('hover')\n    .on('mouseover')\n    .encodings('x')\n    .nearest(true)\n    .clear('moouseout')\n    .init({x: {year: year, month: 1, date: 1}});\n  \n  const lineAndPoint = vl.layer(vl.markLine(), vl.markPoint().transform(vl.filter(hover)))\n    .encode(\n      vl.y().fieldQ('count'),\n      vl.color().fieldN('damage')\n    );\n  \n  const rule = vl.markRule({strokeWidth: 0.5, tooltip: true})\n    .transform(vl.pivot('damage').value('count').groupby(['date']))\n    .encode(vl.opacity().value(0).if(hover, vl.value(0.7)),\n      vl.tooltip([\n        vl.fieldT('date'),\n        'OVER $1,500',\n        '$501 - $1,500',\n        '$500 OR LESS',\n      ])\n    ).select(hover);\n\n  return vl.layer(lineAndPoint, rule)\n    .encode(vl.x().fieldT('date'))\n    .data(damagesByDate)\n    .width(width - 160)\n    .height(300)\n    .render();\n}",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 498,
+      "value": "damagesByMonthPlot = Plot.plot({\n    width: width/3,\n    y: {\n      grid: true, \n      label: 'Damages',\n      tickFormat: 's'\n    },\n    fx: { \n      label: 'month',\n      tickFormat: Plot.formatMonth('en', 'short')\n    },\n    facet: {\n      data: damagesByMonth, \n      x: 'crash_month'\n    },\n    marks: [\n      Plot.barY(damagesByMonth,\n        Plot.stackY(Plot.groupZ({y: 'sum'}, {y: 'count', fill: 'damage'}))\n      )\n    ]\n  })",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 395,
+      "value": "md`### Top 20 Primary Crash Causes`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 405,
+      "value": "primaryCausesPlot = vl.markBar().data(primaryCrashCauses).encode(\n  vl.y().fieldO('prim_contributory_cause').sort({encoding: 'x'}).axis({title: 'Type'}),\n  vl.x().fieldQ('count').axis({title: 'Total'}),\n  vl.tooltip().fieldN('count')\n).width(width - 200).render()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 415,
+      "value": "md`### Top 20 Secondary Crash Causes`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 413,
+      "value": "secondaryCausesPlot = vl.markBar().data(secondaryCrashCauses).encode(\n  vl.y().fieldO('sec_contributory_cause').sort({encoding: 'x'}).axis({title: 'Type'}),\n  vl.x().fieldQ('count').axis({title: 'Total'}),\n  vl.tooltip().fieldN('count')\n).width(width - 200).render()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 428,
+      "value": "md`### Driving Conditions`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 440,
+      "value": "weatherConditionPlot = vl.markBar().data(weatherConditions).encode(\n  vl.y().fieldO('weather_condition').sort({encoding: 'x'}).axis({title: 'Weather'}),\n  vl.x().fieldQ('count').axis({title: 'Total'}),\n  vl.tooltip().fieldN('count')\n).width(width - 200).render()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 443,
+      "value": "lightingConditionPlot = vl.markBar().data(lightingConditions).encode(\n  vl.y().fieldO('lighting_condition').sort({encoding: 'x'}).axis({title: 'Lighting'}),\n  vl.x().fieldQ('count').axis({title: 'Total'}),\n  vl.tooltip().fieldN('count')\n).width(width - 200).render()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 446,
+      "value": "roadwayConditionPlot = vl.markBar().data(roadwayConditions).encode(\n  vl.y().fieldO('roadway_surface_cond').sort({encoding: 'x'}).axis({title: 'Roadway Surface'}),\n  vl.x().fieldQ('count').axis({title: 'Total'}),\n  vl.tooltip().fieldN('count')\n).width(width - 200).render()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 7,
+      "value": "md`## Data`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 38,
+      "value": "viewof tableView = Inputs.table(data, {\n  columns: columns,\n  reverse: true\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 182,
+      "value": "viewof injuriesTable= Inputs.table(injuriesByDate, {\n  reverse: true\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 212,
+      "value": "viewof damagesTable= Inputs.table(damagesByDate, {\n  reverse: true\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 10,
+      "value": "md`## Data Queries and Filters`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 26,
+      "value": "years = [2020, 2021]",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 40,
+      "value": "columns = [\n  'crash_date',\n  'crash_type',\n  'posted_speed_limit',\n  'weather_condition',\n  'lighting_condition',\n  'first_crash_type',\n  'trafficway_type',\n  'alignment',\n  'roadway_sourface_cond',\n  'road_defect',\n  'report_type',\n  'private_property',\n  'hit_and_run_i',\n  'damage',\n  'date_police_notified',\n  'prim_contributory_cause',\n  'sec_contributory_cause',\n  'street_no',\n  'street_direction',\n  'street_name',\n  'beat_of_occurrence',\n  'photos_taken_i',\n  'num_units',\n  'most_severe_injury',\n  'injuries_total',\n  'injuries_fatal',\n  'injuries_incapacitating',\n  'injuries_reported_not_evident',\n  'injuries_no_indication',\n  'injuries_unknown',\n  'crash_hour',\n  'crash_day_of_week',\n  'crash_month',\n  'latitude',\n  'longitude'\n]",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 19,
+      "value": "dataUrl = 'https://data.cityofchicago.org/resource/85ca-t3if.json'",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 22,
+      "value": "query = `?$limit=100000&$where=crash_date between '${year}-01-01T00:00:00' and '${year}-12-31T23:59:59'`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 31,
+      "value": "data = await fetch(dataUrl + query).then(data => data.json())",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 93,
+      "value": "dataTable = aq.from(data)\n  .derive({\n    date_time: d => op.parse_date(d.crash_date)\n  })\n  .spread({crash_date: d => op.split(d.crash_date, 'T')}, {as: ['date', 'time']})\n  .orderby('posted_speed_limit')",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 96,
+      "value": "crashesByDate = dataTable.groupby('date').count()\n  .derive({\n    date: d => op.parse_date(d.date)\n  })",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 263,
+      "value": "crashesByMonth = dataTable.select('crash_month').groupby('crash_month').count()\n  .derive({\n    crash_month: d => d.crash_month - 1\n  })",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 267,
+      "value": "crashesByDayOfWeek = dataTable.select('crash_day_of_week').groupby('crash_day_of_week').count()\n  .derive({\n    crash_day_of_week: d => d.crash_day_of_week - 1\n  })",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 249,
+      "value": "crashesByHour = dataTable.select('crash_hour').groupby('crash_hour').count()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 260,
+      "value": "crashesBySpeedLimit = dataTable.select('posted_speed_limit').groupby('posted_speed_limit').count()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 154,
+      "value": "injuryColumns = [\n  'injuries_total',\n  'injuries_fatal',\n  'injuries_incapacitating',\n  'injuries_reported_not_evident',\n  'injuries_no_indication',\n  'injuries_unknown'\n]",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 148,
+      "value": "injuries = dataTable\n  .select(\n    'date',   \n    'injuries_total',\n    'injuries_fatal',\n    'injuries_incapacitating',\n    'injuries_reported_not_evident',\n    'injuries_unknown'\n  )\n  .fold(aq.not('date'), {\n    as: ['injury_type', 'injury_count']\n  })\n  .filter(d => d.injury_count > 0)\n  .derive({\n    date: d => op.parse_date(d.date),\n  })",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 467,
+      "value": "injuriesCount = injuries.select('injury_type', 'injury_count')\n  .groupby('injury_type')\n  .rollup({\n    count: d => op.sum(d.injury_count)\n  })",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 470,
+      "value": "injuriesByMonth = dataTable.select(\n    'crash_month',\n    'injuries_total',\n    'injuries_fatal',\n    'injuries_incapacitating',\n    'injuries_reported_not_evident',\n    'injuries_unknown'\n  )\n  .fold(aq.not('crash_month'), {\n    as: ['injury_type', 'injury_count']\n  })\n  .filter(d => d.injury_count > 0)\n  .derive({\n    crash_month: d => d.crash_month - 1\n  })\n  .groupby('crash_month', 'injury_type')\n  .rollup({\n    injury_count: d => op.sum(d.injury_count)\n  })",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 177,
+      "value": "injuriesByDate = injuries.groupby('date', 'injury_type')\n  .rollup({\n    injury_count: d => op.sum(d.injury_count)\n  })\n  .orderby('date')",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 206,
+      "value": "damages = dataTable.select('date', 'damage')\n  .derive({\n    date: d => op.parse_date(d.date),\n  })",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 383,
+      "value": "damagesCount = damages.groupby('damage').count()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 474,
+      "value": "damagesByMonth = dataTable.select('crash_month', 'damage')\n  .derive({\n    crash_month: d => d.crash_month - 1\n  })\n  .groupby('crash_month', 'damage').count()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 209,
+      "value": "damagesByDate = damages.groupby('date', 'damage').count().orderby('date')",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 400,
+      "value": "primaryCrashCauses = dataTable.select('prim_contributory_cause')\n  .groupby('prim_contributory_cause')\n  .count()\n  .orderby(aq.desc('count'))\n  .slice(0, 20)      ",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 410,
+      "value": "secondaryCrashCauses = dataTable.select('sec_contributory_cause')\n  .groupby('sec_contributory_cause')\n  .count()\n  .orderby(aq.desc('count'))\n  .slice(0, 20)",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 431,
+      "value": "weatherConditions = dataTable.select('weather_condition')\n  .groupby('weather_condition')\n  .count()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 434,
+      "value": "lightingConditions = dataTable.select('lighting_condition')\n  .groupby('lighting_condition')\n  .count()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 437,
+      "value": "roadwayConditions = dataTable.select('roadway_surface_cond')\n  .groupby('roadway_surface_cond')\n  .count()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 12,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 15,
+      "value": "import { aq, op } from '@uwdata/arquero'",
+      "pinned": false,
+      "mode": "js"
+    }
+  ]
+}

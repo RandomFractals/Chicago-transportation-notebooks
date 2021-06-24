@@ -1,0 +1,543 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hpcc-js/common/font-awesome/css/font-awesome.min.css">
+    <style>
+    body {
+        padding: 0px;
+        margin: 8px;
+        background: white;
+        color: black;
+    }
+    #placeholder {
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        right: 8px;
+        bottom: 8px;
+    }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@hpcc-js/observable-md/dist/index.full.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var omdMod = window["@hpcc-js/observable-md"]
+    </script>
+
+</head>
+
+<body onresize="doResize()">
+    <div id="placeholder">
+    </div>
+    <script>
+        var app = new omdMod.Observable()
+            .target("placeholder")
+            .showValues(true)
+            .mode("ojs")
+            .text(`md\`# Chicago Traffic Crash Plots
+
+Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Traffic Crashes](https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if)
+
+Chicago Data Portal: [Traffic Crashes Dashboard](https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes-Dashboard/8tdq-a5dp)
+\`
+
+viewof year = Inputs.select(years, {value: 2021, label: 'Select Year:', format: year => year})
+
+dayPlot = Plot.plot({
+  height: 180,
+  x: {
+    axis: null,
+    padding: 0,
+  },
+  y: {
+    label: 'Week Day',
+    padding: 0,
+    tickFormat: Plot.formatWeekday('en', 'narrow'),
+    tickSize: 0
+  },
+  fy: {
+    reverse: true
+  },
+  facet: {
+    data: crashesByDate,
+    y: d => d.date.getUTCFullYear()
+  },
+  color: {
+    scheme: "BuYlRd"
+  },
+  marks: [
+    Plot.cell(crashesByDate, {
+      x: d => d3.utcWeek.count(d3.utcYear(d.date), d.date),
+      y: d => d.date.getUTCDay(),
+      fill: 'count',
+      title: d => \`\${d.date.toLocaleDateString()}: \${d.count.toLocaleString()} crashes\`,
+      inset: 0.5
+    })
+  ]
+})
+
+Plot.plot({
+  width: width,
+  height: 300,
+  padding: 0,
+  x: {
+    axis: 'top',
+    label: 'Month Day'
+  },
+  y: {
+    label: 'Month',
+    tickFormat: Plot.formatMonth('en', 'short')
+  },
+  color: {
+    scheme: 'BuYlRd'
+  },
+  marks: [
+    Plot.cell(crashesByDate, {
+      x: d => d.date.getUTCDate(),
+      y: d => d.date.getUTCMonth(),
+      fill: 'count',
+      inset: 0.5
+    }),
+    Plot.text(crashesByDate, {
+        x: d => d.date.getUTCDate(),
+        y: d => d.date.getUTCMonth(),
+        text: d => d.count
+      }
+    ) 
+  ]
+})
+
+{
+  const brush = vl.selectInterval().encodings('x');
+  const x = vl.x().fieldT('date').title('date');
+  
+  const base = vl.markArea()
+    .encode(x, vl.y().fieldQ('count').title('crash count'))
+    .width(700);
+  
+  return vl.data(crashesByDate)
+    .vconcat(
+      base.encode(x.scale({domain: brush})),
+      base.params(brush).height(60)
+    )
+    .title('Crashes by Date')
+    .render();
+}
+
+md\`### Crashes per Month, Day of the Week and Hour\`
+
+monthPlot = Plot.plot({
+  width: width/3,
+  height: 320,
+  x: {
+    label: 'month',
+    tickFormat: Plot.formatMonth('en', 'short')
+  },
+  marks: [
+    Plot.barY(crashesByMonth, {
+      x: 'crash_month', 
+      y: 'count', 
+      fill: 'steelblue',
+      title: d => \`\${d.count.toLocaleString()} crashes\`
+    })
+  ]
+})
+
+dayOfWeekPlot = Plot.plot({
+  width: width/4,
+  height: 320,
+  x: {
+    label: 'day of the week',
+    tickFormat: Plot.formatWeekday('en', 'narrow')
+  },
+  marks: [
+    Plot.barY(crashesByDayOfWeek, {
+      x: 'crash_day_of_week', 
+      y: 'count', 
+      fill: 'steelblue',
+      title: d => \`\${d.count.toLocaleString()} crashes\`,
+    })
+  ]
+})
+
+hourPlot = vl.markBar()
+  .data(crashesByHour)
+  .encode(
+    vl.x().fieldQ('crash_hour')
+      .axis({title: 'hour'}),
+    vl.y().fieldQ('count')
+      .axis({title: 'total crashes'}),
+    vl.tooltip().fieldN('count')
+  )
+  .width(24 * 14)
+  .render()
+
+md\`### Injuries\`
+
+injuriesTotalPlot = vl.markBar().data(injuriesCount).encode(
+  vl.y().fieldO('injury_type').sort({encoding: 'x'}).axis({title: 'Type'}),
+  vl.x().fieldQ('count').axis({title: 'Total'}),
+  vl.tooltip().fieldN('count')
+).width(width - 200).render()
+
+injuriesPlot = {
+  const hover = vl.selectSingle('hover')
+    .on('mouseover')
+    .encodings('x')
+    .nearest(true)
+    .clear('moouseout')
+    .init({x: {year: year, month: 1, date: 1}});
+  
+  const lineAndPoint = vl.layer(vl.markLine(), vl.markPoint().transform(vl.filter(hover)))
+    .encode(
+      vl.y().fieldQ('injury_count'),
+      vl.color().fieldN('injury_type')
+    );
+  
+  const rule = vl.markRule({strokeWidth: 0.5, tooltip: true})
+    .transform(vl.pivot('injury_type').value('injury_count').groupby(['date']))
+    .encode(vl.opacity().value(0).if(hover, vl.value(0.7)),
+      vl.tooltip([
+        vl.fieldT('date'),
+        'injuries_total',
+        'injuries_reported_not_evident',
+        'injuries_incapacitating',      
+        'injuries_fatal',      
+      ])
+    ).select(hover);
+
+  return vl.layer(lineAndPoint, rule)
+    .encode(vl.x().fieldT('date'))
+    .data(injuriesByDate)
+    .width(width - 240)
+    .height(300)
+    .render();
+}
+
+injuriesByMonthPlot = Plot.plot({
+    width: width/3,
+    y: {
+      grid: true, 
+      label: 'Injuries',
+      tickFormat: 's'
+    },
+    fx: {
+      label: 'month',      
+      tickFormat: Plot.formatMonth('en', 'short')
+    },
+    facet: {
+      data: injuriesByMonth, 
+      x: 'crash_month'
+    },
+    marks: [
+      Plot.barY(injuriesByMonth,
+        Plot.stackY(Plot.groupZ({y: 'sum'}, {y: 'injury_count', fill: 'injury_type'}))
+      )
+    ]
+  })
+
+md\`### Damages\`
+
+damagesTotalPlot = vl.markBar().data(damagesCount).encode(
+  vl.y().fieldO('damage').sort({encoding: 'x'}).axis({title: 'Type'}),
+  vl.x().fieldQ('count').axis({title: 'Total'}),
+  vl.tooltip().fieldN('count')
+).width(width - 200).render()
+
+damagesPlot = {
+  const hover = vl.selectSingle('hover')
+    .on('mouseover')
+    .encodings('x')
+    .nearest(true)
+    .clear('moouseout')
+    .init({x: {year: year, month: 1, date: 1}});
+  
+  const lineAndPoint = vl.layer(vl.markLine(), vl.markPoint().transform(vl.filter(hover)))
+    .encode(
+      vl.y().fieldQ('count'),
+      vl.color().fieldN('damage')
+    );
+  
+  const rule = vl.markRule({strokeWidth: 0.5, tooltip: true})
+    .transform(vl.pivot('damage').value('count').groupby(['date']))
+    .encode(vl.opacity().value(0).if(hover, vl.value(0.7)),
+      vl.tooltip([
+        vl.fieldT('date'),
+        'OVER \$1,500',
+        '\$501 - \$1,500',
+        '\$500 OR LESS',
+      ])
+    ).select(hover);
+
+  return vl.layer(lineAndPoint, rule)
+    .encode(vl.x().fieldT('date'))
+    .data(damagesByDate)
+    .width(width - 160)
+    .height(300)
+    .render();
+}
+
+damagesByMonthPlot = Plot.plot({
+    width: width/3,
+    y: {
+      grid: true, 
+      label: 'Damages',
+      tickFormat: 's'
+    },
+    fx: { 
+      label: 'month',
+      tickFormat: Plot.formatMonth('en', 'short')
+    },
+    facet: {
+      data: damagesByMonth, 
+      x: 'crash_month'
+    },
+    marks: [
+      Plot.barY(damagesByMonth,
+        Plot.stackY(Plot.groupZ({y: 'sum'}, {y: 'count', fill: 'damage'}))
+      )
+    ]
+  })
+
+md\`### Top 20 Primary Crash Causes\`
+
+primaryCausesPlot = vl.markBar().data(primaryCrashCauses).encode(
+  vl.y().fieldO('prim_contributory_cause').sort({encoding: 'x'}).axis({title: 'Type'}),
+  vl.x().fieldQ('count').axis({title: 'Total'}),
+  vl.tooltip().fieldN('count')
+).width(width - 200).render()
+
+md\`### Top 20 Secondary Crash Causes\`
+
+secondaryCausesPlot = vl.markBar().data(secondaryCrashCauses).encode(
+  vl.y().fieldO('sec_contributory_cause').sort({encoding: 'x'}).axis({title: 'Type'}),
+  vl.x().fieldQ('count').axis({title: 'Total'}),
+  vl.tooltip().fieldN('count')
+).width(width - 200).render()
+
+md\`### Driving Conditions\`
+
+weatherConditionPlot = vl.markBar().data(weatherConditions).encode(
+  vl.y().fieldO('weather_condition').sort({encoding: 'x'}).axis({title: 'Weather'}),
+  vl.x().fieldQ('count').axis({title: 'Total'}),
+  vl.tooltip().fieldN('count')
+).width(width - 200).render()
+
+lightingConditionPlot = vl.markBar().data(lightingConditions).encode(
+  vl.y().fieldO('lighting_condition').sort({encoding: 'x'}).axis({title: 'Lighting'}),
+  vl.x().fieldQ('count').axis({title: 'Total'}),
+  vl.tooltip().fieldN('count')
+).width(width - 200).render()
+
+roadwayConditionPlot = vl.markBar().data(roadwayConditions).encode(
+  vl.y().fieldO('roadway_surface_cond').sort({encoding: 'x'}).axis({title: 'Roadway Surface'}),
+  vl.x().fieldQ('count').axis({title: 'Total'}),
+  vl.tooltip().fieldN('count')
+).width(width - 200).render()
+
+md\`## Data\`
+
+viewof tableView = Inputs.table(data, {
+  columns: columns,
+  reverse: true
+})
+
+viewof injuriesTable= Inputs.table(injuriesByDate, {
+  reverse: true
+})
+
+viewof damagesTable= Inputs.table(damagesByDate, {
+  reverse: true
+})
+
+md\`## Data Queries and Filters\`
+
+years = [2020, 2021]
+
+columns = [
+  'crash_date',
+  'crash_type',
+  'posted_speed_limit',
+  'weather_condition',
+  'lighting_condition',
+  'first_crash_type',
+  'trafficway_type',
+  'alignment',
+  'roadway_sourface_cond',
+  'road_defect',
+  'report_type',
+  'private_property',
+  'hit_and_run_i',
+  'damage',
+  'date_police_notified',
+  'prim_contributory_cause',
+  'sec_contributory_cause',
+  'street_no',
+  'street_direction',
+  'street_name',
+  'beat_of_occurrence',
+  'photos_taken_i',
+  'num_units',
+  'most_severe_injury',
+  'injuries_total',
+  'injuries_fatal',
+  'injuries_incapacitating',
+  'injuries_reported_not_evident',
+  'injuries_no_indication',
+  'injuries_unknown',
+  'crash_hour',
+  'crash_day_of_week',
+  'crash_month',
+  'latitude',
+  'longitude'
+]
+
+dataUrl = 'https://data.cityofchicago.org/resource/85ca-t3if.json'
+
+query = \`?\$limit=100000&\$where=crash_date between '\${year}-01-01T00:00:00' and '\${year}-12-31T23:59:59'\`
+
+data = await fetch(dataUrl + query).then(data => data.json())
+
+dataTable = aq.from(data)
+  .derive({
+    date_time: d => op.parse_date(d.crash_date)
+  })
+  .spread({crash_date: d => op.split(d.crash_date, 'T')}, {as: ['date', 'time']})
+  .orderby('posted_speed_limit')
+
+crashesByDate = dataTable.groupby('date').count()
+  .derive({
+    date: d => op.parse_date(d.date)
+  })
+
+crashesByMonth = dataTable.select('crash_month').groupby('crash_month').count()
+  .derive({
+    crash_month: d => d.crash_month - 1
+  })
+
+crashesByDayOfWeek = dataTable.select('crash_day_of_week').groupby('crash_day_of_week').count()
+  .derive({
+    crash_day_of_week: d => d.crash_day_of_week - 1
+  })
+
+crashesByHour = dataTable.select('crash_hour').groupby('crash_hour').count()
+
+crashesBySpeedLimit = dataTable.select('posted_speed_limit').groupby('posted_speed_limit').count()
+
+injuryColumns = [
+  'injuries_total',
+  'injuries_fatal',
+  'injuries_incapacitating',
+  'injuries_reported_not_evident',
+  'injuries_no_indication',
+  'injuries_unknown'
+]
+
+injuries = dataTable
+  .select(
+    'date',   
+    'injuries_total',
+    'injuries_fatal',
+    'injuries_incapacitating',
+    'injuries_reported_not_evident',
+    'injuries_unknown'
+  )
+  .fold(aq.not('date'), {
+    as: ['injury_type', 'injury_count']
+  })
+  .filter(d => d.injury_count > 0)
+  .derive({
+    date: d => op.parse_date(d.date),
+  })
+
+injuriesCount = injuries.select('injury_type', 'injury_count')
+  .groupby('injury_type')
+  .rollup({
+    count: d => op.sum(d.injury_count)
+  })
+
+injuriesByMonth = dataTable.select(
+    'crash_month',
+    'injuries_total',
+    'injuries_fatal',
+    'injuries_incapacitating',
+    'injuries_reported_not_evident',
+    'injuries_unknown'
+  )
+  .fold(aq.not('crash_month'), {
+    as: ['injury_type', 'injury_count']
+  })
+  .filter(d => d.injury_count > 0)
+  .derive({
+    crash_month: d => d.crash_month - 1
+  })
+  .groupby('crash_month', 'injury_type')
+  .rollup({
+    injury_count: d => op.sum(d.injury_count)
+  })
+
+injuriesByDate = injuries.groupby('date', 'injury_type')
+  .rollup({
+    injury_count: d => op.sum(d.injury_count)
+  })
+  .orderby('date')
+
+damages = dataTable.select('date', 'damage')
+  .derive({
+    date: d => op.parse_date(d.date),
+  })
+
+damagesCount = damages.groupby('damage').count()
+
+damagesByMonth = dataTable.select('crash_month', 'damage')
+  .derive({
+    crash_month: d => d.crash_month - 1
+  })
+  .groupby('crash_month', 'damage').count()
+
+damagesByDate = damages.groupby('date', 'damage').count().orderby('date')
+
+primaryCrashCauses = dataTable.select('prim_contributory_cause')
+  .groupby('prim_contributory_cause')
+  .count()
+  .orderby(aq.desc('count'))
+  .slice(0, 20)      
+
+secondaryCrashCauses = dataTable.select('sec_contributory_cause')
+  .groupby('sec_contributory_cause')
+  .count()
+  .orderby(aq.desc('count'))
+  .slice(0, 20)
+
+weatherConditions = dataTable.select('weather_condition')
+  .groupby('weather_condition')
+  .count()
+
+lightingConditions = dataTable.select('lighting_condition')
+  .groupby('lighting_condition')
+  .count()
+
+roadwayConditions = dataTable.select('roadway_surface_cond')
+  .groupby('roadway_surface_cond')
+  .count()
+
+md\`## Imports\`
+
+import { aq, op } from '@uwdata/arquero'`)
+            ;
+
+        doResize();
+
+        function doResize() {
+        if (app) {
+            app
+                .resize()
+                .lazyRender()
+                ;
+        }
+    }
+    </script>
+</body>
+
+</html>
