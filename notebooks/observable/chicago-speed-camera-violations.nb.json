@@ -1,0 +1,389 @@
+{
+  "id": "f32d773c0bb63336",
+  "slug": "chicago-speed-camera-violations",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "public",
+  "forks": 1,
+  "fork_of": null,
+  "update_time": "2021-06-14T15:33:25.072Z",
+  "publish_time": "2021-06-06T23:53:47.009Z",
+  "publish_version": 367,
+  "thumbnail": "d3b3fd4dfafecb56ba344c9a8a2ab2b9b869e65387e712f72f17f09558f40479",
+  "default_thumbnail": "d3b3fd4dfafecb56ba344c9a8a2ab2b9b869e65387e712f72f17f09558f40479",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak",
+    "type": "individual"
+  },
+  "creator": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak"
+  },
+  "collections": [
+    {
+      "id": "5b60600584ed4fe0",
+      "type": "public",
+      "slug": "leaflet",
+      "title": "Leaflet",
+      "description": "Notebooks using Leaflet JS map library.",
+      "update_time": "2021-06-08T11:57:15.608Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "thumbnail": "a45c7c16fbf5ac1eb4353dfdf63b495eb2bcf61fd77f4dfbbd7d1d1e95c72ed7",
+      "listing_count": 9,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "c30622739accf157",
+      "type": "public",
+      "slug": "arquero",
+      "title": "Arquero",
+      "description": "Notebooks using Arquero JS library for manipulating data.",
+      "update_time": "2021-06-08T11:51:29.570Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
+      "listing_count": 8,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "3a2bf0501500f229",
+      "type": "public",
+      "slug": "plot",
+      "title": "Plot",
+      "description": "Notebooks using new Plot library",
+      "update_time": "2021-06-08T11:51:15.611Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "thumbnail": "5b3e44e84b3e82afdc8d852c1f183c3d8686bbfaa5d3abd2411a926dfbb8997c",
+      "listing_count": 6,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "cf858224d6488195",
+      "type": "public",
+      "slug": "transportation",
+      "title": "Transportation",
+      "description": "Public transportation notebooks",
+      "update_time": "2021-06-04T03:34:03.975Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
+      "listing_count": 12,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "cc3985e6b82c86b0",
+      "type": "public",
+      "slug": "maps",
+      "title": "Maps",
+      "description": "Various Maps",
+      "update_time": "2018-09-28T13:20:05.815Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "855f4654e70feece820af1cd690a1484039e8d6ca1d77d5d080bf96fcbbcb192",
+      "listing_count": 16,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "version": 367,
+  "title": "Chicago Speed Camera Violations",
+  "license": null,
+  "copyright": "",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "md`# Chicago Speed Camera Violations\n\nData Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Violations](https://data.cityofchicago.org/Transportation/Speed-Camera-Violations/hhkd-xvj4)\n`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 170,
+      "value": "map = {\n  // create map container\n  let mapContainer = DOM.element('div', { style: `width:${width}px;height:${width/1.6}px` });\n  yield mapContainer;\n  \n  // create leaflet map with attributions\n  let map = L.map(mapContainer).setView([41.85, -87.68], 10); // Chicago origins\n  let osmLayer = L.tileLayer( // 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png')\n    'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {\n    attribution: '&copy; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors, &copy; <a href=\\\"http://cartodb.com/attributions\\\">CartoDB</a>',\n    detectRetina: false,\n    maxZoom: 18,\n    minZoom: 10,\n    noWrap: false,\n    subdomains: 'abc'\n  }).addTo(map);\n\n  // red dot marker\n  const marker = {\n    radius: 6,\n    fillColor: \"#ff4e3b\",\n    color: \"#ff0000\",\n    weight: 1,\n    opacity: 1,\n    fillOpacity: 0.8\n  };\n  \n  // map markers\n  const pointToLayer = function (feature, latlng) {\n    return L.circleMarker(latlng, marker);\n  }\n  \n  // add markers\n  let geoLayer = L.geoJson(geoData, {\n    pointToLayer: pointToLayer,\n    onEachFeature: function (feature, layer) {\n      const data = feature.properties;\n      const html = `<div class=\"popup\"><h3>${data.address}</h3>\n          <p>${data.count.toLocaleString()} violations</p>\n        </div>`;\n      layer.bindPopup(html);\n      layer.bindTooltip(`${data.address} <br /> ${data.count.toLocaleString()} violations`, {sticky: true});\n    }\n  });\n  \n  map.addLayer(geoLayer);\n  // map.fitBounds(markers.getBounds());\n}",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 171,
+      "value": "markerStyles = html`\n<style type=\"text/css\">\n  div.popup p { \n    margin: 4px 0;\n    font-size: 14px;\n  }\n</style>`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 14,
+      "value": "viewof year = Inputs.select(years, {value: 2021, label: 'Select Year:', format: year => year})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 231,
+      "value": "md`### Top 10 (Busy) Chicago Speed Cameras`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 221,
+      "value": "top10CamerasPlot = Plot.plot({\n  height: top10Cameras.length * 40,\n  marginLeft: 150,\n  x: {\n    tickFormat: \"%\",\n    domain: [0, 1],\n    grid: true\n  },\n  marks: [\n    Plot.frame(),\n    Plot.barX(top10Cameras, {\n      x: \"percent\", \n      y: \"address\", \n      fill: \"#ff4e3b\", \n      title: d => `${d.count.toLocaleString()} violations`\n    }),\n    Plot.text(top10Cameras, {\n      x: \"percent\", \n      y: \"address\", \n      text: d => Math.floor(d.percent * 100) + \"%\", \n      dx: 10 \n    })\n  ]\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 289,
+      "value": "md`### Recorded Chicago Speed Camera Violations by Day`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 267,
+      "value": "dayPlot = Plot.plot({\n  height: 180,\n  x: {\n    axis: null,\n    padding: 0,\n  },\n  y: {\n    padding: 0,\n    tickFormat: Plot.formatWeekday(\"en\", \"narrow\"),\n    tickSize: 0\n  },\n  fy: {\n    reverse: true\n  },\n  facet: {\n    data: violationsByDate,\n    y: d => d.date.getUTCFullYear()\n  },\n  marks: [\n    Plot.cell(violationsByDate, {\n      x: d => d3.utcWeek.count(d3.utcYear(d.date), d.date),\n      y: d => d.date.getUTCDay(),\n      fill: 'count',\n      title: d => `${d.date.toLocaleDateString()}: ${d.count.toLocaleString()} violations`,\n      inset: 0.5\n    })\n  ]\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 9,
+      "value": "md`## Data`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 40,
+      "value": "viewof tableView = Inputs.table(data, {\n  columns: columns,\n  sort: 'violations',\n  reverse: true\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 68,
+      "value": "md`### Violations by Camera`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 124,
+      "value": "viewof violationsSummaryView = Inputs.table(violationsByCamera, {\n  sort: 'count',\n  reverse: true\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 89,
+      "value": "viewof camera = Inputs.select(cameraNames, {label: 'Select Camera:'})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 116,
+      "value": "viewof violationsByCameraView = Inputs.table(data.filter(d => d.address == camera), {\n  columns: columns,\n  sort: 'violation_date',\n  reverse: true\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 91,
+      "value": "md`## Data Queries and Filters`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 16,
+      "value": "years = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021]",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 41,
+      "value": "columns = [\n  'address',\n  'camera_id',\n  'violations',\n  'violation_date',\n  'latitude',\n  'longitude'\n]",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 12,
+      "value": "dataUrl = 'https://data.cityofchicago.org/resource/hhkd-xvj4.json'",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 24,
+      "value": "query = `?$limit=50000&$where=violation_date between '${year}-01-01T00:00:00' and '${year}-12-31T23:59:59'`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 20,
+      "value": "data = await fetch(dataUrl + query).then(data => data.json())",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 59,
+      "value": "dataTable = aq.from(data)\n  .derive({\n    date: d => op.parse_date(d.violation_date)\n  })\n  .orderby('camera_id')",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 253,
+      "value": "violationsByDate = dataTable.groupby('date')\n  .rollup({\n    count: d => op.sum(d.violations)\n  })\n",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 86,
+      "value": "violationsByCamera = dataTable.groupby('address')\n  .rollup({\n    count: d => op.sum(d.violations)\n  })\n  .join(cameraTable)\n  .orderby(aq.desc('count'))",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 197,
+      "value": "violationsByCameraRate = violationsByCamera\n  .select('address', 'count')\n  .derive({\n    percent: d => d.count / op.sum(d.count) \n  })\n  .orderby(aq.desc('percent'))",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 219,
+      "value": "top10Cameras = violationsByCameraRate.objects().slice(0, 10)",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 347,
+      "value": "cameraNames = violationsByCamera.array('address')",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 351,
+      "value": "geoData = getGeoDataPoints(violationsByCamera.objects())",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 340,
+      "value": "md`### Speed Camera Data`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 132,
+      "value": "cameraLocationDataUrl = 'https://data.cityofchicago.org/resource/4i42-qv3h.json'",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 135,
+      "value": "cameraLocations = await fetch(cameraLocationDataUrl).then(data => data.json())",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 141,
+      "value": "cameras = cameraLocations.map(camera => {\n  camera.address = camera.address.toUpperCase().replace('(SPEED CAMERA)', '').trim();\n  return camera;\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 149,
+      "value": "cameraTable = aq.from(cameras)",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 49,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 52,
+      "value": "import { aq, op } from '@uwdata/arquero'",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 316,
+      "value": "import { getGeoDataPoints } from '@randomfractals/geo-data-utils'",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 166,
+      "value": "leafletStyles = html`<link href='${resolve('leaflet@1.7.1/dist/leaflet.css')}' rel='stylesheet' />`",
+      "pinned": true,
+      "mode": "js"
+    },
+    {
+      "id": 168,
+      "value": "L = require('leaflet@1.7.1')",
+      "pinned": true,
+      "mode": "js"
+    }
+  ]
+}
