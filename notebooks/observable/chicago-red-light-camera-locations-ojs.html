@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hpcc-js/common/font-awesome/css/font-awesome.min.css">
+    <style>
+    body {
+        padding: 0px;
+        margin: 8px;
+        background: white;
+        color: black;
+    }
+    #placeholder {
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        right: 8px;
+        bottom: 8px;
+    }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@hpcc-js/observable-md/dist/index.full.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var omdMod = window["@hpcc-js/observable-md"]
+    </script>
+
+</head>
+
+<body onresize="doResize()">
+    <div id="placeholder">
+    </div>
+    <script>
+        var app = new omdMod.Observable()
+            .target("placeholder")
+            .showValues(true)
+            .mode("ojs")
+            .text(`md\`# Chicago Red Light Camera Locations
+
+Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Red Light Camera Locations](https://data.cityofchicago.org/Transportation/Red-Light-Camera-Locations/thvf-6diy)\`
+
+map = {
+  // create map container
+  let mapContainer = DOM.element('div', { style: \`width:\${width}px;height:\${width/1.6}px\` });
+  yield mapContainer;
+  
+  // create leaflet map with attributions
+  let map = L.map(mapContainer).setView([41.85, -87.68], 10); // Chicago origins
+  let osmLayer = L.tileLayer( // 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png')
+    'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href=\\"http://www.openstreetmap.org/copyright\\">OpenStreetMap</a> contributors, &copy; <a href=\\"http://cartodb.com/attributions\\">CartoDB</a>',
+    detectRetina: false,
+    maxZoom: 18,
+    minZoom: 10,
+    noWrap: false,
+    subdomains: 'abc'
+  }).addTo(map);
+
+  // red dot marker
+  const marker = {
+    radius: 6,
+    fillColor: "#ff4e3b",
+    color: "#ff0000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
+  };
+  
+  // map markers
+  const pointToLayer = function (feature, latlng) {
+    return L.circleMarker(latlng, marker);
+  }
+  
+  // add markers
+  let geoLayer = L.geoJson(geoData, {
+    pointToLayer: pointToLayer,
+    onEachFeature: function (feature, layer) {
+      const data = feature.properties;
+      const html = \`<div class="popup"><h2>\${data.intersection}</h2>
+          <p>live since \${new Date(data.go_live_date).toLocaleDateString()}</p>
+          <p>first approach: \${data.first_approach}</p>
+          <p>second approach: \${data.second_approach}</p>
+        </div>\`;
+      layer.bindPopup(html);
+      layer.bindTooltip(\`\${data.intersection} <br />
+        live since \${new Date(data.go_live_date).toLocaleDateString()}\`, {sticky: true});
+    }
+  });  
+
+  map.addLayer(geoLayer);
+  // map.fitBounds(markers.getBounds());
+}
+
+markerStyles = html\`
+<style type="text/css">
+  div.popup p { 
+    margin: 4px 0;
+    font-size: 14px;
+  }
+</style>\`
+
+md\`## Data\`
+
+viewof dataTable = Inputs.table(data, {
+  columns: columns
+})
+
+dataUrl = 'https://data.cityofchicago.org/resource/thvf-6diy.json'
+
+columns = [
+  'intersection',
+  'go_live_date',
+  'first_approach',
+  'second_approach',
+  'third_approach',
+  'latitude',
+  'longitude'
+]
+
+data = await fetch(dataUrl).then(data => data.json())
+
+geoData = getGeoDataPoints(data)
+
+import { getGeoDataPoints } from '@randomfractals/geo-data-utils'
+
+md\`## Leaftlet Imports\`
+
+leafletStyles = html\`<link href='\${resolve('leaflet@1.7.1/dist/leaflet.css')}' rel='stylesheet' />\`
+
+L = require('leaflet@1.7.1')`)
+            ;
+
+        doResize();
+
+        function doResize() {
+        if (app) {
+            app
+                .resize()
+                .lazyRender()
+                ;
+        }
+    }
+    </script>
+</body>
+
+</html>

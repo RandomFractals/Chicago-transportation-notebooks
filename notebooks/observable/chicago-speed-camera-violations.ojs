@@ -1,0 +1,218 @@
+md`# Chicago Speed Camera Violations
+
+Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Violations](https://data.cityofchicago.org/Transportation/Speed-Camera-Violations/hhkd-xvj4)
+`
+
+map = {
+  // create map container
+  let mapContainer = DOM.element('div', { style: `width:${width}px;height:${width/1.6}px` });
+  yield mapContainer;
+  
+  // create leaflet map with attributions
+  let map = L.map(mapContainer).setView([41.85, -87.68], 10); // Chicago origins
+  let osmLayer = L.tileLayer( // 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png')
+    'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors, &copy; <a href=\"http://cartodb.com/attributions\">CartoDB</a>',
+    detectRetina: false,
+    maxZoom: 18,
+    minZoom: 10,
+    noWrap: false,
+    subdomains: 'abc'
+  }).addTo(map);
+
+  // red dot marker
+  const marker = {
+    radius: 6,
+    fillColor: "#ff4e3b",
+    color: "#ff0000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
+  };
+  
+  // map markers
+  const pointToLayer = function (feature, latlng) {
+    return L.circleMarker(latlng, marker);
+  }
+  
+  // add markers
+  let geoLayer = L.geoJson(geoData, {
+    pointToLayer: pointToLayer,
+    onEachFeature: function (feature, layer) {
+      const data = feature.properties;
+      const html = `<div class="popup"><h3>${data.address}</h3>
+          <p>${data.count.toLocaleString()} violations</p>
+        </div>`;
+      layer.bindPopup(html);
+      layer.bindTooltip(`${data.address} <br /> ${data.count.toLocaleString()} violations`, {sticky: true});
+    }
+  });
+  
+  map.addLayer(geoLayer);
+  // map.fitBounds(markers.getBounds());
+}
+
+markerStyles = html`
+<style type="text/css">
+  div.popup p { 
+    margin: 4px 0;
+    font-size: 14px;
+  }
+</style>`
+
+viewof year = Inputs.select(years, {value: 2021, label: 'Select Year:', format: year => year})
+
+md`### Top 10 (Busy) Chicago Speed Cameras`
+
+top10CamerasPlot = Plot.plot({
+  height: top10Cameras.length * 40,
+  marginLeft: 150,
+  x: {
+    tickFormat: "%",
+    domain: [0, 1],
+    grid: true
+  },
+  marks: [
+    Plot.frame(),
+    Plot.barX(top10Cameras, {
+      x: "percent", 
+      y: "address", 
+      fill: "#ff4e3b", 
+      title: d => `${d.count.toLocaleString()} violations`
+    }),
+    Plot.text(top10Cameras, {
+      x: "percent", 
+      y: "address", 
+      text: d => Math.floor(d.percent * 100) + "%", 
+      dx: 10 
+    })
+  ]
+})
+
+md`### Recorded Chicago Speed Camera Violations by Day`
+
+dayPlot = Plot.plot({
+  height: 180,
+  x: {
+    axis: null,
+    padding: 0,
+  },
+  y: {
+    padding: 0,
+    tickFormat: Plot.formatWeekday("en", "narrow"),
+    tickSize: 0
+  },
+  fy: {
+    reverse: true
+  },
+  facet: {
+    data: violationsByDate,
+    y: d => d.date.getUTCFullYear()
+  },
+  marks: [
+    Plot.cell(violationsByDate, {
+      x: d => d3.utcWeek.count(d3.utcYear(d.date), d.date),
+      y: d => d.date.getUTCDay(),
+      fill: 'count',
+      title: d => `${d.date.toLocaleDateString()}: ${d.count.toLocaleString()} violations`,
+      inset: 0.5
+    })
+  ]
+})
+
+md`## Data`
+
+viewof tableView = Inputs.table(data, {
+  columns: columns,
+  sort: 'violations',
+  reverse: true
+})
+
+md`### Violations by Camera`
+
+viewof violationsSummaryView = Inputs.table(violationsByCamera, {
+  sort: 'count',
+  reverse: true
+})
+
+viewof camera = Inputs.select(cameraNames, {label: 'Select Camera:'})
+
+viewof violationsByCameraView = Inputs.table(data.filter(d => d.address == camera), {
+  columns: columns,
+  sort: 'violation_date',
+  reverse: true
+})
+
+md`## Data Queries and Filters`
+
+years = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021]
+
+columns = [
+  'address',
+  'camera_id',
+  'violations',
+  'violation_date',
+  'latitude',
+  'longitude'
+]
+
+dataUrl = 'https://data.cityofchicago.org/resource/hhkd-xvj4.json'
+
+query = `?$limit=50000&$where=violation_date between '${year}-01-01T00:00:00' and '${year}-12-31T23:59:59'`
+
+data = await fetch(dataUrl + query).then(data => data.json())
+
+dataTable = aq.from(data)
+  .derive({
+    date: d => op.parse_date(d.violation_date)
+  })
+  .orderby('camera_id')
+
+violationsByDate = dataTable.groupby('date')
+  .rollup({
+    count: d => op.sum(d.violations)
+  })
+
+
+violationsByCamera = dataTable.groupby('address')
+  .rollup({
+    count: d => op.sum(d.violations)
+  })
+  .join(cameraTable)
+  .orderby(aq.desc('count'))
+
+violationsByCameraRate = violationsByCamera
+  .select('address', 'count')
+  .derive({
+    percent: d => d.count / op.sum(d.count) 
+  })
+  .orderby(aq.desc('percent'))
+
+top10Cameras = violationsByCameraRate.objects().slice(0, 10)
+
+cameraNames = violationsByCamera.array('address')
+
+geoData = getGeoDataPoints(violationsByCamera.objects())
+
+md`### Speed Camera Data`
+
+cameraLocationDataUrl = 'https://data.cityofchicago.org/resource/4i42-qv3h.json'
+
+cameraLocations = await fetch(cameraLocationDataUrl).then(data => data.json())
+
+cameras = cameraLocations.map(camera => {
+  camera.address = camera.address.toUpperCase().replace('(SPEED CAMERA)', '').trim();
+  return camera;
+})
+
+cameraTable = aq.from(cameras)
+
+md`## Imports`
+
+import { aq, op } from '@uwdata/arquero'
+
+import { getGeoDataPoints } from '@randomfractals/geo-data-utils'
+
+leafletStyles = html`<link href='${resolve('leaflet@1.7.1/dist/leaflet.css')}' rel='stylesheet' />`
+
+L = require('leaflet@1.7.1')
