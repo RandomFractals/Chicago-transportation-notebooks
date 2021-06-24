@@ -1,0 +1,115 @@
+{
+  "id": "a4fda91cd9c4daae",
+  "slug": "chicago-public-chauffeurs",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "public",
+  "forks": 0,
+  "fork_of": {
+    "id": "bc073404747347f6",
+    "slug": "chicago-public-passenger-vehicles",
+    "title": "Chicago Public Passenger Vehicles",
+    "owner": {
+      "id": "17b72db66175b428",
+      "github_login": "RandomFractals",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+      "login": "randomfractals",
+      "name": "Taras Novak",
+      "bio": "I map 🌐 & graph  📈 data 🈸 ",
+      "home_url": "https://www.linkedin.com/in/tarasnovak",
+      "type": "individual"
+    },
+    "version": 36
+  },
+  "update_time": "2021-06-24T12:54:26.169Z",
+  "publish_time": "2021-06-24T12:54:26.169Z",
+  "publish_version": 43,
+  "thumbnail": "d73be21e89dec0af2ea62ce45095c23ddd26ccd89fdd85d6890e98f0e952c281",
+  "default_thumbnail": "d73be21e89dec0af2ea62ce45095c23ddd26ccd89fdd85d6890e98f0e952c281",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak",
+    "type": "individual"
+  },
+  "creator": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak"
+  },
+  "collections": [],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "version": 43,
+  "title": "Chicago Public Chauffeurs",
+  "license": null,
+  "copyright": "",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "md`# Chicago Public Chauffeurs\n\nData Source: [Chicago Community Economic Development](https://data.cityofchicago.org/browse?q=community%20economic%20development&sortBy=relevance) / [Public Chauffeurs](https://data.cityofchicago.org/Community-Economic-Development/Public-Chauffeurs/97wa-y6ff)\n\nChicago Data Portal: [Public Chauffeurs - Dashboard](https://data.cityofchicago.org/Community-Economic-Development/Public-Chauffeurs-Dashboard/3dz4-khtp)\n`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 8,
+      "value": "md`## Data`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 29,
+      "value": "viewof dataSummaryView = SummaryTable(data, {label: 'Public Chauffeurs Data'})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 20,
+      "value": "viewof tableView = Inputs.table(data, {\n  reverse: false\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 11,
+      "value": "dataUrl = 'https://data.cityofchicago.org/resource/97wa-y6ff.json'",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 16,
+      "value": "query = `?$limit=25000`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 14,
+      "value": "data = await fetch(dataUrl + query).then(data => data.json())",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 23,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 26,
+      "value": "import {SummaryTable} from '@observablehq/summary-table'",
+      "pinned": false,
+      "mode": "js"
+    }
+  ]
+}

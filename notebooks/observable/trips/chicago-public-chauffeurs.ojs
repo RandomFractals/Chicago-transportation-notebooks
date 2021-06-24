@@ -1,0 +1,24 @@
+md`# Chicago Public Chauffeurs
+
+Data Source: [Chicago Community Economic Development](https://data.cityofchicago.org/browse?q=community%20economic%20development&sortBy=relevance) / [Public Chauffeurs](https://data.cityofchicago.org/Community-Economic-Development/Public-Chauffeurs/97wa-y6ff)
+
+Chicago Data Portal: [Public Chauffeurs - Dashboard](https://data.cityofchicago.org/Community-Economic-Development/Public-Chauffeurs-Dashboard/3dz4-khtp)
+`
+
+md`## Data`
+
+viewof dataSummaryView = SummaryTable(data, {label: 'Public Chauffeurs Data'})
+
+viewof tableView = Inputs.table(data, {
+  reverse: false
+})
+
+dataUrl = 'https://data.cityofchicago.org/resource/97wa-y6ff.json'
+
+query = `?$limit=25000`
+
+data = await fetch(dataUrl + query).then(data => data.json())
+
+md`## Imports`
+
+import {SummaryTable} from '@observablehq/summary-table'
