@@ -1,11 +1,11 @@
 // URL: https://observablehq.com/@randomfractals/chicago-taxi-trips
 // Title: Chicago Taxi Trips
 // Author: Taras Novak (@randomfractals)
-// Version: 177
+// Version: 203
 // Runtime version: 1
 
 const m0 = {
-  id: "db00010d81235f7b@177",
+  id: "db00010d81235f7b@203",
   variables: [
     {
       inputs: ["md"],
@@ -106,6 +106,52 @@ Plot.plot({
   ]
 })
 )})
+    },
+    {
+      inputs: ["md"],
+      value: (function(md){return(
+md`## Average Trip Cost`
+)})
+    },
+    {
+      name: "tripCostByStartTimePlot",
+      inputs: ["vl","year","tripCostByStartTime","width"],
+      value: (function(vl,year,tripCostByStartTime,width)
+{
+  const hover = vl.selectSingle('hover')
+    .on('mouseover')
+    .encodings('x')
+    .nearest(true)
+    .clear('moouseout')
+    .init({x: {year: year, month: 1, date: 1}});
+  
+  const lineAndPoint = vl.layer(vl.markLine(), vl.markPoint().transform(vl.filter(hover)))
+    .encode(
+      vl.y().fieldQ('cost'),
+      vl.color().fieldN('type')
+    );
+  
+  const rule = vl.markRule({strokeWidth: 0.5, tooltip: true})
+    .transform(vl.pivot('type').value('cost').groupby(['time']))
+    .encode(vl.opacity().value(0).if(hover, vl.value(0.7)),
+      vl.tooltip([
+        vl.fieldT('time'),
+        'fare',
+        'tolls',
+        'extras',      
+        'tips',
+        'total'
+      ])
+    ).select(hover);
+
+  return vl.layer(lineAndPoint, rule)
+    .encode(vl.x().fieldT('time'))
+    .data(tripCostByStartTime)
+    .width(width - 240)
+    .height(300)
+    .render();
+}
+)
     },
     {
       inputs: ["md","geoDataTable"],
@@ -253,6 +299,32 @@ dataTable.groupby('payment_type').count()
       inputs: ["dataTable"],
       value: (function(dataTable){return(
 dataTable.groupby('trip_start_time').count()
+)})
+    },
+    {
+      name: "tripCostByStartTime",
+      inputs: ["dataTable","op","aq"],
+      value: (function(dataTable,op,aq){return(
+dataTable.select(
+    'trip_start_time',
+    'fare',
+    'tolls',
+    'extras',
+    'tips',
+    'trip_total'
+  )
+  .groupby('trip_start_time')
+  .rollup({
+    fare: d => op.average(d.fare),
+    tips: d => op.average(d.tips),
+    tolls: d => op.average(d.tolls),
+    extras: d => op.average(d.extras),
+    total: d => op.average(d.trip_total)
+  })
+  .fold(aq.not('trip_start_time'), {
+    as: ['type', 'cost']
+  })
+  .rename({trip_start_time: 'time'})
 )})
     },
     {
@@ -1006,7 +1078,7 @@ const m4 = {
 };
 
 const notebook = {
-  id: "db00010d81235f7b@177",
+  id: "db00010d81235f7b@203",
   modules: [m0,m1,m2,m3,m4]
 };
 

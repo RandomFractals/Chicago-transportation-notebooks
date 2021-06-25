@@ -7,9 +7,9 @@
   "publish_level": "public",
   "forks": 0,
   "fork_of": null,
-  "update_time": "2021-06-25T17:58:32.133Z",
+  "update_time": "2021-06-25T19:24:08.917Z",
   "publish_time": "2021-06-24T15:25:34.760Z",
-  "publish_version": 177,
+  "publish_version": 203,
   "thumbnail": "e2b28f9a7897228c981fa3fb34485a2d519428c6f664ada033f0a86d5cb0b181",
   "default_thumbnail": "e2b28f9a7897228c981fa3fb34485a2d519428c6f664ada033f0a86d5cb0b181",
   "roles": [],
@@ -134,7 +134,7 @@
   "files": [],
   "comments": [],
   "commenting_lock": null,
-  "version": 177,
+  "version": 203,
   "title": "Chicago Taxi Trips",
   "license": null,
   "copyright": "",
@@ -190,6 +190,18 @@
     {
       "id": 157,
       "value": "tripStartTimePlot = Plot.plot({\n  width: width,\n  height: 320,\n  x: {\n    label: 'time',\n    tickFormat: ''\n  },\n  marks: [\n    Plot.barY(tripsByStartTime, {\n      x: 'trip_start_time', \n      y: 'count', \n      fill: 'steelblue',\n      title: d => `${d.trip_start_time.toLocaleTimeString()}: ${d.count.toLocaleString()} trips`\n    })\n  ]\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 184,
+      "value": "md`## Average Trip Cost`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 187,
+      "value": "tripCostByStartTimePlot = {\n  const hover = vl.selectSingle('hover')\n    .on('mouseover')\n    .encodings('x')\n    .nearest(true)\n    .clear('moouseout')\n    .init({x: {year: year, month: 1, date: 1}});\n  \n  const lineAndPoint = vl.layer(vl.markLine(), vl.markPoint().transform(vl.filter(hover)))\n    .encode(\n      vl.y().fieldQ('cost'),\n      vl.color().fieldN('type')\n    );\n  \n  const rule = vl.markRule({strokeWidth: 0.5, tooltip: true})\n    .transform(vl.pivot('type').value('cost').groupby(['time']))\n    .encode(vl.opacity().value(0).if(hover, vl.value(0.7)),\n      vl.tooltip([\n        vl.fieldT('time'),\n        'fare',\n        'tolls',\n        'extras',      \n        'tips',\n        'total'\n      ])\n    ).select(hover);\n\n  return vl.layer(lineAndPoint, rule)\n    .encode(vl.x().fieldT('time'))\n    .data(tripCostByStartTime)\n    .width(width - 240)\n    .height(300)\n    .render();\n}",
       "pinned": false,
       "mode": "js"
     },
@@ -280,7 +292,13 @@
     {
       "id": 148,
       "value": "tripsByStartTime = dataTable.groupby('trip_start_time').count()",
-      "pinned": true,
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 179,
+      "value": "tripCostByStartTime = dataTable.select(\n    'trip_start_time',\n    'fare',\n    'tolls',\n    'extras',\n    'tips',\n    'trip_total'\n  )\n  .groupby('trip_start_time')\n  .rollup({\n    fare: d => op.average(d.fare),\n    tips: d => op.average(d.tips),\n    tolls: d => op.average(d.tolls),\n    extras: d => op.average(d.extras),\n    total: d => op.average(d.trip_total)\n  })\n  .fold(aq.not('trip_start_time'), {\n    as: ['type', 'cost']\n  })\n  .rename({trip_start_time: 'time'})",
+      "pinned": false,
       "mode": "js"
     },
     {
