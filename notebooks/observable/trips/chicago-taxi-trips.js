@@ -1,11 +1,11 @@
 // URL: https://observablehq.com/@randomfractals/chicago-taxi-trips
 // Title: Chicago Taxi Trips
 // Author: Taras Novak (@randomfractals)
-// Version: 79
+// Version: 177
 // Runtime version: 1
 
 const m0 = {
-  id: "db00010d81235f7b@79",
+  id: "db00010d81235f7b@177",
   variables: [
     {
       inputs: ["md"],
@@ -15,6 +15,12 @@ md`# Chicago Taxi Trips
 Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Taxi Trips](https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew)
 
 `
+)})
+    },
+    {
+      inputs: ["md"],
+      value: (function(md){return(
+md`## Trip Date`
 )})
     },
     {
@@ -38,26 +44,98 @@ date({
     {
       inputs: ["md"],
       value: (function(md){return(
-md`## Data`
+md`## Serviced by Company`
 )})
     },
     {
-      name: "viewof dataSummaryView",
-      inputs: ["SummaryTable","dataTable"],
-      value: (function(SummaryTable,dataTable){return(
-SummaryTable(dataTable.objects(), {label: 'Taxi Trips Data'})
+      name: "tripsByCompanyPlot",
+      inputs: ["vl","tripsByCompany"],
+      value: (function(vl,tripsByCompany){return(
+vl.markBar()
+  .data(tripsByCompany)
+  .encode(
+    vl.x().fieldO('company').axis({title: 'Company', labelAngle: 30}),
+    vl.y().fieldQ('count').axis({title: 'Count'}),
+    vl.tooltip().fieldN('count')
+  )
+  .height(200)
+  .render()
 )})
     },
     {
-      name: "dataSummaryView",
-      inputs: ["Generators","viewof dataSummaryView"],
+      inputs: ["md"],
+      value: (function(md){return(
+md`## Trip Payments`
+)})
+    },
+    {
+      name: "paymentTypePlot",
+      inputs: ["vl","tripsByPaymentType","width"],
+      value: (function(vl,tripsByPaymentType,width){return(
+vl.markBar().data(tripsByPaymentType).encode(
+  vl.y().fieldO('payment_type').sort({encoding: 'x'}).axis({title: 'Type'}),
+  vl.x().fieldQ('count').axis({title: 'Count'}),
+  vl.tooltip().fieldN('count')
+).width(width - 200).render()
+)})
+    },
+    {
+      inputs: ["md"],
+      value: (function(md){return(
+md`## Trips by Start Time (every 15 minutes)`
+)})
+    },
+    {
+      name: "tripStartTimePlot",
+      inputs: ["Plot","width","tripsByStartTime"],
+      value: (function(Plot,width,tripsByStartTime){return(
+Plot.plot({
+  width: width,
+  height: 320,
+  x: {
+    label: 'time',
+    tickFormat: ''
+  },
+  marks: [
+    Plot.barY(tripsByStartTime, {
+      x: 'trip_start_time', 
+      y: 'count', 
+      fill: 'steelblue',
+      title: d => `${d.trip_start_time.toLocaleTimeString()}: ${d.count.toLocaleString()} trips`
+    })
+  ]
+})
+)})
+    },
+    {
+      inputs: ["md","geoDataTable"],
+      value: (function(md,geoDataTable){return(
+md`## Trip Geo Data Summary (${geoDataTable.totalRows().toLocaleString()} geo located trips)`
+)})
+    },
+    {
+      name: "viewof geoDataSummaryView",
+      inputs: ["SummaryTable","geoDataTable"],
+      value: (function(SummaryTable,geoDataTable){return(
+SummaryTable(geoDataTable.objects(), {label: 'Taxi Trips Data'})
+)})
+    },
+    {
+      name: "geoDataSummaryView",
+      inputs: ["Generators","viewof geoDataSummaryView"],
       value: (G, _) => G.input(_)
     },
     {
+      inputs: ["md","data"],
+      value: (function(md,data){return(
+md`## Trip Data (${data.length.toLocaleString()} trips)`
+)})
+    },
+    {
       name: "viewof tableView",
-      inputs: ["Inputs","dataTable","columns"],
-      value: (function(Inputs,dataTable,columns){return(
-Inputs.table(dataTable, {
+      inputs: ["Inputs","data","columns"],
+      value: (function(Inputs,data,columns){return(
+Inputs.table(data, {
   columns: columns,
   reverse: false
 })
@@ -71,7 +149,7 @@ Inputs.table(dataTable, {
     {
       inputs: ["md"],
       value: (function(md){return(
-md`## Data Queries and Filters`
+md`## Trip Data Queries and Filters`
 )})
     },
     {
@@ -84,8 +162,8 @@ new Date().getFullYear()
       name: "columns",
       value: (function(){return(
 [
-  'trip_start_time',
-  'trip_end_time',
+  'trip_start_timestamp',
+  'trip_end_timestamp',
   'trip_seconds',
   'trip_miles',
   'pickup_community_area',
@@ -130,6 +208,18 @@ await fetch(dataUrl + query).then(data => data.json())
       name: "dataTable",
       inputs: ["aq","data","op"],
       value: (function(aq,data,op){return(
+aq.from(data)
+  .derive({
+    trip_start_time: d => op.parse_date(d.trip_start_timestamp),
+    trip_end_time: d => op.parse_date(d.trip_end_timestamp)
+  })
+  .orderby('trip_start_time')
+)})
+    },
+    {
+      name: "geoDataTable",
+      inputs: ["aq","data","op"],
+      value: (function(aq,data,op){return(
 aq.from(
     data.filter(d => d.trip_miles >= 0 &&
       d['pickup_centroid_latitude'] &&
@@ -142,6 +232,27 @@ aq.from(
     trip_end_time: d => op.parse_date(d.trip_end_timestamp)
   })
   .orderby('trip_start_time')
+)})
+    },
+    {
+      name: "tripsByCompany",
+      inputs: ["dataTable","aq"],
+      value: (function(dataTable,aq){return(
+dataTable.groupby('company').count().orderby(aq.desc('count'))
+)})
+    },
+    {
+      name: "tripsByPaymentType",
+      inputs: ["dataTable"],
+      value: (function(dataTable){return(
+dataTable.groupby('payment_type').count()
+)})
+    },
+    {
+      name: "tripsByStartTime",
+      inputs: ["dataTable"],
+      value: (function(dataTable){return(
+dataTable.groupby('trip_start_time').count()
 )})
     },
     {
@@ -895,7 +1006,7 @@ const m4 = {
 };
 
 const notebook = {
-  id: "db00010d81235f7b@79",
+  id: "db00010d81235f7b@177",
   modules: [m0,m1,m2,m3,m4]
 };
 

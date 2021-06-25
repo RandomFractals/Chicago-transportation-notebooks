@@ -7,11 +7,11 @@
   "publish_level": "public",
   "forks": 0,
   "fork_of": null,
-  "update_time": "2021-06-24T16:38:53.346Z",
+  "update_time": "2021-06-25T17:58:32.133Z",
   "publish_time": "2021-06-24T15:25:34.760Z",
-  "publish_version": 79,
-  "thumbnail": "b40a4ad766562842bd225262483a1b56c15d2639dc4d2a4fa08bf058219018e1",
-  "default_thumbnail": "b40a4ad766562842bd225262483a1b56c15d2639dc4d2a4fa08bf058219018e1",
+  "publish_version": 177,
+  "thumbnail": "e2b28f9a7897228c981fa3fb34485a2d519428c6f664ada033f0a86d5cb0b181",
+  "default_thumbnail": "e2b28f9a7897228c981fa3fb34485a2d519428c6f664ada033f0a86d5cb0b181",
   "roles": [],
   "sharing": null,
   "owner": {
@@ -44,8 +44,32 @@
       "pinned": false,
       "ordered": false,
       "custom_thumbnail": null,
-      "thumbnail": "b40a4ad766562842bd225262483a1b56c15d2639dc4d2a4fa08bf058219018e1",
+      "thumbnail": "e2b28f9a7897228c981fa3fb34485a2d519428c6f664ada033f0a86d5cb0b181",
       "listing_count": 9,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "3a2bf0501500f229",
+      "type": "public",
+      "slug": "plot",
+      "title": "Plot",
+      "description": "Notebooks using new Plot library",
+      "update_time": "2021-06-08T11:51:15.611Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "thumbnail": "5b3e44e84b3e82afdc8d852c1f183c3d8686bbfaa5d3abd2411a926dfbb8997c",
+      "listing_count": 7,
       "parent_collection_count": 0,
       "owner": {
         "id": "17b72db66175b428",
@@ -68,8 +92,32 @@
       "pinned": false,
       "ordered": false,
       "custom_thumbnail": null,
-      "thumbnail": "b40a4ad766562842bd225262483a1b56c15d2639dc4d2a4fa08bf058219018e1",
+      "thumbnail": "e2b28f9a7897228c981fa3fb34485a2d519428c6f664ada033f0a86d5cb0b181",
       "listing_count": 15,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "3bf482fdf6a5e174",
+      "type": "public",
+      "slug": "vega",
+      "title": "Vega",
+      "description": "Random collections of my Vega notebooks in the works",
+      "update_time": "2018-09-13T16:28:32.315Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "e2b28f9a7897228c981fa3fb34485a2d519428c6f664ada033f0a86d5cb0b181",
+      "listing_count": 14,
       "parent_collection_count": 0,
       "owner": {
         "id": "17b72db66175b428",
@@ -86,7 +134,7 @@
   "files": [],
   "comments": [],
   "commenting_lock": null,
-  "version": 79,
+  "version": 177,
   "title": "Chicago Taxi Trips",
   "license": null,
   "copyright": "",
@@ -98,32 +146,80 @@
       "mode": "js"
     },
     {
+      "id": 114,
+      "value": "md`## Trip Date`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
       "id": 52,
       "value": "viewof tripDate = date({\n  title: year, \n  min: `2013-01-01`,\n  max: `${year}-12-31`,\n  value: `2021-05-31`,\n  description: `Select Trip Date`\n})",
       "pinned": false,
       "mode": "js"
     },
     {
-      "id": 6,
-      "value": "md`## Data`",
+      "id": 90,
+      "value": "md`## Serviced by Company`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 82,
+      "value": "tripsByCompanyPlot = vl.markBar()\n  .data(tripsByCompany)\n  .encode(\n    vl.x().fieldO('company').axis({title: 'Company', labelAngle: 30}),\n    vl.y().fieldQ('count').axis({title: 'Count'}),\n    vl.tooltip().fieldN('count')\n  )\n  .height(200)\n  .render()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 101,
+      "value": "md`## Trip Payments`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 104,
+      "value": "paymentTypePlot = vl.markBar().data(tripsByPaymentType).encode(\n  vl.y().fieldO('payment_type').sort({encoding: 'x'}).axis({title: 'Type'}),\n  vl.x().fieldQ('count').axis({title: 'Count'}),\n  vl.tooltip().fieldN('count')\n).width(width - 200).render()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 172,
+      "value": "md`## Trips by Start Time (every 15 minutes)`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 157,
+      "value": "tripStartTimePlot = Plot.plot({\n  width: width,\n  height: 320,\n  x: {\n    label: 'time',\n    tickFormat: ''\n  },\n  marks: [\n    Plot.barY(tripsByStartTime, {\n      x: 'trip_start_time', \n      y: 'count', \n      fill: 'steelblue',\n      title: d => `${d.trip_start_time.toLocaleTimeString()}: ${d.count.toLocaleString()} trips`\n    })\n  ]\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 120,
+      "value": "md`## Trip Geo Data Summary (${geoDataTable.totalRows().toLocaleString()} geo located trips)`",
       "pinned": false,
       "mode": "js"
     },
     {
       "id": 71,
-      "value": "viewof dataSummaryView = SummaryTable(dataTable.objects(), {label: 'Taxi Trips Data'})",
+      "value": "viewof geoDataSummaryView = SummaryTable(geoDataTable.objects(), {label: 'Taxi Trips Data'})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 124,
+      "value": "md`## Trip Data (${data.length.toLocaleString()} trips)`",
       "pinned": false,
       "mode": "js"
     },
     {
       "id": 30,
-      "value": "viewof tableView = Inputs.table(dataTable, {\n  columns: columns,\n  reverse: false\n})",
+      "value": "viewof tableView = Inputs.table(data, {\n  columns: columns,\n  reverse: false\n})",
       "pinned": false,
       "mode": "js"
     },
     {
       "id": 32,
-      "value": "md`## Data Queries and Filters`",
+      "value": "md`## Trip Data Queries and Filters`",
       "pinned": false,
       "mode": "js"
     },
@@ -135,7 +231,7 @@
     },
     {
       "id": 35,
-      "value": "columns = [\n  'trip_start_time',\n  'trip_end_time',\n  'trip_seconds',\n  'trip_miles',\n  'pickup_community_area',\n  'dropoff_community_area',\n  'fare',\n  'tips',\n  'tolls',\n  'extras',\n  'trip_total',\n  'payment_type',\n  'company',\n  'pickup_centroid_latitude',\n  'pickup_centroid_longitude',\n  'dropoff_centroid_latitude',\n  'dropoff_centroid_longitude',\n  'trip_id',\n  'taxi_id'\n]",
+      "value": "columns = [\n  'trip_start_timestamp',\n  'trip_end_timestamp',\n  'trip_seconds',\n  'trip_miles',\n  'pickup_community_area',\n  'dropoff_community_area',\n  'fare',\n  'tips',\n  'tolls',\n  'extras',\n  'trip_total',\n  'payment_type',\n  'company',\n  'pickup_centroid_latitude',\n  'pickup_centroid_longitude',\n  'dropoff_centroid_latitude',\n  'dropoff_centroid_longitude',\n  'trip_id',\n  'taxi_id'\n]",
       "pinned": false,
       "mode": "js"
     },
@@ -159,8 +255,32 @@
     },
     {
       "id": 43,
-      "value": "dataTable = aq.from(\n    data.filter(d => d.trip_miles >= 0 &&\n      d['pickup_centroid_latitude'] &&\n      d['pickup_centroid_longitude'] &&\n      d['dropoff_centroid_latitude'] &&\n      d['dropoff_centroid_longitude'])\n  )\n  .derive({\n    trip_start_time: d => op.parse_date(d.trip_start_timestamp),\n    trip_end_time: d => op.parse_date(d.trip_end_timestamp)\n  })\n  .orderby('trip_start_time')",
+      "value": "dataTable = aq.from(data)\n  .derive({\n    trip_start_time: d => op.parse_date(d.trip_start_timestamp),\n    trip_end_time: d => op.parse_date(d.trip_end_timestamp)\n  })\n  .orderby('trip_start_time')",
       "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 117,
+      "value": "geoDataTable = aq.from(\n    data.filter(d => d.trip_miles >= 0 &&\n      d['pickup_centroid_latitude'] &&\n      d['pickup_centroid_longitude'] &&\n      d['dropoff_centroid_latitude'] &&\n      d['dropoff_centroid_longitude'])\n  )\n  .derive({\n    trip_start_time: d => op.parse_date(d.trip_start_timestamp),\n    trip_end_time: d => op.parse_date(d.trip_end_timestamp)\n  })\n  .orderby('trip_start_time')",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 80,
+      "value": "tripsByCompany = dataTable.groupby('company').count().orderby(aq.desc('count'))",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 98,
+      "value": "tripsByPaymentType = dataTable.groupby('payment_type').count()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 148,
+      "value": "tripsByStartTime = dataTable.groupby('trip_start_time').count()",
+      "pinned": true,
       "mode": "js"
     },
     {
@@ -184,7 +304,7 @@
     {
       "id": 69,
       "value": "import {SummaryTable} from '@observablehq/summary-table'",
-      "pinned": true,
+      "pinned": false,
       "mode": "js"
     }
   ]

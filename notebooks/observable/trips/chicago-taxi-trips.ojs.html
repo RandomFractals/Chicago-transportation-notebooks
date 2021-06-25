@@ -41,6 +41,8 @@ Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?cate
 
 \`
 
+md\`## Trip Date\`
+
 viewof tripDate = date({
   title: year, 
   min: \`2013-01-01\`,
@@ -49,22 +51,63 @@ viewof tripDate = date({
   description: \`Select Trip Date\`
 })
 
-md\`## Data\`
+md\`## Serviced by Company\`
 
-viewof dataSummaryView = SummaryTable(dataTable.objects(), {label: 'Taxi Trips Data'})
+tripsByCompanyPlot = vl.markBar()
+  .data(tripsByCompany)
+  .encode(
+    vl.x().fieldO('company').axis({title: 'Company', labelAngle: 30}),
+    vl.y().fieldQ('count').axis({title: 'Count'}),
+    vl.tooltip().fieldN('count')
+  )
+  .height(200)
+  .render()
 
-viewof tableView = Inputs.table(dataTable, {
+md\`## Trip Payments\`
+
+paymentTypePlot = vl.markBar().data(tripsByPaymentType).encode(
+  vl.y().fieldO('payment_type').sort({encoding: 'x'}).axis({title: 'Type'}),
+  vl.x().fieldQ('count').axis({title: 'Count'}),
+  vl.tooltip().fieldN('count')
+).width(width - 200).render()
+
+md\`## Trips by Start Time (every 15 minutes)\`
+
+tripStartTimePlot = Plot.plot({
+  width: width,
+  height: 320,
+  x: {
+    label: 'time',
+    tickFormat: ''
+  },
+  marks: [
+    Plot.barY(tripsByStartTime, {
+      x: 'trip_start_time', 
+      y: 'count', 
+      fill: 'steelblue',
+      title: d => \`\${d.trip_start_time.toLocaleTimeString()}: \${d.count.toLocaleString()} trips\`
+    })
+  ]
+})
+
+md\`## Trip Geo Data Summary (\${geoDataTable.totalRows().toLocaleString()} geo located trips)\`
+
+viewof geoDataSummaryView = SummaryTable(geoDataTable.objects(), {label: 'Taxi Trips Data'})
+
+md\`## Trip Data (\${data.length.toLocaleString()} trips)\`
+
+viewof tableView = Inputs.table(data, {
   columns: columns,
   reverse: false
 })
 
-md\`## Data Queries and Filters\`
+md\`## Trip Data Queries and Filters\`
 
 year = new Date().getFullYear()
 
 columns = [
-  'trip_start_time',
-  'trip_end_time',
+  'trip_start_timestamp',
+  'trip_end_timestamp',
   'trip_seconds',
   'trip_miles',
   'pickup_community_area',
@@ -90,7 +133,14 @@ query = \`?\$limit=15000&\$where=trip_start_timestamp between '\${tripDate}T00:0
 
 data = await fetch(dataUrl + query).then(data => data.json())
 
-dataTable = aq.from(
+dataTable = aq.from(data)
+  .derive({
+    trip_start_time: d => op.parse_date(d.trip_start_timestamp),
+    trip_end_time: d => op.parse_date(d.trip_end_timestamp)
+  })
+  .orderby('trip_start_time')
+
+geoDataTable = aq.from(
     data.filter(d => d.trip_miles >= 0 &&
       d['pickup_centroid_latitude'] &&
       d['pickup_centroid_longitude'] &&
@@ -103,13 +153,20 @@ dataTable = aq.from(
   })
   .orderby('trip_start_time')
 
+tripsByCompany = dataTable.groupby('company').count().orderby(aq.desc('count'))
+
+tripsByPaymentType = dataTable.groupby('payment_type').count()
+
+tripsByStartTime = dataTable.groupby('trip_start_time').count()
+
 md\`## Imports\`
 
 import {date} from '@jashkenas/inputs'
 
 import { aq, op } from '@uwdata/arquero'
 
-import {SummaryTable} from '@observablehq/summary-table'`)
+import {SummaryTable} from '@observablehq/summary-table'
+`)
             ;
 
         doResize();
