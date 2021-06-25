@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hpcc-js/common/font-awesome/css/font-awesome.min.css">
+    <style>
+    body {
+        padding: 0px;
+        margin: 8px;
+        background: white;
+        color: black;
+    }
+    #placeholder {
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        right: 8px;
+        bottom: 8px;
+    }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@hpcc-js/observable-md/dist/index.full.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var omdMod = window["@hpcc-js/observable-md"]
+    </script>
+
+</head>
+
+<body onresize="doResize()">
+    <div id="placeholder">
+    </div>
+    <script>
+        var app = new omdMod.Observable()
+            .target("placeholder")
+            .showValues(true)
+            .mode("ojs")
+            .text(`md\`# Chicago Taxi Trips
+
+Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Taxi Trips](https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew)
+
+\`
+
+viewof tripDate = date({
+  title: year, 
+  min: \`2013-01-01\`,
+  max: \`\${year}-12-31\`,
+  value: \`2021-05-31\`,
+  description: \`Select Trip Date\`
+})
+
+md\`## Data\`
+
+viewof dataSummaryView = SummaryTable(dataTable.objects(), {label: 'Taxi Trips Data'})
+
+viewof tableView = Inputs.table(dataTable, {
+  columns: columns,
+  reverse: false
+})
+
+md\`## Data Queries and Filters\`
+
+year = new Date().getFullYear()
+
+columns = [
+  'trip_start_time',
+  'trip_end_time',
+  'trip_seconds',
+  'trip_miles',
+  'pickup_community_area',
+  'dropoff_community_area',
+  'fare',
+  'tips',
+  'tolls',
+  'extras',
+  'trip_total',
+  'payment_type',
+  'company',
+  'pickup_centroid_latitude',
+  'pickup_centroid_longitude',
+  'dropoff_centroid_latitude',
+  'dropoff_centroid_longitude',
+  'trip_id',
+  'taxi_id'
+]
+
+dataUrl = 'https://data.cityofchicago.org/resource/wrvz-psew.json'
+
+query = \`?\$limit=15000&\$where=trip_start_timestamp between '\${tripDate}T00:00:00' and '\${tripDate}T23:59:59'\`
+
+data = await fetch(dataUrl + query).then(data => data.json())
+
+dataTable = aq.from(
+    data.filter(d => d.trip_miles >= 0 &&
+      d['pickup_centroid_latitude'] &&
+      d['pickup_centroid_longitude'] &&
+      d['dropoff_centroid_latitude'] &&
+      d['dropoff_centroid_longitude'])
+  )
+  .derive({
+    trip_start_time: d => op.parse_date(d.trip_start_timestamp),
+    trip_end_time: d => op.parse_date(d.trip_end_timestamp)
+  })
+  .orderby('trip_start_time')
+
+md\`## Imports\`
+
+import {date} from '@jashkenas/inputs'
+
+import { aq, op } from '@uwdata/arquero'
+
+import {SummaryTable} from '@observablehq/summary-table'`)
+            ;
+
+        doResize();
+
+        function doResize() {
+        if (app) {
+            app
+                .resize()
+                .lazyRender()
+                ;
+        }
+    }
+    </script>
+</body>
+
+</html>

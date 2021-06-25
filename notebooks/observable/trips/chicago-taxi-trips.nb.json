@@ -1,0 +1,191 @@
+{
+  "id": "db00010d81235f7b",
+  "slug": "chicago-taxi-trips",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "public",
+  "forks": 0,
+  "fork_of": null,
+  "update_time": "2021-06-24T16:38:53.346Z",
+  "publish_time": "2021-06-24T15:25:34.760Z",
+  "publish_version": 79,
+  "thumbnail": "b40a4ad766562842bd225262483a1b56c15d2639dc4d2a4fa08bf058219018e1",
+  "default_thumbnail": "b40a4ad766562842bd225262483a1b56c15d2639dc4d2a4fa08bf058219018e1",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak",
+    "type": "individual"
+  },
+  "creator": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak"
+  },
+  "collections": [
+    {
+      "id": "c30622739accf157",
+      "type": "public",
+      "slug": "arquero",
+      "title": "Arquero",
+      "description": "Notebooks using Arquero JS library for manipulating data.",
+      "update_time": "2021-06-08T11:51:29.570Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "b40a4ad766562842bd225262483a1b56c15d2639dc4d2a4fa08bf058219018e1",
+      "listing_count": 9,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "cf858224d6488195",
+      "type": "public",
+      "slug": "transportation",
+      "title": "Transportation",
+      "description": "Public transportation notebooks",
+      "update_time": "2021-06-04T03:34:03.975Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "b40a4ad766562842bd225262483a1b56c15d2639dc4d2a4fa08bf058219018e1",
+      "listing_count": 15,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "version": 79,
+  "title": "Chicago Taxi Trips",
+  "license": null,
+  "copyright": "",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "md`# Chicago Taxi Trips\n\nData Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Taxi Trips](https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew)\n\n`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 52,
+      "value": "viewof tripDate = date({\n  title: year, \n  min: `2013-01-01`,\n  max: `${year}-12-31`,\n  value: `2021-05-31`,\n  description: `Select Trip Date`\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 6,
+      "value": "md`## Data`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 71,
+      "value": "viewof dataSummaryView = SummaryTable(dataTable.objects(), {label: 'Taxi Trips Data'})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 30,
+      "value": "viewof tableView = Inputs.table(dataTable, {\n  columns: columns,\n  reverse: false\n})",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 32,
+      "value": "md`## Data Queries and Filters`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 14,
+      "value": "year = new Date().getFullYear()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 35,
+      "value": "columns = [\n  'trip_start_time',\n  'trip_end_time',\n  'trip_seconds',\n  'trip_miles',\n  'pickup_community_area',\n  'dropoff_community_area',\n  'fare',\n  'tips',\n  'tolls',\n  'extras',\n  'trip_total',\n  'payment_type',\n  'company',\n  'pickup_centroid_latitude',\n  'pickup_centroid_longitude',\n  'dropoff_centroid_latitude',\n  'dropoff_centroid_longitude',\n  'trip_id',\n  'taxi_id'\n]",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 17,
+      "value": "dataUrl = 'https://data.cityofchicago.org/resource/wrvz-psew.json'",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 19,
+      "value": "query = `?$limit=15000&$where=trip_start_timestamp between '${tripDate}T00:00:00' and '${tripDate}T23:59:59'`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 28,
+      "value": "data = await fetch(dataUrl + query).then(data => data.json())",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 43,
+      "value": "dataTable = aq.from(\n    data.filter(d => d.trip_miles >= 0 &&\n      d['pickup_centroid_latitude'] &&\n      d['pickup_centroid_longitude'] &&\n      d['dropoff_centroid_latitude'] &&\n      d['dropoff_centroid_longitude'])\n  )\n  .derive({\n    trip_start_time: d => op.parse_date(d.trip_start_timestamp),\n    trip_end_time: d => op.parse_date(d.trip_end_timestamp)\n  })\n  .orderby('trip_start_time')",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 9,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 49,
+      "value": "import {date} from '@jashkenas/inputs'",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 12,
+      "value": "import { aq, op } from '@uwdata/arquero'",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 69,
+      "value": "import {SummaryTable} from '@observablehq/summary-table'",
+      "pinned": true,
+      "mode": "js"
+    }
+  ]
+}
