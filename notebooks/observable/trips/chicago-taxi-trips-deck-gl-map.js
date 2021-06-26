@@ -1,11 +1,11 @@
 // URL: https://observablehq.com/@randomfractals/chicago-taxi-trips-deck-gl-map
 // Title: Chicago Taxi Trips Deck.gl Map
 // Author: Taras Novak (@randomfractals)
-// Version: 274
+// Version: 335
 // Runtime version: 1
 
 const m0 = {
-  id: "4090a7cad3ce156d@274",
+  id: "4090a7cad3ce156d@335",
   variables: [
     {
       inputs: ["md"],
@@ -19,9 +19,9 @@ Trips Map Info: https://deck.gl/examples/trips-layer/
 )})
     },
     {
-      inputs: ["md","geoDataTable"],
-      value: (function(md,geoDataTable){return(
-md`## ${geoDataTable.totalRows().toLocaleString()} geo located trips`
+      inputs: ["md","geoDataTable","geoTrips"],
+      value: (function(md,geoDataTable,geoTrips){return(
+md`## ${geoDataTable.totalRows().toLocaleString()} geo located trips | ${geoTrips.totalRows().toLocaleString()} unique routes`
 )})
     },
     {
@@ -59,6 +59,26 @@ html `<div style="height:${width*.9 - 50}px">
       value: (function(md){return(
 md`TODO: add trips layer`
 )})
+    },
+    {
+      name: "trafficPathsLayer",
+      inputs: ["deck","tripPaths"],
+      value: (function(deck,tripPaths)
+{
+  const tripPathsLayer = new deck.PathLayer({
+    id: 'tripPathsLayer',
+    data: tripPaths.objects(),
+    opacity: 0.2,
+    pickable: true,
+    widthScale: 20,
+    widthMinPixels: 2,
+    getColor: d => d.color,
+    getPath: d => d.path
+  });
+  // deckgl.setProps({layers: [tripPathsLayer]});
+  return tripPathsLayer;
+}
+)
     },
     {
       inputs: ["md","data"],
@@ -155,6 +175,104 @@ aq.from(
     trip_end_time: d => op.parse_date(d.trip_end_timestamp)
   })
   .orderby('trip_start_time')
+)})
+    },
+    {
+      name: "tripStartLocations",
+      inputs: ["geoDataTable"],
+      value: (function(geoDataTable){return(
+geoDataTable.select('pickup_centroid_latitude', 'pickup_centroid_longitude')
+  .rename({
+    pickup_centroid_latitude: 'latitude', 
+    pickup_centroid_longitude: 'longitude'
+  })
+  .groupby('latitude', 'longitude')
+)})
+    },
+    {
+      name: "tripEndLocations",
+      inputs: ["geoDataTable"],
+      value: (function(geoDataTable){return(
+geoDataTable.select('dropoff_centroid_latitude', 'dropoff_centroid_longitude')
+  .rename({
+    dropoff_centroid_latitude: 'latitude', 
+    dropoff_centroid_longitude: 'longitude'
+  })
+  .groupby('latitude', 'longitude')
+)})
+    },
+    {
+      name: "geoLocations",
+      inputs: ["tripStartLocations","tripEndLocations"],
+      value: (function(tripStartLocations,tripEndLocations){return(
+tripStartLocations.union(tripEndLocations)
+)})
+    },
+    {
+      name: "tripRoutes",
+      inputs: ["geoDataTable"],
+      value: (function(geoDataTable){return(
+geoDataTable.select(
+    'pickup_centroid_latitude', 
+    'pickup_centroid_longitude',
+    'dropoff_centroid_latitude', 
+    'dropoff_centroid_longitude'
+  )
+  .rename({
+    pickup_centroid_latitude: 'start_latitude',
+    pickup_centroid_longitude: 'start_longitude',
+    dropoff_centroid_latitude: 'end_latitude',
+    dropoff_centroid_longitude: 'end_longitude',    
+  })
+)})
+    },
+    {
+      name: "startEndGeoTrips",
+      inputs: ["tripRoutes"],
+      value: (function(tripRoutes){return(
+tripRoutes.union(tripRoutes)
+)})
+    },
+    {
+      name: "reversedGeoTrips",
+      inputs: ["startEndGeoTrips"],
+      value: (function(startEndGeoTrips){return(
+startEndGeoTrips
+  .rename({
+    end_latitude: 'start_latitude',
+    end_longitude: 'start_longitude',
+    start_latitude: 'end_latitude',
+    start_longitude: 'end_longitude',    
+  })
+)})
+    },
+    {
+      name: "geoTrips",
+      inputs: ["startEndGeoTrips","reversedGeoTrips"],
+      value: (function(startEndGeoTrips,reversedGeoTrips){return(
+startEndGeoTrips.join(reversedGeoTrips)
+)})
+    },
+    {
+      name: "tripWaypoints",
+      inputs: ["geoTrips"],
+      value: (function(geoTrips){return(
+geoTrips.derive({
+  turn_latitude: d => d.start_latitude,
+  turn_longitude: d => d.end_longitude
+})
+)})
+    },
+    {
+      name: "tripPaths",
+      inputs: ["tripWaypoints","op"],
+      value: (function(tripWaypoints,op){return(
+tripWaypoints.derive({
+  path: d=> [[op.parse_float(d.start_longitude), op.parse_float(d.start_latitude)], 
+             [op.parse_float(d.turn_longitude), op.parse_float(d.turn_latitude)], 
+             [op.parse_float(d.end_longitude), op.parse_float(d.end_latitude)]],
+  color: [0, 124, 0]
+})
 )})
     },
     {
@@ -464,7 +582,7 @@ aq.op
 };
 
 const notebook = {
-  id: "4090a7cad3ce156d@274",
+  id: "4090a7cad3ce156d@335",
   modules: [m0,m1,m2]
 };
 

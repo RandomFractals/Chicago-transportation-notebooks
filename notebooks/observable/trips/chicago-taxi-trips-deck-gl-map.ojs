@@ -5,7 +5,7 @@ Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?cate
 Trips Map Info: https://deck.gl/examples/trips-layer/
 `
 
-md`## ${geoDataTable.totalRows().toLocaleString()} geo located trips`
+md`## ${geoDataTable.totalRows().toLocaleString()} geo located trips | ${geoTrips.totalRows().toLocaleString()} unique routes`
 
 viewof tripDate = date({
   title: year, 
@@ -23,6 +23,21 @@ mapContainer = html `<div style="height:${width*.9 - 50}px">
 </div>`
 
 md`TODO: add trips layer`
+
+trafficPathsLayer = {
+  const tripPathsLayer = new deck.PathLayer({
+    id: 'tripPathsLayer',
+    data: tripPaths.objects(),
+    opacity: 0.2,
+    pickable: true,
+    widthScale: 20,
+    widthMinPixels: 2,
+    getColor: d => d.color,
+    getPath: d => d.path
+  });
+  // deckgl.setProps({layers: [tripPathsLayer]});
+  return tripPathsLayer;
+}
 
 md`## Trip Data (${data.length.toLocaleString()} trips)`
 
@@ -75,6 +90,59 @@ geoDataTable = aq.from(
     trip_end_time: d => op.parse_date(d.trip_end_timestamp)
   })
   .orderby('trip_start_time')
+
+tripStartLocations = geoDataTable.select('pickup_centroid_latitude', 'pickup_centroid_longitude')
+  .rename({
+    pickup_centroid_latitude: 'latitude', 
+    pickup_centroid_longitude: 'longitude'
+  })
+  .groupby('latitude', 'longitude')
+
+tripEndLocations = geoDataTable.select('dropoff_centroid_latitude', 'dropoff_centroid_longitude')
+  .rename({
+    dropoff_centroid_latitude: 'latitude', 
+    dropoff_centroid_longitude: 'longitude'
+  })
+  .groupby('latitude', 'longitude')
+
+geoLocations = tripStartLocations.union(tripEndLocations)
+
+tripRoutes = geoDataTable.select(
+    'pickup_centroid_latitude', 
+    'pickup_centroid_longitude',
+    'dropoff_centroid_latitude', 
+    'dropoff_centroid_longitude'
+  )
+  .rename({
+    pickup_centroid_latitude: 'start_latitude',
+    pickup_centroid_longitude: 'start_longitude',
+    dropoff_centroid_latitude: 'end_latitude',
+    dropoff_centroid_longitude: 'end_longitude',    
+  })
+
+startEndGeoTrips = tripRoutes.union(tripRoutes)
+
+reversedGeoTrips = startEndGeoTrips
+  .rename({
+    end_latitude: 'start_latitude',
+    end_longitude: 'start_longitude',
+    start_latitude: 'end_latitude',
+    start_longitude: 'end_longitude',    
+  })
+
+geoTrips = startEndGeoTrips.join(reversedGeoTrips)
+
+tripWaypoints = geoTrips.derive({
+  turn_latitude: d => d.start_latitude,
+  turn_longitude: d => d.end_longitude
+})
+
+tripPaths = tripWaypoints.derive({
+  path: d=> [[op.parse_float(d.start_longitude), op.parse_float(d.start_latitude)], 
+             [op.parse_float(d.turn_longitude), op.parse_float(d.turn_latitude)], 
+             [op.parse_float(d.end_longitude), op.parse_float(d.end_latitude)]],
+  color: [0, 124, 0]
+})
 
 tripsByCompany = geoDataTable.groupby('company').count().orderby(aq.desc('count'))
 
