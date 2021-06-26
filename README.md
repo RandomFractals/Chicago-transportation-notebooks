@@ -18,6 +18,7 @@ Demo notebooks using public city of [Chicago Transportation datasets](https://da
 - [Chicago Public Passenger Vehicles](https://observablehq.com/@randomfractals/chicago-public-passenger-vehicles)
 - [Chicago Public Chauffeurs](https://observablehq.com/@randomfractals/chicago-public-chauffeurs)
 - [Chicago Taxi Trips](https://observablehq.com/@randomfractals/chicago-taxi-trips)
+- [Chicago Taxi Trips Deck.gl Map](https://observablehq.com/@randomfractals/chicago-taxi-trips-deck-gl-map)
 
 ## JS Notebook 📓 Inspector 🕵️ Views
 
