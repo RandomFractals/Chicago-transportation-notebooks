@@ -32,7 +32,7 @@ You can use my [JS Notebook Inspector 🕵️](https://marketplace.visualstudio.
 ![Notebook 📓 View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-taxi-trips-grid-map-notebook-view.png?raw=true 
  "JS Notebook 📓 View")
 
-### Notebook Info Graph ⎇ View
+### [Notebook 📓 Info Graph ⎇ View](https://observablehq.com/@randomfractals/notebook-info)
 
 ![Notebook 📓 Info Graph ⎇ View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-notebook-info-graph.png?raw=true 
  "Notebook 📓 Info Graph ⎇ View")
