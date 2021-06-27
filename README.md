@@ -1,7 +1,7 @@
 # Chicago Transportation Notebooks
 Demo notebooks using public city of [Chicago Transportation datasets](https://data.cityofchicago.org/browse?category=Transportation).
 
-## Observable JS Notebooks 📚
+## [Observable JS Notebooks 📚](https://observablehq.com/collection/@randomfractals/transportation)
 
 ![Chicago Transportation Notebooks 📚 Collection](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-transportation-notebooks-collection.png?raw=true 
  "Chicago Transportation Notebooks 📚 Collection")
