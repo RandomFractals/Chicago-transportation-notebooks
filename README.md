@@ -25,11 +25,11 @@ Demo notebooks using public city of [Chicago Transportation datasets](https://da
 
 ## JS Notebook 📓 Inspector 🕵️ Views
 
-You can use my [JS Notebook Inspector](https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.js-notebook-inspector) extension to load them in VSCode:
+You can use my [JS Notebook Inspector 🕵️](https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.js-notebook-inspector) extension to load them in VSCode:
 
 ### Notebook View 📓
 
-![Notebook 📓 View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-notebook-view.png?raw=true 
+![Notebook 📓 View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-taxi-trips-grid-map-notebook-view.png?raw=true 
  "JS Notebook 📓 View")
 
 ### Notebook Info Graph ⎇ View
