@@ -22,11 +22,11 @@
     },
     "version": 203
   },
-  "update_time": "2021-06-27T03:04:28.263Z",
+  "update_time": "2021-06-27T12:38:52.813Z",
   "publish_time": "2021-06-26T02:02:38.867Z",
-  "publish_version": 384,
-  "thumbnail": "084039f552dcc7a3bd6a5507823690577ecbff1eed748ca63f44102482c17d45",
-  "default_thumbnail": "084039f552dcc7a3bd6a5507823690577ecbff1eed748ca63f44102482c17d45",
+  "publish_version": 396,
+  "thumbnail": "dab002ad947d8850b594929d50deeada42c263539d03bcc4d8ec8addefb8669e",
+  "default_thumbnail": "dab002ad947d8850b594929d50deeada42c263539d03bcc4d8ec8addefb8669e",
   "roles": [],
   "sharing": null,
   "owner": {
@@ -83,7 +83,7 @@
       "pinned": false,
       "ordered": false,
       "custom_thumbnail": null,
-      "thumbnail": "084039f552dcc7a3bd6a5507823690577ecbff1eed748ca63f44102482c17d45",
+      "thumbnail": "dab002ad947d8850b594929d50deeada42c263539d03bcc4d8ec8addefb8669e",
       "listing_count": 10,
       "parent_collection_count": 0,
       "owner": {
@@ -107,8 +107,32 @@
       "pinned": false,
       "ordered": false,
       "custom_thumbnail": null,
-      "thumbnail": "084039f552dcc7a3bd6a5507823690577ecbff1eed748ca63f44102482c17d45",
+      "thumbnail": "dab002ad947d8850b594929d50deeada42c263539d03bcc4d8ec8addefb8669e",
       "listing_count": 16,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "cc3985e6b82c86b0",
+      "type": "public",
+      "slug": "maps",
+      "title": "Maps",
+      "description": "Various Maps",
+      "update_time": "2018-09-28T13:20:05.815Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "thumbnail": "dab002ad947d8850b594929d50deeada42c263539d03bcc4d8ec8addefb8669e",
+      "listing_count": 17,
       "parent_collection_count": 0,
       "owner": {
         "id": "17b72db66175b428",
@@ -125,14 +149,14 @@
   "files": [],
   "comments": [],
   "commenting_lock": null,
-  "version": 384,
+  "version": 396,
   "title": "Chicago Taxi Trips Deck.gl Map",
   "license": null,
   "copyright": "",
   "nodes": [
     {
       "id": 0,
-      "value": "md`# Chicago Taxi Trips Deck.gl Map\n\nData Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Taxi Trips](https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew)\n\nTrips Map Info: https://deck.gl/examples/trips-layer/\n`",
+      "value": "md`# Chicago Taxi Trips Deck.gl Map\n\nData Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Taxi Trips](https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew)\n\nGrid Map Info: https://deck.gl/examples/screen-grid-layer\n`",
       "pinned": false,
       "mode": "js"
     },
@@ -162,7 +186,7 @@
     },
     {
       "id": 345,
-      "value": "tripLocationsGridLayer = {\n  const tripLocationsGridLayer = new deck.ScreenGridLayer({\n    id: 'tripsGridLayer',\n    data: tripLocations.objects(),\n    opacity: 0.8,\n    pickable: true,\n    cellSizePixels: 50,\n    colorRange: [\n      [0, 25, 0, 25],\n      [0, 85, 0, 85],\n      [0, 127, 0, 127],\n      [0, 170, 0, 170],\n      [0, 190, 0, 190],\n      [0, 255, 0, 255]\n    ],\n    getPosition: d => [Number(d.longitude), Number(d.latitude)],\n    getWeight: d => d.count,\n    onHover: onHover\n  });\n  deckgl.setProps({layers: [tripLocationsGridLayer]});\n  return tripLocationsGridLayer;\n}",
+      "value": "tripLocationsGridLayer = {\n  const tripLocationsGridLayer = new deck.ScreenGridLayer({\n    id: 'tripsGridLayer',\n    data: tripLocations.objects(),\n    opacity: 0.2,\n    pickable: true,\n    cellSizePixels: 50,\n    colorRange: colorRange,\n    getPosition: d => [Number(d.longitude), Number(d.latitude)],\n    getWeight: d => d.count,\n    onHover: onHover\n  });\n  deckgl.setProps({layers: [tripLocationsGridLayer]});\n  return tripLocationsGridLayer;\n}",
       "pinned": false,
       "mode": "js"
     },
@@ -258,19 +282,19 @@
     },
     {
       "id": 298,
-      "value": "startEndGeoTrips = tripRoutes.union(tripRoutes)",
+      "value": "forwardGeoTrips = tripRoutes.union(tripRoutes)",
       "pinned": false,
       "mode": "js"
     },
     {
       "id": 304,
-      "value": "reversedGeoTrips = startEndGeoTrips\n  .rename({\n    end_latitude: 'start_latitude',\n    end_longitude: 'start_longitude',\n    start_latitude: 'end_latitude',\n    start_longitude: 'end_longitude',    \n  })",
+      "value": "reversedGeoTrips = forwardGeoTrips\n  .rename({\n    end_latitude: 'start_latitude',\n    end_longitude: 'start_longitude',\n    start_latitude: 'end_latitude',\n    start_longitude: 'end_longitude',    \n  })",
       "pinned": false,
       "mode": "js"
     },
     {
       "id": 311,
-      "value": "geoTrips = startEndGeoTrips.join(reversedGeoTrips)",
+      "value": "geoTrips = forwardGeoTrips.join(reversedGeoTrips)",
       "pinned": false,
       "mode": "js"
     },
@@ -311,6 +335,12 @@
       "mode": "js"
     },
     {
+      "id": 385,
+      "value": "colorRange = {\n  return [\n    [1, 152, 189],\n    [73, 227, 206],\n    [216, 254, 181],\n    [254, 237, 177],\n    [254, 173, 84],\n    [209, 55, 78]\n  ];\n}",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
       "id": 356,
       "value": "tooltip = mapContainer.querySelector('#tooltip')",
       "pinned": false,
@@ -318,7 +348,7 @@
     },
     {
       "id": 362,
-      "value": "function onHover (info) {\n  const data = info.object;\n  if (data) {\n    tooltip.style.left = `${info.x}px`;\n    tooltip.style.top = `${info.y}px`;\n    tooltip.innerHTML = `<b>${data.cellWeight.toLocaleString()} trips to/from this location</b>`;\n  } else { \n    tooltip.innerHTML = '';\n  }\n}",
+      "value": "function onHover (info) {\n  const data = info.object;\n  if (data) {\n    tooltip.style.left = `${info.x}px`;\n    tooltip.style.top = `${info.y}px`;\n    tooltip.innerHTML = `<b>${data.cellWeight.toLocaleString()} trips to/from this grid block</b>`;\n  } else { \n    tooltip.innerHTML = '';\n  }\n}",
       "pinned": false,
       "mode": "js"
     },

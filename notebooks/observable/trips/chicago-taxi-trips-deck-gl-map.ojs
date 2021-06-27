@@ -2,7 +2,7 @@ md`# Chicago Taxi Trips Deck.gl Map
 
 Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Taxi Trips](https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew)
 
-Trips Map Info: https://deck.gl/examples/trips-layer/
+Grid Map Info: https://deck.gl/examples/screen-grid-layer
 `
 
 md`## ${geoDataTable.totalRows().toLocaleString()} geo located trips | ${geoTrips.totalRows().toLocaleString()} routes | ${tripLocations.totalRows().toLocaleString()} locations`
@@ -28,17 +28,10 @@ tripLocationsGridLayer = {
   const tripLocationsGridLayer = new deck.ScreenGridLayer({
     id: 'tripsGridLayer',
     data: tripLocations.objects(),
-    opacity: 0.8,
+    opacity: 0.2,
     pickable: true,
     cellSizePixels: 50,
-    colorRange: [
-      [0, 25, 0, 25],
-      [0, 85, 0, 85],
-      [0, 127, 0, 127],
-      [0, 170, 0, 170],
-      [0, 190, 0, 190],
-      [0, 255, 0, 255]
-    ],
+    colorRange: colorRange,
     getPosition: d => [Number(d.longitude), Number(d.latitude)],
     getWeight: d => d.count,
     onHover: onHover
@@ -147,9 +140,9 @@ tripRoutes = geoDataTable.select(
     dropoff_centroid_longitude: 'end_longitude',    
   })
 
-startEndGeoTrips = tripRoutes.union(tripRoutes)
+forwardGeoTrips = tripRoutes.union(tripRoutes)
 
-reversedGeoTrips = startEndGeoTrips
+reversedGeoTrips = forwardGeoTrips
   .rename({
     end_latitude: 'start_latitude',
     end_longitude: 'start_longitude',
@@ -157,7 +150,7 @@ reversedGeoTrips = startEndGeoTrips
     start_longitude: 'end_longitude',    
   })
 
-geoTrips = startEndGeoTrips.join(reversedGeoTrips)
+geoTrips = forwardGeoTrips.join(reversedGeoTrips)
 
 tripWaypoints = geoTrips.derive({
   turn_latitude: d => d.start_latitude,
@@ -197,6 +190,17 @@ deckgl = {
   });
 }
 
+colorRange = {
+  return [
+    [1, 152, 189],
+    [73, 227, 206],
+    [216, 254, 181],
+    [254, 237, 177],
+    [254, 173, 84],
+    [209, 55, 78]
+  ];
+}
+
 tooltip = mapContainer.querySelector('#tooltip')
 
 function onHover (info) {
@@ -204,7 +208,7 @@ function onHover (info) {
   if (data) {
     tooltip.style.left = `${info.x}px`;
     tooltip.style.top = `${info.y}px`;
-    tooltip.innerHTML = `<b>${data.cellWeight.toLocaleString()} trips to/from this location</b>`;
+    tooltip.innerHTML = `<b>${data.cellWeight.toLocaleString()} trips to/from this grid block</b>`;
   } else { 
     tooltip.innerHTML = '';
   }
