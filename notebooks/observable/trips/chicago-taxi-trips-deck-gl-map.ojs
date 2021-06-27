@@ -5,7 +5,7 @@ Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?cate
 Trips Map Info: https://deck.gl/examples/trips-layer/
 `
 
-md`## ${geoDataTable.totalRows().toLocaleString()} geo located trips | ${geoTrips.totalRows().toLocaleString()} unique routes`
+md`## ${geoDataTable.totalRows().toLocaleString()} geo located trips | ${geoTrips.totalRows().toLocaleString()} routes | ${tripLocations.totalRows().toLocaleString()} locations`
 
 viewof tripDate = date({
   title: year, 
@@ -24,7 +24,30 @@ mapContainer = html `<div style="height:${width*.9 - 50}px">
 
 md`TODO: add trips layer`
 
-trafficPathsLayer = {
+tripLocationsGridLayer = {
+  const tripLocationsGridLayer = new deck.ScreenGridLayer({
+    id: 'tripsGridLayer',
+    data: tripLocations.objects(),
+    opacity: 0.8,
+    pickable: true,
+    cellSizePixels: 50,
+    colorRange: [
+      [0, 25, 0, 25],
+      [0, 85, 0, 85],
+      [0, 127, 0, 127],
+      [0, 170, 0, 170],
+      [0, 190, 0, 190],
+      [0, 255, 0, 255]
+    ],
+    getPosition: d => [Number(d.longitude), Number(d.latitude)],
+    getWeight: d => d.count,
+    onHover: onHover
+  });
+  deckgl.setProps({layers: [tripLocationsGridLayer]});
+  return tripLocationsGridLayer;
+}
+
+tripPathsLayer = {
   const tripPathsLayer = new deck.PathLayer({
     id: 'tripPathsLayer',
     data: tripPaths.objects(),
@@ -97,6 +120,7 @@ tripStartLocations = geoDataTable.select('pickup_centroid_latitude', 'pickup_cen
     pickup_centroid_longitude: 'longitude'
   })
   .groupby('latitude', 'longitude')
+  .count()
 
 tripEndLocations = geoDataTable.select('dropoff_centroid_latitude', 'dropoff_centroid_longitude')
   .rename({
@@ -104,6 +128,9 @@ tripEndLocations = geoDataTable.select('dropoff_centroid_latitude', 'dropoff_cen
     dropoff_centroid_longitude: 'longitude'
   })
   .groupby('latitude', 'longitude')
+  .count()
+
+tripLocations = tripStartLocations.concat(tripEndLocations)
 
 geoLocations = tripStartLocations.union(tripEndLocations)
 
@@ -156,11 +183,11 @@ deckgl = {
     map: mapboxgl,
     mapboxAccessToken: '',
     mapboxApiAccessToken: 'pk.eyJ1IjoiZGF0YXBpeHkiLCJhIjoiY2tnM3ZhZWJjMDE1ajJxbGY1eTNlemduciJ9.YZ9CJEza0hvAQmTRBhubmQ',
-    mapStyle: 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json',
+    mapStyle: 'https://api.maptiler.com/maps/toner/style.json?key=bMizIsuAeRiZikCLHO9q',
     initialViewState: {
       latitude: 41.88,
       longitude: -87.65,
-      zoom: 13,
+      zoom: 10,
       minZoom: 8,
       maxZoom: 15,
       pitch: 0,
@@ -169,6 +196,40 @@ deckgl = {
     controller: true
   });
 }
+
+tooltip = mapContainer.querySelector('#tooltip')
+
+function onHover (info) {
+  const data = info.object;
+  if (data) {
+    tooltip.style.left = `${info.x}px`;
+    tooltip.style.top = `${info.y}px`;
+    tooltip.innerHTML = `<b>${data.cellWeight.toLocaleString()} trips to/from this location</b>`;
+  } else { 
+    tooltip.innerHTML = '';
+  }
+}
+
+tooltipStyle = html `
+<style>
+#tooltip:empty {
+  display: none;
+}
+#tooltip {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  position: absolute;
+  padding: 4px;
+  margin: 8px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  max-width: 300px;
+  z-index: 9;
+  pointer-events: none;
+}
+</style>
+`
 
 html`<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css' rel='stylesheet' />
 mapbox-gl.css`

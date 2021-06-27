@@ -22,11 +22,11 @@
     },
     "version": 203
   },
-  "update_time": "2021-06-26T21:09:46.700Z",
+  "update_time": "2021-06-27T03:04:28.263Z",
   "publish_time": "2021-06-26T02:02:38.867Z",
-  "publish_version": 335,
-  "thumbnail": "f12aa1c39d5c5d2a4c675c6d647407d99a2923251e54ec80f2fc8433c37de9cd",
-  "default_thumbnail": "f12aa1c39d5c5d2a4c675c6d647407d99a2923251e54ec80f2fc8433c37de9cd",
+  "publish_version": 384,
+  "thumbnail": "084039f552dcc7a3bd6a5507823690577ecbff1eed748ca63f44102482c17d45",
+  "default_thumbnail": "084039f552dcc7a3bd6a5507823690577ecbff1eed748ca63f44102482c17d45",
   "roles": [],
   "sharing": null,
   "owner": {
@@ -83,7 +83,7 @@
       "pinned": false,
       "ordered": false,
       "custom_thumbnail": null,
-      "thumbnail": "f12aa1c39d5c5d2a4c675c6d647407d99a2923251e54ec80f2fc8433c37de9cd",
+      "thumbnail": "084039f552dcc7a3bd6a5507823690577ecbff1eed748ca63f44102482c17d45",
       "listing_count": 10,
       "parent_collection_count": 0,
       "owner": {
@@ -107,7 +107,7 @@
       "pinned": false,
       "ordered": false,
       "custom_thumbnail": null,
-      "thumbnail": "f12aa1c39d5c5d2a4c675c6d647407d99a2923251e54ec80f2fc8433c37de9cd",
+      "thumbnail": "084039f552dcc7a3bd6a5507823690577ecbff1eed748ca63f44102482c17d45",
       "listing_count": 16,
       "parent_collection_count": 0,
       "owner": {
@@ -125,7 +125,7 @@
   "files": [],
   "comments": [],
   "commenting_lock": null,
-  "version": 335,
+  "version": 384,
   "title": "Chicago Taxi Trips Deck.gl Map",
   "license": null,
   "copyright": "",
@@ -138,7 +138,7 @@
     },
     {
       "id": 120,
-      "value": "md`## ${geoDataTable.totalRows().toLocaleString()} geo located trips | ${geoTrips.totalRows().toLocaleString()} unique routes`",
+      "value": "md`## ${geoDataTable.totalRows().toLocaleString()} geo located trips | ${geoTrips.totalRows().toLocaleString()} routes | ${tripLocations.totalRows().toLocaleString()} locations`",
       "pinned": false,
       "mode": "js"
     },
@@ -161,9 +161,15 @@
       "mode": "js"
     },
     {
+      "id": 345,
+      "value": "tripLocationsGridLayer = {\n  const tripLocationsGridLayer = new deck.ScreenGridLayer({\n    id: 'tripsGridLayer',\n    data: tripLocations.objects(),\n    opacity: 0.8,\n    pickable: true,\n    cellSizePixels: 50,\n    colorRange: [\n      [0, 25, 0, 25],\n      [0, 85, 0, 85],\n      [0, 127, 0, 127],\n      [0, 170, 0, 170],\n      [0, 190, 0, 190],\n      [0, 255, 0, 255]\n    ],\n    getPosition: d => [Number(d.longitude), Number(d.latitude)],\n    getWeight: d => d.count,\n    onHover: onHover\n  });\n  deckgl.setProps({layers: [tripLocationsGridLayer]});\n  return tripLocationsGridLayer;\n}",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
       "id": 324,
-      "value": "trafficPathsLayer = {\n  const tripPathsLayer = new deck.PathLayer({\n    id: 'tripPathsLayer',\n    data: tripPaths.objects(),\n    opacity: 0.2,\n    pickable: true,\n    widthScale: 20,\n    widthMinPixels: 2,\n    getColor: d => d.color,\n    getPath: d => d.path\n  });\n  // deckgl.setProps({layers: [tripPathsLayer]});\n  return tripPathsLayer;\n}",
-      "pinned": true,
+      "value": "tripPathsLayer = {\n  const tripPathsLayer = new deck.PathLayer({\n    id: 'tripPathsLayer',\n    data: tripPaths.objects(),\n    opacity: 0.2,\n    pickable: true,\n    widthScale: 20,\n    widthMinPixels: 2,\n    getColor: d => d.color,\n    getPath: d => d.path\n  });\n  // deckgl.setProps({layers: [tripPathsLayer]});\n  return tripPathsLayer;\n}",
+      "pinned": false,
       "mode": "js"
     },
     {
@@ -222,13 +228,19 @@
     },
     {
       "id": 275,
-      "value": "tripStartLocations = geoDataTable.select('pickup_centroid_latitude', 'pickup_centroid_longitude')\n  .rename({\n    pickup_centroid_latitude: 'latitude', \n    pickup_centroid_longitude: 'longitude'\n  })\n  .groupby('latitude', 'longitude')",
+      "value": "tripStartLocations = geoDataTable.select('pickup_centroid_latitude', 'pickup_centroid_longitude')\n  .rename({\n    pickup_centroid_latitude: 'latitude', \n    pickup_centroid_longitude: 'longitude'\n  })\n  .groupby('latitude', 'longitude')\n  .count()",
       "pinned": false,
       "mode": "js"
     },
     {
       "id": 280,
-      "value": "tripEndLocations = geoDataTable.select('dropoff_centroid_latitude', 'dropoff_centroid_longitude')\n  .rename({\n    dropoff_centroid_latitude: 'latitude', \n    dropoff_centroid_longitude: 'longitude'\n  })\n  .groupby('latitude', 'longitude')",
+      "value": "tripEndLocations = geoDataTable.select('dropoff_centroid_latitude', 'dropoff_centroid_longitude')\n  .rename({\n    dropoff_centroid_latitude: 'latitude', \n    dropoff_centroid_longitude: 'longitude'\n  })\n  .groupby('latitude', 'longitude')\n  .count()",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 341,
+      "value": "tripLocations = tripStartLocations.concat(tripEndLocations)",
       "pinned": false,
       "mode": "js"
     },
@@ -294,7 +306,25 @@
     },
     {
       "id": 238,
-      "value": "deckgl = {\n  return new deck.DeckGL({\n    container: mapContainer,\n    map: mapboxgl,\n    mapboxAccessToken: '',\n    mapboxApiAccessToken: 'pk.eyJ1IjoiZGF0YXBpeHkiLCJhIjoiY2tnM3ZhZWJjMDE1ajJxbGY1eTNlemduciJ9.YZ9CJEza0hvAQmTRBhubmQ',\n    mapStyle: 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json',\n    initialViewState: {\n      latitude: 41.88,\n      longitude: -87.65,\n      zoom: 13,\n      minZoom: 8,\n      maxZoom: 15,\n      pitch: 0,\n      bearing: 0\n    },\n    controller: true\n  });\n}",
+      "value": "deckgl = {\n  return new deck.DeckGL({\n    container: mapContainer,\n    map: mapboxgl,\n    mapboxAccessToken: '',\n    mapboxApiAccessToken: 'pk.eyJ1IjoiZGF0YXBpeHkiLCJhIjoiY2tnM3ZhZWJjMDE1ajJxbGY1eTNlemduciJ9.YZ9CJEza0hvAQmTRBhubmQ',\n    mapStyle: 'https://api.maptiler.com/maps/toner/style.json?key=bMizIsuAeRiZikCLHO9q',\n    initialViewState: {\n      latitude: 41.88,\n      longitude: -87.65,\n      zoom: 10,\n      minZoom: 8,\n      maxZoom: 15,\n      pitch: 0,\n      bearing: 0\n    },\n    controller: true\n  });\n}",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 356,
+      "value": "tooltip = mapContainer.querySelector('#tooltip')",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 362,
+      "value": "function onHover (info) {\n  const data = info.object;\n  if (data) {\n    tooltip.style.left = `${info.x}px`;\n    tooltip.style.top = `${info.y}px`;\n    tooltip.innerHTML = `<b>${data.cellWeight.toLocaleString()} trips to/from this location</b>`;\n  } else { \n    tooltip.innerHTML = '';\n  }\n}",
+      "pinned": false,
+      "mode": "js"
+    },
+    {
+      "id": 359,
+      "value": "tooltipStyle = html `\n<style>\n#tooltip:empty {\n  display: none;\n}\n#tooltip {\n  font-family: Helvetica, Arial, sans-serif;\n  font-size: 12px;\n  position: absolute;\n  padding: 4px;\n  margin: 8px;\n  border-radius: 3px;\n  background: rgba(0, 0, 0, 0.7);\n  color: #fff;\n  max-width: 300px;\n  z-index: 9;\n  pointer-events: none;\n}\n</style>\n`",
       "pinned": false,
       "mode": "js"
     },
