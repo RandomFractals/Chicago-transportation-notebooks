@@ -3,6 +3,9 @@ Demo notebooks using public city of [Chicago Transportation datasets](https://da
 
 ## Observable JS Notebooks 📚
 
+![Chicago Transportation Notebooks 📚 Collection](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-transportation-notebooks-collection.png?raw=true 
+ "Chicago Transportation Notebooks 📚 Collection")
+
 - [Chicago Speed Camera Locations](https://observablehq.com/@randomfractals/chicago-speed-camera-locations)
 - [Chicago Speed Camera Violations](https://observablehq.com/@randomfractals/chicago-speed-camera-violations)
 - [Chicago Red Light Camera Locations](https://observablehq.com/@randomfractals/chicago-red-light-camera-locations)
