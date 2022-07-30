@@ -3,7 +3,7 @@ Demo notebooks using public city of [Chicago Transportation datasets](https://da
 
 ## [Observable JS Notebooks 📚](https://observablehq.com/collection/@randomfractals/transportation)
 
-![Chicago Transportation Notebooks 📚 Collection](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-transportation-notebooks-collection.png?raw=true 
+![Chicago Transportation Notebooks 📚 Collection](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-transportation-notebooks-collection.png?raw=true
  "Chicago Transportation Notebooks 📚 Collection")
 
 - [Chicago Speed Camera Locations](https://observablehq.com/@randomfractals/chicago-speed-camera-locations)
@@ -25,31 +25,31 @@ Demo notebooks using public city of [Chicago Transportation datasets](https://da
 
 ## JS Notebook 📓 Inspector 🕵️ Views
 
-You can use my [JS Notebook Inspector 🕵️](https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.js-notebook-inspector) extension to load them in VSCode:
+You can use my [JS Notebook Inspector 🕵️](https://github.com/RandomFractals/js-notebook-inspector) extension to load them in VSCode:
 
 ### Notebook View 📓
 
-![Notebook 📓 View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-taxi-trips-grid-map-notebook-view.png?raw=true 
+![Notebook 📓 View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-taxi-trips-grid-map-notebook-view.png?raw=true
  "JS Notebook 📓 View")
 
 ### [Notebook 📓 Info Graph ⎇ View](https://observablehq.com/@randomfractals/notebook-info)
 
-![Notebook 📓 Info Graph ⎇ View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-notebook-info-graph.png?raw=true 
+![Notebook 📓 Info Graph ⎇ View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-notebook-info-graph.png?raw=true
  "Notebook 📓 Info Graph ⎇ View")
 
 ### Notebook Files 📚 View
 
-![Notebook Files 📚 View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-notebook-files.png?raw=true 
+![Notebook Files 📚 View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-notebook-files.png?raw=true
  "Notebook Files 📚 View")
 
 ### Notebook Webpage 🌐 View
 
-![JS Notebook 📓 Webpage 🌐 View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-webpage.png?raw=true 
+![JS Notebook 📓 Webpage 🌐 View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-webpage.png?raw=true
  "JS Notebook 📓 Webpage 🌐 View")
 
 ## Observable JS View
 
 You can also use [Observable JS](https://marketplace.visualstudio.com/items?itemName=GordonSmith.observable-js) VSCode extension to import, modify, and view Observable JS notebooks:
 
-![Observable JS View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-ojs.png?raw=true 
+![Observable JS View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-ojs.png?raw=true
  "Observable JS View")
