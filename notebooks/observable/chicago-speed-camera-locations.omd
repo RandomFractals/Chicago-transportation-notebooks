@@ -1,0 +1,84 @@
+
+# Chicago Speed Camera Locations
+
+Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Locations](https://data.cityofchicago.org/Transportation/Speed-Camera-Locations/4i42-qv3h)
+```
+map = {
+  // create map container
+  let mapContainer = DOM.element('div', { style: `width:${width}px;height:${width/1.6}px` });
+  yield mapContainer;
+
+  // create leaflet map with attributions
+  let map = L.map(mapContainer).setView([41.85, -87.68], 10); // Chicago origins
+  let osmLayer = L.tileLayer( // 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png')
+    'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors, &copy; <a href=\"http://cartodb.com/attributions\">CartoDB</a>',
+    detectRetina: false,
+    maxZoom: 18,
+    minZoom: 10,
+    noWrap: false,
+    subdomains: 'abc'
+  }).addTo(map);
+
+  // add markers
+  let markers = markerCluster({});
+  let geoLayer = L.geoJson(geoData, {
+    onEachFeature: function (feature, layer) {
+      const data = feature.properties;
+      const html = `<div class="popup"><h2>${data.address}</h2>
+          <p>live since ${data.go_live_date}</p>
+          <p>first approach: ${data.first_approach}</p>
+          <p>second approach: ${data.second_approach}</p>
+        </div>`;
+      layer.bindPopup(html);
+      layer.bindTooltip(`${data.address} <br /> live since ${data.go_live_date}`, {sticky: true});
+    }
+  });
+
+  markers.addLayer(geoLayer);
+  map.addLayer(markers);
+
+  // map.fitBounds(markers.getBounds());
+}
+
+markerStyles = html`
+<style type="text/css">
+  div.popup p {
+    margin: 4px 0;
+    font-size: 14px;
+  }
+</style>`
+```
+## Data
+```
+viewof dataTable = Inputs.table(data, {
+  columns: columns
+})
+
+dataUrl = 'https://data.cityofchicago.org/resource/4i42-qv3h.json'
+
+columns = [
+  'address',
+  'go_live_date',
+  'first_approach',
+  'second_approach',
+  'latitude',
+  'longitude'
+]
+
+data = await fetch(dataUrl).then(data => data.json())
+
+geoData = getGeoDataPoints(data)
+
+import { getGeoDataPoints } from '@randomfractals/geo-data-utils'
+```
+## Leaftlet Imports
+```
+leafletStyles = html`<link href='${resolve('leaflet@1.7.1/dist/leaflet.css')}' rel='stylesheet' />`
+
+L = require('leaflet@1.7.1')
+
+markerClusterStyles = html`<link href='${resolve('leaflet.markercluster@1.2.0/dist/MarkerCluster.Default.css')}' rel='stylesheet' />`
+
+markerCluster = L, require('leaflet.markercluster@1.2.0').catch(() => L.markerClusterGroup)
+```
