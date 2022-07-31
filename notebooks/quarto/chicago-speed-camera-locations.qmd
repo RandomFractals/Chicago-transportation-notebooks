@@ -1,9 +1,15 @@
 ---
-title: "Chicago Speed Camera Locations"
-format: html
+title: 'Chicago Speed Camera Locations'
+author: Taras Novak
+format:
+  html:
+    code-copy: true
+    code-fold: true
+    code-summary: 'code'
+    code-tools: true
 ---
 
-Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Locations](https://data.cityofchicago.org/Transportation/Speed-Camera-Locations/4i42-qv3h)`
+Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Locations](https://data.cityofchicago.org/Transportation/Speed-Camera-Locations/4i42-qv3h)
 
 ```{ojs}
 map = {
@@ -40,7 +46,6 @@ map = {
 
   markers.addLayer(geoLayer);
   map.addLayer(markers);
-
   // map.fitBounds(markers.getBounds());
 }
 
@@ -52,7 +57,9 @@ markerStyles = html`
   }
 </style>`
 ```
+
 ## Data
+
 ```{ojs}
 viewof dataTable = Inputs.table(data, {
   columns: columns
@@ -75,7 +82,9 @@ geoData = getGeoDataPoints(data)
 
 import { getGeoDataPoints } from '@randomfractals/geo-data-utils'
 ```
+
 ## Leaftlet Imports
+
 ```{ojs}
 leafletStyles = html`<link href='${resolve('leaflet@1.7.1/dist/leaflet.css')}' rel='stylesheet' />`
 
@@ -85,4 +94,3 @@ markerClusterStyles = html`<link href='${resolve('leaflet.markercluster@1.2.0/di
 
 markerCluster = L, require('leaflet.markercluster@1.2.0').catch(() => L.markerClusterGroup)
 ```
-
