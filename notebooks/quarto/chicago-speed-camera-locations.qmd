@@ -64,7 +64,7 @@ markerStyles = html`
 
 ```{ojs}
 
-totalCameras = md`There are **${data.length}** cameras in Chicago area.`
+totalCameras = md`There are **${data.length}** speed cameras in Chicago area.`
 
 viewof dataTable = Inputs.table(data, {
   columns: columns
