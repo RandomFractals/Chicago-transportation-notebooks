@@ -1,18 +1,18 @@
 // URL: https://observablehq.com/@randomfractals/chicago-speed-camera-locations
 // Title: Chicago Speed Camera Locations
 // Author: Taras Novak (@randomfractals)
-// Version: 117
+// Version: 123
 // Runtime version: 1
 
 const m0 = {
-  id: "647160e91b2cec8d@117",
+  id: "647160e91b2cec8d@123",
   variables: [
     {
       inputs: ["md"],
       value: (function(md){return(
 md`# Chicago Speed Camera Locations
 
-Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Locations](https://data.cityofchicago.org/Transportation/Speed-Camera-Locations/4i42-qv3h)`
+**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Locations](https://data.cityofchicago.org/Transportation/Speed-Camera-Locations/4i42-qv3h)`
 )})
     },
     {
@@ -23,7 +23,7 @@ Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?cate
   // create map container
   let mapContainer = DOM.element('div', { style: `width:${width}px;height:${width/1.6}px` });
   yield mapContainer;
-  
+
   // create leaflet map with attributions
   let map = L.map(mapContainer).setView([41.85, -87.68], 10); // Chicago origins
   let osmLayer = L.tileLayer( // 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png')
@@ -50,10 +50,10 @@ Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?cate
       layer.bindTooltip(`${data.address} <br /> live since ${data.go_live_date}`, {sticky: true});
     }
   });
-  
+
   markers.addLayer(geoLayer);
   map.addLayer(markers);
-  
+
   // map.fitBounds(markers.getBounds());
 }
 )
@@ -64,7 +64,7 @@ Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?cate
       value: (function(html){return(
 html`
 <style type="text/css">
-  div.popup p { 
+  div.popup p {
     margin: 4px 0;
     font-size: 14px;
   }
@@ -72,9 +72,14 @@ html`
 )})
     },
     {
-      inputs: ["md"],
-      value: (function(md){return(
-md`## Data`
+      inputs: ["md","data"],
+      value: (function(md,data){return(
+md`## Data
+
+There are **${data.length}** speed cameras in Chicago area.
+
+### Speed Camera Locations
+`
 )})
     },
     {
@@ -203,7 +208,7 @@ function getGeoDataPoints(data) {
 };
 
 const notebook = {
-  id: "647160e91b2cec8d@117",
+  id: "647160e91b2cec8d@123",
   modules: [m0,m1]
 };
 

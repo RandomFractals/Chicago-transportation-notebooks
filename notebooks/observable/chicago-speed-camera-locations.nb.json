@@ -7,32 +7,46 @@
   "publish_level": "public",
   "forks": 1,
   "fork_of": null,
-  "update_time": "2021-06-14T15:30:05.268Z",
+  "update_time": "2022-08-01T12:40:56.753Z",
   "publish_time": "2021-06-06T21:09:25.367Z",
-  "publish_version": 117,
-  "thumbnail": "0e1f0af6f4680ab7b9edfd4de57a92f4ca752179d8121003eb1c8c9ea7cdbe82",
-  "default_thumbnail": "0e1f0af6f4680ab7b9edfd4de57a92f4ca752179d8121003eb1c8c9ea7cdbe82",
+  "publish_version": 123,
+  "latest_version": 123,
+  "thumbnail": "604ed745381d0b3eac47174a6a492ed4c9eb6ec8432b31a3482c93b3c4155e94",
+  "default_thumbnail": "604ed745381d0b3eac47174a6a492ed4c9eb6ec8432b31a3482c93b3c4155e94",
   "roles": [],
   "sharing": null,
   "owner": {
     "id": "17b72db66175b428",
     "github_login": "RandomFractals",
-    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
     "login": "randomfractals",
     "name": "Taras Novak",
-    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "bio": "I map 🗺️ & graph  📈 data 🈸 ",
     "home_url": "https://www.linkedin.com/in/tarasnovak",
     "type": "individual"
   },
   "creator": {
     "id": "17b72db66175b428",
     "github_login": "RandomFractals",
-    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
     "login": "randomfractals",
     "name": "Taras Novak",
-    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "bio": "I map 🗺️ & graph  📈 data 🈸 ",
     "home_url": "https://www.linkedin.com/in/tarasnovak"
   },
+  "authors": [
+    {
+      "id": "17b72db66175b428",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+      "name": "Taras Novak",
+      "login": "randomfractals",
+      "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+      "home_url": "https://www.linkedin.com/in/tarasnovak",
+      "github_login": "RandomFractals",
+      "approved": true,
+      "description": ""
+    }
+  ],
   "collections": [
     {
       "id": "5b60600584ed4fe0",
@@ -44,16 +58,17 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
+      "default_thumbnail": "a45c7c16fbf5ac1eb4353dfdf63b495eb2bcf61fd77f4dfbbd7d1d1e95c72ed7",
       "thumbnail": "a45c7c16fbf5ac1eb4353dfdf63b495eb2bcf61fd77f4dfbbd7d1d1e95c72ed7",
       "listing_count": 9,
       "parent_collection_count": 0,
       "owner": {
         "id": "17b72db66175b428",
         "github_login": "RandomFractals",
-        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
         "login": "randomfractals",
         "name": "Taras Novak",
-        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
         "home_url": "https://www.linkedin.com/in/tarasnovak",
         "type": "individual"
       }
@@ -68,16 +83,17 @@
       "pinned": false,
       "ordered": false,
       "custom_thumbnail": null,
-      "thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
-      "listing_count": 12,
+      "default_thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "listing_count": 16,
       "parent_collection_count": 0,
       "owner": {
         "id": "17b72db66175b428",
         "github_login": "RandomFractals",
-        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
         "login": "randomfractals",
         "name": "Taras Novak",
-        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
         "home_url": "https://www.linkedin.com/in/tarasnovak",
         "type": "individual"
       }
@@ -92,16 +108,17 @@
       "pinned": false,
       "ordered": false,
       "custom_thumbnail": null,
-      "thumbnail": "855f4654e70feece820af1cd690a1484039e8d6ca1d77d5d080bf96fcbbcb192",
-      "listing_count": 16,
+      "default_thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "listing_count": 17,
       "parent_collection_count": 0,
       "owner": {
         "id": "17b72db66175b428",
         "github_login": "RandomFractals",
-        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
         "login": "randomfractals",
         "name": "Taras Novak",
-        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
         "home_url": "https://www.linkedin.com/in/tarasnovak",
         "type": "individual"
       }
@@ -110,100 +127,133 @@
   "files": [],
   "comments": [],
   "commenting_lock": null,
-  "version": 117,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 123,
   "title": "Chicago Speed Camera Locations",
   "license": null,
   "copyright": "",
   "nodes": [
     {
       "id": 0,
-      "value": "md`# Chicago Speed Camera Locations\n\nData Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Locations](https://data.cityofchicago.org/Transportation/Speed-Camera-Locations/4i42-qv3h)`",
+      "value": "md`# Chicago Speed Camera Locations\n\n**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Locations](https://data.cityofchicago.org/Transportation/Speed-Camera-Locations/4i42-qv3h)`",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 48,
       "value": "map = {\n  // create map container\n  let mapContainer = DOM.element('div', { style: `width:${width}px;height:${width/1.6}px` });\n  yield mapContainer;\n  \n  // create leaflet map with attributions\n  let map = L.map(mapContainer).setView([41.85, -87.68], 10); // Chicago origins\n  let osmLayer = L.tileLayer( // 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png')\n    'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {\n    attribution: '&copy; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors, &copy; <a href=\\\"http://cartodb.com/attributions\\\">CartoDB</a>',\n    detectRetina: false,\n    maxZoom: 18,\n    minZoom: 10,\n    noWrap: false,\n    subdomains: 'abc'\n  }).addTo(map);\n\n  // add markers\n  let markers = markerCluster({});\n  let geoLayer = L.geoJson(geoData, {\n    onEachFeature: function (feature, layer) {\n      const data = feature.properties;\n      const html = `<div class=\"popup\"><h2>${data.address}</h2>\n          <p>live since ${data.go_live_date}</p>\n          <p>first approach: ${data.first_approach}</p>\n          <p>second approach: ${data.second_approach}</p>\n        </div>`;\n      layer.bindPopup(html);\n      layer.bindTooltip(`${data.address} <br /> live since ${data.go_live_date}`, {sticky: true});\n    }\n  });\n  \n  markers.addLayer(geoLayer);\n  map.addLayer(markers);\n  \n  // map.fitBounds(markers.getBounds());\n}",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 89,
       "value": "markerStyles = html`\n<style type=\"text/css\">\n  div.popup p { \n    margin: 4px 0;\n    font-size: 14px;\n  }\n</style>`",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 82,
-      "value": "md`## Data`",
+      "value": "md`## Data\n\nThere are **${data.length}** speed cameras in Chicago area.\n\n### Speed Camera Locations\n`",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 86,
       "value": "viewof dataTable = Inputs.table(data, {\n  columns: columns\n})",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 43,
       "value": "dataUrl = 'https://data.cityofchicago.org/resource/4i42-qv3h.json'",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 98,
       "value": "columns = [\n  'address',\n  'go_live_date',\n  'first_approach',\n  'second_approach',\n  'latitude',\n  'longitude'\n]",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 13,
       "value": "data = await fetch(dataUrl).then(data => data.json())",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 50,
       "value": "geoData = getGeoDataPoints(data)",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 109,
       "value": "import { getGeoDataPoints } from '@randomfractals/geo-data-utils'",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 16,
       "value": "md`## Leaftlet Imports`",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 62,
       "value": "leafletStyles = html`<link href='${resolve('leaflet@1.7.1/dist/leaflet.css')}' rel='stylesheet' />`",
       "pinned": true,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 19,
       "value": "L = require('leaflet@1.7.1')",
       "pinned": true,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 58,
       "value": "markerClusterStyles = html`<link href='${resolve('leaflet.markercluster@1.2.0/dist/MarkerCluster.Default.css')}' rel='stylesheet' />`",
       "pinned": true,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 28,
       "value": "markerCluster = L, require('leaflet.markercluster@1.2.0').catch(() => L.markerClusterGroup)",
       "pinned": true,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     }
-  ]
+  ],
+  "resolutions": []
 }

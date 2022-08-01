@@ -9,7 +9,7 @@ format:
     code-tools: true
 ---
 
-Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Locations](https://data.cityofchicago.org/Transportation/Speed-Camera-Locations/4i42-qv3h)
+**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Locations](https://data.cityofchicago.org/Transportation/Speed-Camera-Locations/4i42-qv3h)
 
 ```{ojs}
 map = {
@@ -60,7 +60,12 @@ markerStyles = html`
 
 ## Data
 
+### Speed Camera Locations
+
 ```{ojs}
+
+totalCameras = md`There are **${data.length}** cameras in Chicago area.`
+
 viewof dataTable = Inputs.table(data, {
   columns: columns
 })
