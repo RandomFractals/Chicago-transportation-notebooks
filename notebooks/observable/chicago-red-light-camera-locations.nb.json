@@ -13,41 +13,55 @@
     "owner": {
       "id": "17b72db66175b428",
       "github_login": "RandomFractals",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
       "login": "randomfractals",
       "name": "Taras Novak",
-      "bio": "I map 🌐 & graph  📈 data 🈸 ",
+      "bio": "I map 🗺️ & graph  📈 data 🈸 ",
       "home_url": "https://www.linkedin.com/in/tarasnovak",
       "type": "individual"
     },
     "version": 108
   },
-  "update_time": "2021-06-14T15:32:04.375Z",
+  "update_time": "2022-08-01T12:44:37.010Z",
   "publish_time": "2021-06-08T04:02:31.419Z",
-  "publish_version": 135,
-  "thumbnail": "16e133d7a4cf34580312b8e56e43d34846e485c7d6b2dc27264d509f303b805b",
-  "default_thumbnail": "16e133d7a4cf34580312b8e56e43d34846e485c7d6b2dc27264d509f303b805b",
+  "publish_version": 139,
+  "latest_version": 139,
+  "thumbnail": "6ce226dbc42c29dcb8fb88b407acba4b08351ffe4913ea385861455624a8070c",
+  "default_thumbnail": "6ce226dbc42c29dcb8fb88b407acba4b08351ffe4913ea385861455624a8070c",
   "roles": [],
   "sharing": null,
   "owner": {
     "id": "17b72db66175b428",
     "github_login": "RandomFractals",
-    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
     "login": "randomfractals",
     "name": "Taras Novak",
-    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "bio": "I map 🗺️ & graph  📈 data 🈸 ",
     "home_url": "https://www.linkedin.com/in/tarasnovak",
     "type": "individual"
   },
   "creator": {
     "id": "17b72db66175b428",
     "github_login": "RandomFractals",
-    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
     "login": "randomfractals",
     "name": "Taras Novak",
-    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "bio": "I map 🗺️ & graph  📈 data 🈸 ",
     "home_url": "https://www.linkedin.com/in/tarasnovak"
   },
+  "authors": [
+    {
+      "id": "17b72db66175b428",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+      "name": "Taras Novak",
+      "login": "randomfractals",
+      "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+      "home_url": "https://www.linkedin.com/in/tarasnovak",
+      "github_login": "RandomFractals",
+      "approved": true,
+      "description": ""
+    }
+  ],
   "collections": [
     {
       "id": "5b60600584ed4fe0",
@@ -59,16 +73,17 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
+      "default_thumbnail": "a45c7c16fbf5ac1eb4353dfdf63b495eb2bcf61fd77f4dfbbd7d1d1e95c72ed7",
       "thumbnail": "a45c7c16fbf5ac1eb4353dfdf63b495eb2bcf61fd77f4dfbbd7d1d1e95c72ed7",
       "listing_count": 9,
       "parent_collection_count": 0,
       "owner": {
         "id": "17b72db66175b428",
         "github_login": "RandomFractals",
-        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
         "login": "randomfractals",
         "name": "Taras Novak",
-        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
         "home_url": "https://www.linkedin.com/in/tarasnovak",
         "type": "individual"
       }
@@ -83,16 +98,17 @@
       "pinned": false,
       "ordered": false,
       "custom_thumbnail": null,
-      "thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
-      "listing_count": 12,
+      "default_thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "listing_count": 16,
       "parent_collection_count": 0,
       "owner": {
         "id": "17b72db66175b428",
         "github_login": "RandomFractals",
-        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
         "login": "randomfractals",
         "name": "Taras Novak",
-        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
         "home_url": "https://www.linkedin.com/in/tarasnovak",
         "type": "individual"
       }
@@ -107,16 +123,17 @@
       "pinned": false,
       "ordered": false,
       "custom_thumbnail": null,
-      "thumbnail": "855f4654e70feece820af1cd690a1484039e8d6ca1d77d5d080bf96fcbbcb192",
-      "listing_count": 16,
+      "default_thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "listing_count": 17,
       "parent_collection_count": 0,
       "owner": {
         "id": "17b72db66175b428",
         "github_login": "RandomFractals",
-        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
         "login": "randomfractals",
         "name": "Taras Novak",
-        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
         "home_url": "https://www.linkedin.com/in/tarasnovak",
         "type": "individual"
       }
@@ -125,88 +142,117 @@
   "files": [],
   "comments": [],
   "commenting_lock": null,
-  "version": 135,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 139,
   "title": "Chicago Red Light Camera Locations",
   "license": null,
   "copyright": "",
   "nodes": [
     {
       "id": 0,
-      "value": "md`# Chicago Red Light Camera Locations\n\nData Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Red Light Camera Locations](https://data.cityofchicago.org/Transportation/Red-Light-Camera-Locations/thvf-6diy)`",
+      "value": "md`# Chicago Red Light Camera Locations\n\n**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Red Light Camera Locations](https://data.cityofchicago.org/Transportation/Red-Light-Camera-Locations/thvf-6diy)`",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 48,
       "value": "map = {\n  // create map container\n  let mapContainer = DOM.element('div', { style: `width:${width}px;height:${width/1.6}px` });\n  yield mapContainer;\n  \n  // create leaflet map with attributions\n  let map = L.map(mapContainer).setView([41.85, -87.68], 10); // Chicago origins\n  let osmLayer = L.tileLayer( // 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png')\n    'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {\n    attribution: '&copy; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors, &copy; <a href=\\\"http://cartodb.com/attributions\\\">CartoDB</a>',\n    detectRetina: false,\n    maxZoom: 18,\n    minZoom: 10,\n    noWrap: false,\n    subdomains: 'abc'\n  }).addTo(map);\n\n  // red dot marker\n  const marker = {\n    radius: 6,\n    fillColor: \"#ff4e3b\",\n    color: \"#ff0000\",\n    weight: 1,\n    opacity: 1,\n    fillOpacity: 0.8\n  };\n  \n  // map markers\n  const pointToLayer = function (feature, latlng) {\n    return L.circleMarker(latlng, marker);\n  }\n  \n  // add markers\n  let geoLayer = L.geoJson(geoData, {\n    pointToLayer: pointToLayer,\n    onEachFeature: function (feature, layer) {\n      const data = feature.properties;\n      const html = `<div class=\"popup\"><h2>${data.intersection}</h2>\n          <p>live since ${new Date(data.go_live_date).toLocaleDateString()}</p>\n          <p>first approach: ${data.first_approach}</p>\n          <p>second approach: ${data.second_approach}</p>\n        </div>`;\n      layer.bindPopup(html);\n      layer.bindTooltip(`${data.intersection} <br />\n        live since ${new Date(data.go_live_date).toLocaleDateString()}`, {sticky: true});\n    }\n  });  \n\n  map.addLayer(geoLayer);\n  // map.fitBounds(markers.getBounds());\n}",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 89,
       "value": "markerStyles = html`\n<style type=\"text/css\">\n  div.popup p { \n    margin: 4px 0;\n    font-size: 14px;\n  }\n</style>`",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 82,
-      "value": "md`## Data`",
+      "value": "md`## Data\n\nThere are **${data.length}** red light cameras in Chicago area.\n\n### Red Light Camera Locations\n`",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 86,
       "value": "viewof dataTable = Inputs.table(data, {\n  columns: columns\n})",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 43,
       "value": "dataUrl = 'https://data.cityofchicago.org/resource/thvf-6diy.json'",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 98,
       "value": "columns = [\n  'intersection',\n  'go_live_date',\n  'first_approach',\n  'second_approach',\n  'third_approach',\n  'latitude',\n  'longitude'\n]",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 13,
       "value": "data = await fetch(dataUrl).then(data => data.json())",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 50,
       "value": "geoData = getGeoDataPoints(data)",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 127,
       "value": "import { getGeoDataPoints } from '@randomfractals/geo-data-utils'",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 16,
       "value": "md`## Leaftlet Imports`",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 62,
       "value": "leafletStyles = html`<link href='${resolve('leaflet@1.7.1/dist/leaflet.css')}' rel='stylesheet' />`",
       "pinned": true,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 19,
       "value": "L = require('leaflet@1.7.1')",
       "pinned": true,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     }
-  ]
+  ],
+  "resolutions": []
 }

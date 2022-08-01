@@ -1,7 +1,8 @@
-md`# Chicago Red Light Camera Locations
 
-**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Red Light Camera Locations](https://data.cityofchicago.org/Transportation/Red-Light-Camera-Locations/thvf-6diy)`
+# Chicago Red Light Camera Locations
 
+**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Red Light Camera Locations](https://data.cityofchicago.org/Transportation/Red-Light-Camera-Locations/thvf-6diy)
+```
 map = {
   // create map container
   let mapContainer = DOM.element('div', { style: `width:${width}px;height:${width/1.6}px` });
@@ -61,14 +62,14 @@ markerStyles = html`
     font-size: 14px;
   }
 </style>`
-
-md`## Data
+```
+## Data
 
 There are **${data.length}** red light cameras in Chicago area.
 
 ### Red Light Camera Locations
-`
 
+```
 viewof dataTable = Inputs.table(data, {
   columns: columns
 })
@@ -90,9 +91,10 @@ data = await fetch(dataUrl).then(data => data.json())
 geoData = getGeoDataPoints(data)
 
 import { getGeoDataPoints } from '@randomfractals/geo-data-utils'
-
-md`## Leaftlet Imports`
-
+```
+## Leaftlet Imports
+```
 leafletStyles = html`<link href='${resolve('leaflet@1.7.1/dist/leaflet.css')}' rel='stylesheet' />`
 
 L = require('leaflet@1.7.1')
+```

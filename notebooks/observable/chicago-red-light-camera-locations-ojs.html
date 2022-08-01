@@ -18,6 +18,7 @@
         top: 8px;
         right: 8px;
         bottom: 8px;
+        max-width: 480px;
     }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/@hpcc-js/observable-md/dist/index.full.js" type="text/javascript" charset="utf-8"></script>
@@ -37,13 +38,13 @@
             .mode("ojs")
             .text(`md\`# Chicago Red Light Camera Locations
 
-Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Red Light Camera Locations](https://data.cityofchicago.org/Transportation/Red-Light-Camera-Locations/thvf-6diy)\`
+**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Red Light Camera Locations](https://data.cityofchicago.org/Transportation/Red-Light-Camera-Locations/thvf-6diy)\`
 
 map = {
   // create map container
   let mapContainer = DOM.element('div', { style: \`width:\${width}px;height:\${width/1.6}px\` });
   yield mapContainer;
-  
+
   // create leaflet map with attributions
   let map = L.map(mapContainer).setView([41.85, -87.68], 10); // Chicago origins
   let osmLayer = L.tileLayer( // 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png')
@@ -65,12 +66,12 @@ map = {
     opacity: 1,
     fillOpacity: 0.8
   };
-  
+
   // map markers
   const pointToLayer = function (feature, latlng) {
     return L.circleMarker(latlng, marker);
   }
-  
+
   // add markers
   let geoLayer = L.geoJson(geoData, {
     pointToLayer: pointToLayer,
@@ -85,7 +86,7 @@ map = {
       layer.bindTooltip(\`\${data.intersection} <br />
         live since \${new Date(data.go_live_date).toLocaleDateString()}\`, {sticky: true});
     }
-  });  
+  });
 
   map.addLayer(geoLayer);
   // map.fitBounds(markers.getBounds());
@@ -93,13 +94,18 @@ map = {
 
 markerStyles = html\`
 <style type="text/css">
-  div.popup p { 
+  div.popup p {
     margin: 4px 0;
     font-size: 14px;
   }
 </style>\`
 
-md\`## Data\`
+md\`## Data
+
+There are **\${data.length}** red light cameras in Chicago area.
+
+### Red Light Camera Locations
+\`
 
 viewof dataTable = Inputs.table(data, {
   columns: columns
