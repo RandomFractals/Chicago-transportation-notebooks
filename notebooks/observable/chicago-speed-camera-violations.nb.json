@@ -7,12 +7,12 @@
   "publish_level": "public",
   "forks": 1,
   "fork_of": null,
-  "update_time": "2022-08-01T11:55:44.786Z",
+  "update_time": "2022-08-01T15:27:01.336Z",
   "publish_time": "2021-06-06T23:53:47.009Z",
-  "publish_version": 371,
-  "latest_version": 371,
-  "thumbnail": "993b28e7a02787fb7d2a5388314a5bfaa04cfb6633fb35df19a1eb26b719a45e",
-  "default_thumbnail": "993b28e7a02787fb7d2a5388314a5bfaa04cfb6633fb35df19a1eb26b719a45e",
+  "publish_version": 449,
+  "latest_version": 449,
+  "thumbnail": "ad4f1b1b1bc981e90c00093c8a899834e35cb4d4fd300e64af8b2842edc8e2dc",
+  "default_thumbnail": "ad4f1b1b1bc981e90c00093c8a899834e35cb4d4fd300e64af8b2842edc8e2dc",
   "roles": [],
   "sharing": null,
   "owner": {
@@ -179,14 +179,14 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 371,
+  "version": 449,
   "title": "Chicago Speed Camera Violations",
   "license": null,
   "copyright": "",
   "nodes": [
     {
       "id": 0,
-      "value": "md`# Chicago Speed Camera Violations\n\nData Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Violations](https://data.cityofchicago.org/Transportation/Speed-Camera-Violations/hhkd-xvj4)\n`",
+      "value": "md`# Chicago Speed Camera Violations\n\n**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Violations](https://data.cityofchicago.org/Transportation/Speed-Camera-Violations/hhkd-xvj4)\n`",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -210,7 +210,7 @@
     },
     {
       "id": 14,
-      "value": "viewof year = Inputs.select(years, {value: 2022, label: 'Select Year:', format: year => year})",
+      "value": "viewof year = Inputs.select(years, {value: 2022, label: md`## Select Year:`, format: year => year})",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -218,7 +218,7 @@
     },
     {
       "id": 231,
-      "value": "md`### Top 10 (Busy) Chicago Speed Cameras`",
+      "value": "md`### Top 10 (Busy) Chicago Speed Cameras in ${year}`",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -233,8 +233,16 @@
       "name": null
     },
     {
+      "id": 446,
+      "value": "*tip:* mouse over camera location bar to see the total number of speed violations recorded by that camera in ${year}.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
       "id": 289,
-      "value": "md`### Recorded Chicago Speed Camera Violations by Day`",
+      "value": "md`### Recorded Speed Violations by Day in ${year}\n\n**Total:** ${totalViolations.toLocaleString()}\n`",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -249,8 +257,16 @@
       "name": null
     },
     {
+      "id": 443,
+      "value": "*tip*: mouse over day plot cell to view the total number of speed violations recorded that day.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
       "id": 9,
-      "value": "md`## Data`",
+      "value": "md`## Data\n\n### All Recorded Speed Violations in ${year}\n\n**Total:** ${totalViolations.toLocaleString()}\n`",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -266,7 +282,7 @@
     },
     {
       "id": 68,
-      "value": "md`### Violations by Camera`",
+      "value": "md`### Recorded Speed Violations by Camera\n\nThere are **${cameras.length}** registered speed cameras in Chicago area.\n\n#### Total Recorded Speed Violations per Camera Address in ${year}\n`",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -282,11 +298,19 @@
     },
     {
       "id": 89,
-      "value": "viewof camera = Inputs.select(cameraNames, {label: html`<b>Select Camera:</b>`})",
+      "value": "viewof camera = Inputs.select(cameraNames, {label: md`### Select Speed Camera Location:`})",
       "pinned": false,
       "mode": "js",
       "data": null,
       "name": null
+    },
+    {
+      "id": 382,
+      "value": "### Speed Violations Recorded at ${camera} in ${year}\n\n**Total:** ${totalViolationsForCamera.toLocaleString()}",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
     },
     {
       "id": 116,
@@ -379,6 +403,22 @@
     {
       "id": 219,
       "value": "top10Cameras = violationsByCameraRate.objects().slice(0, 10)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 415,
+      "value": "totalViolations = violationsByCamera.rollup({\n    count: d => op.sum(d.count)\n  }).objects()[0].count",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 430,
+      "value": "totalViolationsForCamera = aq.from(data.filter(d => d.address == camera))\n    .rollup({\n    count: d => op.sum(d.violations)\n  }).objects()[0].count",
       "pinned": false,
       "mode": "js",
       "data": null,

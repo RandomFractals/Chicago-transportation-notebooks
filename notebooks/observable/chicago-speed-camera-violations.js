@@ -1,18 +1,18 @@
 // URL: https://observablehq.com/@randomfractals/chicago-speed-camera-violations
 // Title: Chicago Speed Camera Violations
 // Author: Taras Novak (@randomfractals)
-// Version: 371
+// Version: 449
 // Runtime version: 1
 
 const m0 = {
-  id: "f32d773c0bb63336@371",
+  id: "f32d773c0bb63336@449",
   variables: [
     {
       inputs: ["md"],
       value: (function(md){return(
 md`# Chicago Speed Camera Violations
 
-Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Violations](https://data.cityofchicago.org/Transportation/Speed-Camera-Violations/hhkd-xvj4)
+**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Violations](https://data.cityofchicago.org/Transportation/Speed-Camera-Violations/hhkd-xvj4)
 `
 )})
     },
@@ -85,9 +85,9 @@ html`
     },
     {
       name: "viewof year",
-      inputs: ["Inputs","years"],
-      value: (function(Inputs,years){return(
-Inputs.select(years, {value: 2022, label: 'Select Year:', format: year => year})
+      inputs: ["Inputs","years","md"],
+      value: (function(Inputs,years,md){return(
+Inputs.select(years, {value: 2022, label: md`## Select Year:`, format: year => year})
 )})
     },
     {
@@ -96,9 +96,9 @@ Inputs.select(years, {value: 2022, label: 'Select Year:', format: year => year})
       value: (G, _) => G.input(_)
     },
     {
-      inputs: ["md"],
-      value: (function(md){return(
-md`### Top 10 (Busy) Chicago Speed Cameras`
+      inputs: ["md","year"],
+      value: (function(md,year){return(
+md`### Top 10 (Busy) Chicago Speed Cameras in ${year}`
 )})
     },
     {
@@ -132,9 +132,18 @@ Plot.plot({
 )})
     },
     {
-      inputs: ["md"],
-      value: (function(md){return(
-md`### Recorded Chicago Speed Camera Violations by Day`
+      inputs: ["year","md"],
+      value: (function(year,md){return(
+md`*tip:* mouse over camera location bar to see the total number of speed violations recorded by that camera in ${year}.`
+)})
+    },
+    {
+      inputs: ["md","year","totalViolations"],
+      value: (function(md,year,totalViolations){return(
+md`### Recorded Speed Violations by Day in ${year}
+
+**Total:** ${totalViolations.toLocaleString()}
+`
 )})
     },
     {
@@ -174,7 +183,18 @@ Plot.plot({
     {
       inputs: ["md"],
       value: (function(md){return(
-md`## Data`
+md`*tip*: mouse over day plot cell to view the total number of speed violations recorded that day.`
+)})
+    },
+    {
+      inputs: ["md","year","totalViolations"],
+      value: (function(md,year,totalViolations){return(
+md`## Data
+
+### All Recorded Speed Violations in ${year}
+
+**Total:** ${totalViolations.toLocaleString()}
+`
 )})
     },
     {
@@ -194,9 +214,14 @@ Inputs.table(data, {
       value: (G, _) => G.input(_)
     },
     {
-      inputs: ["md"],
-      value: (function(md){return(
-md`### Violations by Camera`
+      inputs: ["md","cameras","year"],
+      value: (function(md,cameras,year){return(
+md`### Recorded Speed Violations by Camera
+
+There are **${cameras.length}** registered speed cameras in Chicago area.
+
+#### Total Recorded Speed Violations per Camera Address in ${year}
+`
 )})
     },
     {
@@ -216,15 +241,23 @@ Inputs.table(violationsByCamera, {
     },
     {
       name: "viewof camera",
-      inputs: ["Inputs","cameraNames","html"],
-      value: (function(Inputs,cameraNames,html){return(
-Inputs.select(cameraNames, {label: html`<b>Select Camera:</b>`})
+      inputs: ["Inputs","cameraNames","md"],
+      value: (function(Inputs,cameraNames,md){return(
+Inputs.select(cameraNames, {label: md`### Select Speed Camera Location:`})
 )})
     },
     {
       name: "camera",
       inputs: ["Generators","viewof camera"],
       value: (G, _) => G.input(_)
+    },
+    {
+      inputs: ["camera","year","totalViolationsForCamera","md"],
+      value: (function(camera,year,totalViolationsForCamera,md){return(
+md`### Speed Violations Recorded at ${camera} in ${year}
+
+**Total:** ${totalViolationsForCamera.toLocaleString()}`
+)})
     },
     {
       name: "viewof violationsByCameraView",
@@ -337,6 +370,25 @@ violationsByCamera
       inputs: ["violationsByCameraRate"],
       value: (function(violationsByCameraRate){return(
 violationsByCameraRate.objects().slice(0, 10)
+)})
+    },
+    {
+      name: "totalViolations",
+      inputs: ["violationsByCamera","op"],
+      value: (function(violationsByCamera,op){return(
+violationsByCamera.rollup({
+    count: d => op.sum(d.count)
+  }).objects()[0].count
+)})
+    },
+    {
+      name: "totalViolationsForCamera",
+      inputs: ["aq","data","camera","op"],
+      value: (function(aq,data,camera,op){return(
+aq.from(data.filter(d => d.address == camera))
+    .rollup({
+    count: d => op.sum(d.violations)
+  }).objects()[0].count
 )})
     },
     {
@@ -559,7 +611,7 @@ function getGeoDataPoints(data) {
 };
 
 const notebook = {
-  id: "f32d773c0bb63336@371",
+  id: "f32d773c0bb63336@449",
   modules: [m0,m1,m2]
 };
 
