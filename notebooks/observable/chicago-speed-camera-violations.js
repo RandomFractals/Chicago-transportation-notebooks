@@ -1,11 +1,11 @@
 // URL: https://observablehq.com/@randomfractals/chicago-speed-camera-violations
 // Title: Chicago Speed Camera Violations
 // Author: Taras Novak (@randomfractals)
-// Version: 367
+// Version: 371
 // Runtime version: 1
 
 const m0 = {
-  id: "f32d773c0bb63336@367",
+  id: "f32d773c0bb63336@371",
   variables: [
     {
       inputs: ["md"],
@@ -24,7 +24,7 @@ Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?cate
   // create map container
   let mapContainer = DOM.element('div', { style: `width:${width}px;height:${width/1.6}px` });
   yield mapContainer;
-  
+
   // create leaflet map with attributions
   let map = L.map(mapContainer).setView([41.85, -87.68], 10); // Chicago origins
   let osmLayer = L.tileLayer( // 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png')
@@ -46,12 +46,12 @@ Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?cate
     opacity: 1,
     fillOpacity: 0.8
   };
-  
+
   // map markers
   const pointToLayer = function (feature, latlng) {
     return L.circleMarker(latlng, marker);
   }
-  
+
   // add markers
   let geoLayer = L.geoJson(geoData, {
     pointToLayer: pointToLayer,
@@ -64,7 +64,7 @@ Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?cate
       layer.bindTooltip(`${data.address} <br /> ${data.count.toLocaleString()} violations`, {sticky: true});
     }
   });
-  
+
   map.addLayer(geoLayer);
   // map.fitBounds(markers.getBounds());
 }
@@ -76,7 +76,7 @@ Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?cate
       value: (function(html){return(
 html`
 <style type="text/css">
-  div.popup p { 
+  div.popup p {
     margin: 4px 0;
     font-size: 14px;
   }
@@ -87,7 +87,7 @@ html`
       name: "viewof year",
       inputs: ["Inputs","years"],
       value: (function(Inputs,years){return(
-Inputs.select(years, {value: 2021, label: 'Select Year:', format: year => year})
+Inputs.select(years, {value: 2022, label: 'Select Year:', format: year => year})
 )})
     },
     {
@@ -116,16 +116,16 @@ Plot.plot({
   marks: [
     Plot.frame(),
     Plot.barX(top10Cameras, {
-      x: "percent", 
-      y: "address", 
-      fill: "#ff4e3b", 
+      x: "percent",
+      y: "address",
+      fill: "#ff4e3b",
       title: d => `${d.count.toLocaleString()} violations`
     }),
     Plot.text(top10Cameras, {
-      x: "percent", 
-      y: "address", 
-      text: d => Math.floor(d.percent * 100) + "%", 
-      dx: 10 
+      x: "percent",
+      y: "address",
+      text: d => Math.floor(d.percent * 100) + "%",
+      dx: 10
     })
   ]
 })
@@ -216,9 +216,9 @@ Inputs.table(violationsByCamera, {
     },
     {
       name: "viewof camera",
-      inputs: ["Inputs","cameraNames"],
-      value: (function(Inputs,cameraNames){return(
-Inputs.select(cameraNames, {label: 'Select Camera:'})
+      inputs: ["Inputs","cameraNames","html"],
+      value: (function(Inputs,cameraNames,html){return(
+Inputs.select(cameraNames, {label: html`<b>Select Camera:</b>`})
 )})
     },
     {
@@ -251,7 +251,7 @@ md`## Data Queries and Filters`
     {
       name: "years",
       value: (function(){return(
-[2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021]
+[2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022]
 )})
     },
     {
@@ -327,7 +327,7 @@ dataTable.groupby('address')
 violationsByCamera
   .select('address', 'count')
   .derive({
-    percent: d => d.count / op.sum(d.count) 
+    percent: d => d.count / op.sum(d.count)
   })
   .orderby(aq.desc('percent'))
 )})
@@ -458,7 +458,7 @@ aq.op
     {
       name: "aq_version",
       value: (function(){return(
-'4.8.4'
+'5.0.0'
 )})
     },
     {
@@ -481,7 +481,7 @@ aq.op
   return function(dt, opt = {}) {
     // permit shorthand for limit
     if (typeof opt === 'number') opt = { limit: opt };
-    
+
     // marshal cell color options
     const color = { ...opt.color };
     if (typeof opt.color === 'function') {
@@ -559,7 +559,7 @@ function getGeoDataPoints(data) {
 };
 
 const notebook = {
-  id: "f32d773c0bb63336@367",
+  id: "f32d773c0bb63336@371",
   modules: [m0,m1,m2]
 };
 
