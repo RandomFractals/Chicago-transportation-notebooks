@@ -1,6 +1,6 @@
 md`# Chicago Speed Camera Violations
 
-Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Violations](https://data.cityofchicago.org/Transportation/Speed-Camera-Violations/hhkd-xvj4)
+**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Violations](https://data.cityofchicago.org/Transportation/Speed-Camera-Violations/hhkd-xvj4)
 `
 
 map = {
@@ -60,9 +60,9 @@ markerStyles = html`
   }
 </style>`
 
-viewof year = Inputs.select(years, {value: 2022, label: 'Select Year:', format: year => year})
+viewof year = Inputs.select(years, {value: 2022, label: md`## Select Year:`, format: year => year})
 
-md`### Top 10 (Busy) Chicago Speed Cameras`
+md`### Top 10 (Busy) Chicago Speed Cameras in ${year}`
 
 top10CamerasPlot = Plot.plot({
   height: top10Cameras.length * 40,
@@ -89,7 +89,14 @@ top10CamerasPlot = Plot.plot({
   ]
 })
 
-md`### Recorded Chicago Speed Camera Violations by Day`
+md`
+*tip:* mouse over camera location bar to see the total number of speed violations recorded by that camera in \${year}.
+`;
+
+md`### Recorded Speed Violations by Day in ${year}
+
+**Total:** ${totalViolations.toLocaleString()}
+`
 
 dayPlot = Plot.plot({
   height: 180,
@@ -120,7 +127,16 @@ dayPlot = Plot.plot({
   ]
 })
 
-md`## Data`
+md`
+*tip*: mouse over day plot cell to view the total number of speed violations recorded that day.
+`;
+
+md`## Data
+
+### All Recorded Speed Violations in ${year}
+
+**Total:** ${totalViolations.toLocaleString()}
+`
 
 viewof tableView = Inputs.table(data, {
   columns: columns,
@@ -128,14 +144,25 @@ viewof tableView = Inputs.table(data, {
   reverse: true
 })
 
-md`### Violations by Camera`
+md`### Recorded Speed Violations by Camera
+
+There are **${cameras.length}** registered speed cameras in Chicago area.
+
+#### Total Recorded Speed Violations per Camera Address in ${year}
+`
 
 viewof violationsSummaryView = Inputs.table(violationsByCamera, {
   sort: 'count',
   reverse: true
 })
 
-viewof camera = Inputs.select(cameraNames, {label: html`<b>Select Camera:</b>`})
+viewof camera = Inputs.select(cameraNames, {label: md`### Select Speed Camera Location:`})
+
+md`
+### Speed Violations Recorded at \${camera} in \${year}
+
+**Total:** \${totalViolationsForCamera.toLocaleString()}
+`;
 
 viewof violationsByCameraView = Inputs.table(data.filter(d => d.address == camera), {
   columns: columns,
@@ -189,6 +216,15 @@ violationsByCameraRate = violationsByCamera
   .orderby(aq.desc('percent'))
 
 top10Cameras = violationsByCameraRate.objects().slice(0, 10)
+
+totalViolations = violationsByCamera.rollup({
+    count: d => op.sum(d.count)
+  }).objects()[0].count
+
+totalViolationsForCamera = aq.from(data.filter(d => d.address == camera))
+    .rollup({
+    count: d => op.sum(d.violations)
+  }).objects()[0].count
 
 cameraNames = violationsByCamera.array('address')
 
