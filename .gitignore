@@ -1,2 +1,3 @@
 notebooks/quarto/*_files
 notebooks/quarto/*.html
+.Rproj.user
