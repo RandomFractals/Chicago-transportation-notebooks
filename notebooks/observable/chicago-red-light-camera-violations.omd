@@ -1,0 +1,249 @@
+
+# Chicago Red Light Camera Violations
+
+There are **${cameras.length}** red light cameras installed on instersections of Chicago streets for drivers and pedestrians safety.
+
+See [Red Light Camera Enforcement FAQ](https://www.chicago.gov/city/en/depts/cdot/supp_info/red-light_cameraenforcement.html) for more info.
+
+**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Red Light Camera Violations](https://data.cityofchicago.org/Transportation/Red-Light-Camera-Violations/spqx-js37)
+
+```
+map = {
+  // create map container
+  let mapContainer = DOM.element('div', { style: `width:${width}px;height:${width/1.6}px` });
+  yield mapContainer;
+
+  // create leaflet map with attributions
+  let map = L.map(mapContainer).setView([41.85, -87.68], 10); // Chicago origins
+  let osmLayer = L.tileLayer( // 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png')
+    'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors, &copy; <a href=\"http://cartodb.com/attributions\">CartoDB</a>',
+    detectRetina: false,
+    maxZoom: 18,
+    minZoom: 10,
+    noWrap: false,
+    subdomains: 'abc'
+  }).addTo(map);
+
+  // red dot marker
+  const marker = {
+    radius: 6,
+    fillColor: "#ff4e3b",
+    color: "#ff0000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
+  };
+
+  // map markers
+  const pointToLayer = function (feature, latlng) {
+    return L.circleMarker(latlng, marker);
+  }
+
+  // add markers
+  let geoLayer = L.geoJson(geoData, {
+    pointToLayer: pointToLayer,
+    onEachFeature: function (feature, layer) {
+      const data = feature.properties;
+      const html = `<div class="popup"><h3>${data.intersection}</h3>
+          <p>${data.count.toLocaleString()} violations</p>
+        </div>`;
+      layer.bindPopup(html);
+      layer.bindTooltip(`${data.intersection} <br /> ${data.count.toLocaleString()} violations`, {sticky: true});
+    }
+  });
+
+  map.addLayer(geoLayer);
+  // map.fitBounds(markers.getBounds());
+}
+
+markerStyles = html`
+<style type="text/css">
+  div.popup p {
+    margin: 4px 0;
+    font-size: 14px;
+  }
+</style>`
+
+viewof year = Inputs.select(years, {value: 2022, label: md`## Select Year:`, format: year => year})
+```
+### Top 10 (Busy) Chicago Red Light Cameras
+```
+top10CamerasPlot = Plot.plot({
+  height: top10Cameras.length * 40,
+  marginLeft: 150,
+  x: {
+    tickFormat: "%",
+    domain: [0, 1],
+    grid: true
+  },
+  marks: [
+    Plot.frame(),
+    Plot.barX(top10Cameras, {
+      x: "percent",
+      y: "intersection",
+      fill: "#ff4e3b",
+      title: d => `${d.count.toLocaleString()} violations`
+    }),
+    Plot.text(top10Cameras, {
+      x: "percent",
+      y: "intersection",
+      text: d => Math.floor(d.percent * 100) + "%",
+      dx: 10
+    })
+  ]
+})
+```
+*tip:* mouse over camera location bar to see the total number of red light violations recorded by that camera in ${year}.
+
+### Recorded Chicago Red Light Camera Violations by Day
+```
+dayPlot = Plot.plot({
+  height: 180,
+  x: {
+    axis: null,
+    padding: 0,
+  },
+  y: {
+    padding: 0,
+    tickFormat: Plot.formatWeekday("en", "narrow"),
+    tickSize: 0
+  },
+  fy: {
+    reverse: true
+  },
+  facet: {
+    data: violationsByDate,
+    y: d => d.date.getUTCFullYear()
+  },
+  marks: [
+    Plot.cell(violationsByDate, {
+      x: d => d3.utcWeek.count(d3.utcYear(d.date), d.date),
+      y: d => d.date.getUTCDay(),
+      fill: 'count',
+      title: d => `${d.date.toLocaleDateString()}: ${d.count.toLocaleString()} violations`,
+      inset: 0.5
+    })
+  ]
+})
+```
+*tip*: mouse over day plot cell to view the total number of red light violations recorded that day.
+
+## Data
+
+### All Recorded Red Light Violations in ${year}
+Total: **${totalViolations.toLocaleString()}**
+
+```
+viewof tableView = Inputs.table(data, {
+  columns: columns,
+  sort: 'violations',
+  reverse: true
+})
+```
+### Recorded Red Light Violations by Camera
+
+There are **${cameras.length}** red light cameras installed on Chicago street intersections.
+
+#### Total Recorded Red Light Violations per Intersection with Camera in ${year}
+
+```
+viewof violationSummaryView = Inputs.table(violationsByCamera, {
+  sort: 'count',
+  reverse: true
+})
+
+viewof camera = Inputs.select(cameraNames, {label: md`### Select Intersection Camera:`})
+```
+### Red Light Violations Recorded by ${camera} Intersection Camera in ${year}
+
+Total: **${totalViolationsForCamera.toLocaleString()}**
+```
+viewof violationsByCameraView = Inputs.table(data.filter(d => d.intersection == camera), {
+  columns: columns,
+  sort: 'violation_date',
+  reverse: true
+})
+```
+## Data Queries and Filters
+```
+years = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022]
+
+columns = [
+  'intersection',
+  'address',
+  'camera_id',
+  'violations',
+  'violation_date',
+  'latitude',
+  'longitude'
+]
+
+dataUrl = 'https://data.cityofchicago.org/resource/spqx-js37.json'
+
+query = `?$limit=50000&$where=violation_date between '${year}-01-01T00:00:00' and '${year}-12-31T23:59:59'`
+
+data = await fetch(dataUrl + query).then(data => data.json())
+
+dataTable = aq.from(data)
+  .derive({
+    date: d => op.parse_date(d.violation_date)
+  })
+  .orderby('camera_id')
+
+violationsByDate = dataTable.groupby('date')
+  .rollup({
+    count: d => op.sum(d.violations)
+  })
+
+
+violationsByCamera = dataTable.groupby('intersection')
+  .rollup({
+    count: d => op.sum(d.violations)
+  })
+  .join(cameraTable)
+  .orderby(aq.desc('count'))
+
+violationsByCameraRate = violationsByCamera
+  .select('intersection', 'count')
+  .derive({ percent: d => d.count / op.sum(d.count) })
+  .orderby(aq.desc('percent'))
+
+top10Cameras = violationsByCameraRate.objects().slice(0, 10)
+
+totalViolations = violationsByCamera.rollup({
+    count: d => op.sum(d.count)
+  }).objects()[0].count
+
+totalViolationsForCamera = aq.from(data.filter(d => d.intersection == camera))
+    .rollup({
+    count: d => op.sum(d.violations)
+  }).objects()[0].count
+
+cameraNames = violationsByCamera.array('intersection')
+
+geoData = getGeoDataPoints(violationsByCamera.objects())
+```
+### Red Light Camera Location Data
+```
+cameraLocationDataUrl = 'https://data.cityofchicago.org/resource/thvf-6diy.json'
+
+cameraLocations = await fetch(cameraLocationDataUrl).then(data => data.json())
+
+cameras = cameraLocations.map(camera => {
+  camera.intersection = camera.intersection.toUpperCase().replace('-', ' AND ');
+  return camera;
+})
+
+cameraTable = aq.from(cameras)
+```
+## Imports
+```
+import { aq, op } from '@uwdata/arquero'
+
+import { getGeoDataPoints } from '@randomfractals/geo-data-utils'
+
+leafletStyles = html`<link href='${resolve('leaflet@1.7.1/dist/leaflet.css')}' rel='stylesheet' />`
+
+L = require('leaflet@1.7.1')
+```
