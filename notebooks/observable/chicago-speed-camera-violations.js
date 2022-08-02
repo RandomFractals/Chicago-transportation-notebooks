@@ -1,16 +1,20 @@
 // URL: https://observablehq.com/@randomfractals/chicago-speed-camera-violations
 // Title: Chicago Speed Camera Violations
 // Author: Taras Novak (@randomfractals)
-// Version: 449
+// Version: 460
 // Runtime version: 1
 
 const m0 = {
-  id: "f32d773c0bb63336@449",
+  id: "f32d773c0bb63336@460",
   variables: [
     {
-      inputs: ["md"],
-      value: (function(md){return(
+      inputs: ["md","cameras"],
+      value: (function(md,cameras){return(
 md`# Chicago Speed Camera Violations
+
+There are **${cameras.length}** speed cameras installed on the busy streets of Chicago for drivers and pedestrians safety. They are also a [growing source of revenue](https://www.illinoispolicy.org/chicagos-speed-cameras-ticket-8x-faster-after-limit-drops-to-6-mph/) for the [Chicago Department of Transporation](https://www.chicago.gov/city/en/depts/cdot.html).
+
+See [Automated Speed Enforcement Frequently Asked Questions](https://www.chicago.gov/city/en/depts/cdot/supp_info/children_s_safetyzoneporgramautomaticspeedenforcement/automated_speed_enforcementfrequentlyaskedquestions.html) on how speed limits are enforced with these cameras and automated ticketing.
 
 **Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Violations](https://data.cityofchicago.org/Transportation/Speed-Camera-Violations/hhkd-xvj4)
 `
@@ -218,7 +222,7 @@ Inputs.table(data, {
       value: (function(md,cameras,year){return(
 md`### Recorded Speed Violations by Camera
 
-There are **${cameras.length}** registered speed cameras in Chicago area.
+There are **${cameras.length}** speed cameras installed in Chicago area.
 
 #### Total Recorded Speed Violations per Camera Address in ${year}
 `
@@ -611,7 +615,7 @@ function getGeoDataPoints(data) {
 };
 
 const notebook = {
-  id: "f32d773c0bb63336@449",
+  id: "f32d773c0bb63336@460",
   modules: [m0,m1,m2]
 };
 

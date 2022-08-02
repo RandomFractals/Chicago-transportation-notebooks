@@ -1,5 +1,9 @@
 md`# Chicago Speed Camera Violations
 
+There are **${cameras.length}** speed cameras installed on the busy streets of Chicago for drivers and pedestrians safety. They are also a [growing source of revenue](https://www.illinoispolicy.org/chicagos-speed-cameras-ticket-8x-faster-after-limit-drops-to-6-mph/) for the [Chicago Department of Transporation](https://www.chicago.gov/city/en/depts/cdot.html).
+
+See [Automated Speed Enforcement Frequently Asked Questions](https://www.chicago.gov/city/en/depts/cdot/supp_info/children_s_safetyzoneporgramautomaticspeedenforcement/automated_speed_enforcementfrequentlyaskedquestions.html) on how speed limits are enforced with these cameras and automated ticketing.
+
 **Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Speed Camera Violations](https://data.cityofchicago.org/Transportation/Speed-Camera-Violations/hhkd-xvj4)
 `
 
@@ -146,7 +150,7 @@ viewof tableView = Inputs.table(data, {
 
 md`### Recorded Speed Violations by Camera
 
-There are **${cameras.length}** registered speed cameras in Chicago area.
+There are **${cameras.length}** speed cameras installed in Chicago area.
 
 #### Total Recorded Speed Violations per Camera Address in ${year}
 `
