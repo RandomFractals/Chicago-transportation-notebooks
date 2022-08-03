@@ -1,0 +1,160 @@
+---
+title: 'Chicago Towed Vehicles Summary'
+author: Taras Novak
+format:
+  html:
+    code-copy: true
+    code-fold: true
+    code-summary: 'code'
+    code-tools: true
+---
+
+Information about the vehicles that have been towed and impounded by the City of Chicago within the last 90 days.
+
+**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Towed Vehicles](https://data.cityofchicago.org/Transportation/Towed-Vehicles/ygr5-vcbg)
+
+
+## Towed Vehicles in the last 90 days
+
+Total: **${data.length.toLocaleString()}**
+
+```{ojs}
+Plot.plot({
+  width: width,
+  height: 200,
+  padding: 0,
+  x: {
+    axis: 'top',
+    label: 'Month Day'
+  },
+  y: {
+    label: 'Month',
+    tickFormat: Plot.formatMonth('en', 'short')
+  },
+  color: {
+    scheme: 'BuYlRd'
+  },
+  marks: [
+    Plot.cell(towByDate, {
+      x: d => d.date.getUTCDate(),
+      y: d => d.date.getUTCMonth(),
+      fill: 'count',
+      inset: 0.5
+    }),
+    Plot.text(towByDate, {
+        x: d => d.date.getUTCDate(),
+        y: d => d.date.getUTCMonth(),
+        text: d => d.count
+      }
+    )
+  ]
+})
+```
+
+### Towed Vehicles by Make, Style, and Color
+
+```{ojs}
+towedMakePlot = vl.markBar()
+  .data(towByMake)
+  .encode(
+    vl.x().fieldO('make').axis({labelAngle: 60}),
+    vl.y().fieldQ('count'),
+    vl.tooltip().fieldN('count')
+  )
+  .height(200)
+  .render()
+
+towedStylePlot = vl.markBar()
+  .data(towByStyle)
+  .encode(
+    vl.x().fieldO('style').axis({labelAngle: 60}),
+    vl.y().fieldQ('count'),
+    vl.tooltip().fieldN('count')
+  )
+  .height(200)
+  .render()
+
+towedColorPlot = vl.markBar()
+  .data(towByColor)
+  .encode(
+    vl.x().fieldO('color').axis({labelAngle: 60}),
+    vl.y().fieldQ('count'),
+    vl.tooltip().fieldN('count')
+  )
+  .height(200)
+  .render()
+```
+
+## Data
+
+### Towed Vehicles by Make, Style and Color Counts
+
+```{ojs}
+viewof make = Inputs.select(towByMake, {
+  label: 'Vehicle Make',
+  format: x => `${x.make} (${x.count})`,
+  value: x => x.make
+})
+
+viewof style = Inputs.select(towByStyle, {
+  label: 'Vehicle Style',
+  format: x => `${x.style} (${x.count})`,
+  value: x => x.style
+})
+
+viewof color = Inputs.select(towByColor, {
+  label: 'Vehicle Color',
+  format: x => `${x.color} (${x.count})`,
+  value: x => x.color
+})
+```
+
+### Data Summary
+
+```{ojs}
+viewof dataSummaryView = SummaryTable(data, {label: 'Towed Vehicles Data'})
+```
+
+### Towed Vehicles Data
+
+```{ojs}
+viewof searchResults = Inputs.search(dataTable)
+
+viewof tableView = Inputs.table(searchResults, {
+  sort: 'date',
+  reverse: true
+})
+```
+
+## Data Queries and Filters
+
+```{ojs}
+year = new Date().getFullYear()
+
+dataUrl = 'https://data.cityofchicago.org/resource/ygr5-vcbg.json'
+
+query = `?$limit=100000&$where=tow_date between '${year}-01-01T00:00:00' and '${year}-12-31T23:59:59'`
+
+data = await fetch(dataUrl + query).then(data => data.json())
+
+dataTable = aq.from(data)
+  .derive({
+    date: d => op.parse_date(d.tow_date)
+  })
+
+towByDate = dataTable.groupby('date').count()
+
+towByMake = dataTable.select('make').groupby('make').count().orderby(aq.desc('count'))
+
+towByStyle = dataTable.select('style').groupby('style').count().orderby(aq.desc('count'))
+
+towByColor = dataTable.select('color').groupby('color').count().orderby(aq.desc('count'))
+
+towByState = dataTable.select('state').groupby('state').count().orderby(aq.desc('count'))
+
+towToAddress = dataTable.select('towed_to_address').groupby('towed_to_address').count().orderby(aq.desc('count'))
+
+import { aq, op } from '@uwdata/arquero'
+
+import {SummaryTable} from '@observablehq/summary-table'
+```
