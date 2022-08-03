@@ -7,32 +7,46 @@
   "publish_level": "public",
   "forks": 1,
   "fork_of": null,
-  "update_time": "2021-06-14T03:40:39.609Z",
+  "update_time": "2022-08-03T14:39:39.997Z",
   "publish_time": "2021-06-14T00:12:36.274Z",
-  "publish_version": 134,
-  "thumbnail": "9dfd9858aa529a98dffcccb5e3665926630259ed3c6df48a4862c195c879b842",
-  "default_thumbnail": "9dfd9858aa529a98dffcccb5e3665926630259ed3c6df48a4862c195c879b842",
+  "publish_version": 150,
+  "latest_version": 150,
+  "thumbnail": "4ffd9d8f75b3d68fd0a25f8217a6b744140e91c5b1fe1e1486ff6856488a6d69",
+  "default_thumbnail": "4ffd9d8f75b3d68fd0a25f8217a6b744140e91c5b1fe1e1486ff6856488a6d69",
   "roles": [],
   "sharing": null,
   "owner": {
     "id": "17b72db66175b428",
     "github_login": "RandomFractals",
-    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
     "login": "randomfractals",
     "name": "Taras Novak",
-    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "bio": "I map 🗺️ & graph  📈 data 🈸 ",
     "home_url": "https://www.linkedin.com/in/tarasnovak",
     "type": "individual"
   },
   "creator": {
     "id": "17b72db66175b428",
     "github_login": "RandomFractals",
-    "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
     "login": "randomfractals",
     "name": "Taras Novak",
-    "bio": "I map 🌐 & graph  📈 data 🈸 ",
+    "bio": "I map 🗺️ & graph  📈 data 🈸 ",
     "home_url": "https://www.linkedin.com/in/tarasnovak"
   },
+  "authors": [
+    {
+      "id": "17b72db66175b428",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+      "name": "Taras Novak",
+      "login": "randomfractals",
+      "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+      "home_url": "https://www.linkedin.com/in/tarasnovak",
+      "github_login": "RandomFractals",
+      "approved": true,
+      "description": ""
+    }
+  ],
   "collections": [
     {
       "id": "c30622739accf157",
@@ -44,16 +58,17 @@
       "pinned": false,
       "ordered": false,
       "custom_thumbnail": null,
-      "thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
-      "listing_count": 8,
+      "default_thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "listing_count": 10,
       "parent_collection_count": 0,
       "owner": {
         "id": "17b72db66175b428",
         "github_login": "RandomFractals",
-        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
         "login": "randomfractals",
         "name": "Taras Novak",
-        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
         "home_url": "https://www.linkedin.com/in/tarasnovak",
         "type": "individual"
       }
@@ -68,16 +83,17 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
-      "thumbnail": "5b3e44e84b3e82afdc8d852c1f183c3d8686bbfaa5d3abd2411a926dfbb8997c",
-      "listing_count": 6,
+      "default_thumbnail": "86d3b4e977fabada222a78547b3add92c12b059b9587eaaaf54c8e0536629e35",
+      "thumbnail": "86d3b4e977fabada222a78547b3add92c12b059b9587eaaaf54c8e0536629e35",
+      "listing_count": 8,
       "parent_collection_count": 0,
       "owner": {
         "id": "17b72db66175b428",
         "github_login": "RandomFractals",
-        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
         "login": "randomfractals",
         "name": "Taras Novak",
-        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
         "home_url": "https://www.linkedin.com/in/tarasnovak",
         "type": "individual"
       }
@@ -92,16 +108,17 @@
       "pinned": false,
       "ordered": false,
       "custom_thumbnail": null,
-      "thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
-      "listing_count": 12,
+      "default_thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "listing_count": 16,
       "parent_collection_count": 0,
       "owner": {
         "id": "17b72db66175b428",
         "github_login": "RandomFractals",
-        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
         "login": "randomfractals",
         "name": "Taras Novak",
-        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
         "home_url": "https://www.linkedin.com/in/tarasnovak",
         "type": "individual"
       }
@@ -116,16 +133,17 @@
       "pinned": false,
       "ordered": false,
       "custom_thumbnail": null,
-      "thumbnail": "f195a105405d38650d0fe79da26bb5a91994a4a231481a4ab062d223c36de082",
-      "listing_count": 13,
+      "default_thumbnail": "29a192cb240f49b354ab9ce9926d329086b0eafdf717da4ee56f1afa9bca0c03",
+      "thumbnail": "29a192cb240f49b354ab9ce9926d329086b0eafdf717da4ee56f1afa9bca0c03",
+      "listing_count": 14,
       "parent_collection_count": 0,
       "owner": {
         "id": "17b72db66175b428",
         "github_login": "RandomFractals",
-        "avatar_url": "https://avatars1.githubusercontent.com/u/656833?v=4",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
         "login": "randomfractals",
         "name": "Taras Novak",
-        "bio": "I map 🌐 & graph  📈 data 🈸 ",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
         "home_url": "https://www.linkedin.com/in/tarasnovak",
         "type": "individual"
       }
@@ -134,7 +152,9 @@
   "files": [],
   "comments": [],
   "commenting_lock": null,
-  "version": 134,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 150,
   "title": "Chicago Towed Vehicles",
   "license": null,
   "copyright": "",
@@ -143,151 +163,218 @@
       "id": 0,
       "value": "md`# Chicago Towed Vehicles\n\nInformation about the vehicles that have been towed and impounded by the City of Chicago within the last 90 days.\n\nData Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Towed Vehicles](https://data.cityofchicago.org/Transportation/Towed-Vehicles/ygr5-vcbg)\n`",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 119,
-      "value": "md`## Towed Vehicles`",
+      "value": "md`## Towed Vehicles in the last 90 days\n\nTotal: **${data.length.toLocaleString()}**`",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 109,
       "value": "Plot.plot({\n  width: width,\n  height: 200,\n  padding: 0,\n  x: {\n    axis: 'top',\n    label: 'Month Day'\n  },\n  y: {\n    label: 'Month',\n    tickFormat: Plot.formatMonth('en', 'short')\n  },\n  color: {\n    scheme: 'BuYlRd'\n  },\n  marks: [\n    Plot.cell(towByDate, {\n      x: d => d.date.getUTCDate(),\n      y: d => d.date.getUTCMonth(),\n      fill: 'count',\n      inset: 0.5\n    }),\n    Plot.text(towByDate, {\n        x: d => d.date.getUTCDate(),\n        y: d => d.date.getUTCMonth(),\n        text: d => d.count\n      }\n    ) \n  ]\n})",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 132,
       "value": "md`### Towed Vehicles by Make, Style, and Color`",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 56,
       "value": "towedMakePlot = vl.markBar()\n  .data(towByMake)\n  .encode(\n    vl.x().fieldO('make').axis({labelAngle: 60}),\n    vl.y().fieldQ('count'),\n    vl.tooltip().fieldN('count')\n  )\n  .height(200)\n  .render()",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 97,
       "value": "towedStylePlot = vl.markBar()\n  .data(towByStyle)\n  .encode(\n    vl.x().fieldO('style').axis({labelAngle: 60}),\n    vl.y().fieldQ('count'),\n    vl.tooltip().fieldN('count')\n  )\n  .height(200)\n  .render()",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 69,
       "value": "towedColorPlot = vl.markBar()\n  .data(towByColor)\n  .encode(\n    vl.x().fieldO('color').axis({labelAngle: 60}),\n    vl.y().fieldQ('count'),\n    vl.tooltip().fieldN('count')\n  )\n  .height(200)\n  .render()",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 125,
-      "value": "md`## Data`",
+      "value": "md`## Data\n\n### Towed Vehicles by Make, Style and Color Counts`",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 47,
       "value": "viewof make = Inputs.select(towByMake, {\n  label: 'Vehicle Make',\n  format: x => `${x.make} (${x.count})`,\n  value: x => x.make\n})",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 88,
       "value": "viewof style = Inputs.select(towByStyle, {\n  label: 'Vehicle Style',\n  format: x => `${x.style} (${x.count})`,\n  value: x => x.style\n})",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 81,
       "value": "viewof color = Inputs.select(towByColor, {\n  label: 'Vehicle Color',\n  format: x => `${x.color} (${x.count})`,\n  value: x => x.color\n})",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 145,
+      "value": "### Towed Vehicles Data",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 135,
+      "value": "viewof searchResults = Inputs.search(dataTable)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 29,
-      "value": "viewof tableView = Inputs.table(data, {\n  reverse: true\n})",
+      "value": "viewof tableView = Inputs.table(searchResults, {\n  sort: 'date',\n  reverse: true\n})",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 129,
       "value": "md`## Data Queries and Filters`",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 13,
       "value": "year = new Date().getFullYear()",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 5,
       "value": "dataUrl = 'https://data.cityofchicago.org/resource/ygr5-vcbg.json'",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 16,
       "value": "query = `?$limit=100000&$where=tow_date between '${year}-01-01T00:00:00' and '${year}-12-31T23:59:59'`",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 8,
       "value": "data = await fetch(dataUrl + query).then(data => data.json())",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 39,
       "value": "dataTable = aq.from(data)\n  .derive({\n    date: d => op.parse_date(d.tow_date)\n  })",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 105,
       "value": "towByDate = dataTable.groupby('date').count()",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 43,
       "value": "towByMake = dataTable.select('make').groupby('make').count().orderby(aq.desc('count'))",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 92,
       "value": "towByStyle = dataTable.select('style').groupby('style').count().orderby(aq.desc('count'))",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 76,
       "value": "towByColor = dataTable.select('color').groupby('color').count().orderby(aq.desc('count'))",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 66,
       "value": "towByState = dataTable.select('state').groupby('state').count().orderby(aq.desc('count'))",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 102,
       "value": "towToAddress = dataTable.select('towed_to_address').groupby('towed_to_address').count().orderby(aq.desc('count'))",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 36,
       "value": "import { aq, op } from '@uwdata/arquero'",
       "pinned": false,
-      "mode": "js"
+      "mode": "js",
+      "data": null,
+      "name": null
     }
-  ]
+  ],
+  "resolutions": []
 }

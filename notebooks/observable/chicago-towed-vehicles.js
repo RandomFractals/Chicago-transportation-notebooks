@@ -1,11 +1,11 @@
 // URL: https://observablehq.com/@randomfractals/chicago-towed-vehicles
 // Title: Chicago Towed Vehicles
 // Author: Taras Novak (@randomfractals)
-// Version: 134
+// Version: 150
 // Runtime version: 1
 
 const m0 = {
-  id: "a113647eff1742ea@134",
+  id: "a113647eff1742ea@150",
   variables: [
     {
       inputs: ["md"],
@@ -19,9 +19,11 @@ Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?cate
 )})
     },
     {
-      inputs: ["md"],
-      value: (function(md){return(
-md`## Towed Vehicles`
+      inputs: ["md","data"],
+      value: (function(md,data){return(
+md`## Towed Vehicles in the last 90 days
+
+Total: **${data.length.toLocaleString()}**`
 )})
     },
     {
@@ -54,7 +56,7 @@ Plot.plot({
         y: d => d.date.getUTCMonth(),
         text: d => d.count
       }
-    ) 
+    )
   ]
 })
 )})
@@ -113,7 +115,9 @@ vl.markBar()
     {
       inputs: ["md"],
       value: (function(md){return(
-md`## Data`
+md`## Data
+
+### Towed Vehicles by Make, Style and Color Counts`
 )})
     },
     {
@@ -165,10 +169,29 @@ Inputs.select(towByColor, {
       value: (G, _) => G.input(_)
     },
     {
+      inputs: ["md"],
+      value: (function(md){return(
+md`### Towed Vehicles Data`
+)})
+    },
+    {
+      name: "viewof searchResults",
+      inputs: ["Inputs","dataTable"],
+      value: (function(Inputs,dataTable){return(
+Inputs.search(dataTable)
+)})
+    },
+    {
+      name: "searchResults",
+      inputs: ["Generators","viewof searchResults"],
+      value: (G, _) => G.input(_)
+    },
+    {
       name: "viewof tableView",
-      inputs: ["Inputs","data"],
-      value: (function(Inputs,data){return(
-Inputs.table(data, {
+      inputs: ["Inputs","searchResults"],
+      value: (function(Inputs,searchResults){return(
+Inputs.table(searchResults, {
+  sort: 'date',
   reverse: true
 })
 )})
@@ -306,7 +329,7 @@ aq.op
     {
       name: "aq_version",
       value: (function(){return(
-'4.8.4'
+'5.0.0'
 )})
     },
     {
@@ -329,7 +352,7 @@ aq.op
   return function(dt, opt = {}) {
     // permit shorthand for limit
     if (typeof opt === 'number') opt = { limit: opt };
-    
+
     // marshal cell color options
     const color = { ...opt.color };
     if (typeof opt.color === 'function') {
@@ -371,7 +394,7 @@ aq.op
 };
 
 const notebook = {
-  id: "a113647eff1742ea@134",
+  id: "a113647eff1742ea@150",
   modules: [m0,m1]
 };
 
