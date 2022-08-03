@@ -186,7 +186,7 @@ columns = [
 
 dataUrl = 'https://data.cityofchicago.org/resource/spqx-js37.json'
 
-query = `?$limit=50000&$where=violation_date between '${year}-01-01T00:00:00' and '${year}-12-31T23:59:59'`
+query = `?$limit=100000&$where=violation_date between '${year}-01-01T00:00:00' and '${year}-12-31T23:59:59'`
 
 data = await fetch(dataUrl + query).then(data => data.json())
 

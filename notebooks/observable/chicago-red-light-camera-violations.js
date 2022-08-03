@@ -1,18 +1,22 @@
 // URL: https://observablehq.com/@randomfractals/chicago-red-light-camera-violations
 // Title: Chicago Red Light Camera Violations
 // Author: Taras Novak (@randomfractals)
-// Version: 354
+// Version: 383
 // Runtime version: 1
 
 const m0 = {
-  id: "6e3224c9b7f299fd@354",
+  id: "6e3224c9b7f299fd@383",
   variables: [
     {
-      inputs: ["md"],
-      value: (function(md){return(
+      inputs: ["md","cameras"],
+      value: (function(md,cameras){return(
 md`# Chicago Red Light Camera Violations
 
-Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Red Light Camera Violations](https://data.cityofchicago.org/Transportation/Red-Light-Camera-Violations/spqx-js37)
+There are **${cameras.length}** red light cameras installed on instersections of Chicago streets for drivers and pedestrians safety.
+
+See [Red Light Camera Enforcement FAQ](https://www.chicago.gov/city/en/depts/cdot/supp_info/red-light_cameraenforcement.html) for more info.
+
+**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation)/[Red Light Camera Violations](https://data.cityofchicago.org/Transportation/Red-Light-Camera-Violations/spqx-js37)
 `
 )})
     },
@@ -24,7 +28,7 @@ Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?cate
   // create map container
   let mapContainer = DOM.element('div', { style: `width:${width}px;height:${width/1.6}px` });
   yield mapContainer;
-  
+
   // create leaflet map with attributions
   let map = L.map(mapContainer).setView([41.85, -87.68], 10); // Chicago origins
   let osmLayer = L.tileLayer( // 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png')
@@ -46,12 +50,12 @@ Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?cate
     opacity: 1,
     fillOpacity: 0.8
   };
-  
+
   // map markers
   const pointToLayer = function (feature, latlng) {
     return L.circleMarker(latlng, marker);
   }
-  
+
   // add markers
   let geoLayer = L.geoJson(geoData, {
     pointToLayer: pointToLayer,
@@ -64,7 +68,7 @@ Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?cate
       layer.bindTooltip(`${data.intersection} <br /> ${data.count.toLocaleString()} violations`, {sticky: true});
     }
   });
-  
+
   map.addLayer(geoLayer);
   // map.fitBounds(markers.getBounds());
 }
@@ -76,7 +80,7 @@ Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?cate
       value: (function(html){return(
 html`
 <style type="text/css">
-  div.popup p { 
+  div.popup p {
     margin: 4px 0;
     font-size: 14px;
   }
@@ -85,9 +89,9 @@ html`
     },
     {
       name: "viewof year",
-      inputs: ["Inputs","years"],
-      value: (function(Inputs,years){return(
-Inputs.select(years, {value: 2021, label: 'Select Year:', format: year => year})
+      inputs: ["Inputs","years","md"],
+      value: (function(Inputs,years,md){return(
+Inputs.select(years, {value: 2022, label: md`## Select Year:`, format: year => year})
 )})
     },
     {
@@ -116,19 +120,25 @@ Plot.plot({
   marks: [
     Plot.frame(),
     Plot.barX(top10Cameras, {
-      x: "percent", 
-      y: "intersection", 
-      fill: "#ff4e3b", 
+      x: "percent",
+      y: "intersection",
+      fill: "#ff4e3b",
       title: d => `${d.count.toLocaleString()} violations`
     }),
     Plot.text(top10Cameras, {
-      x: "percent", 
-      y: "intersection", 
-      text: d => Math.floor(d.percent * 100) + "%", 
-      dx: 10 
+      x: "percent",
+      y: "intersection",
+      text: d => Math.floor(d.percent * 100) + "%",
+      dx: 10
     })
   ]
 })
+)})
+    },
+    {
+      inputs: ["year","md"],
+      value: (function(year,md){return(
+md`*tip:* mouse over camera location bar to see the total number of red light violations recorded by that camera in ${year}.`
 )})
     },
     {
@@ -174,7 +184,17 @@ Plot.plot({
     {
       inputs: ["md"],
       value: (function(md){return(
-md`## Data`
+md`*tip*: mouse over day plot cell to view the total number of red light violations recorded that day.`
+)})
+    },
+    {
+      inputs: ["md","year","totalViolations"],
+      value: (function(md,year,totalViolations){return(
+md`## Data
+
+### All Recorded Red Light Violations in ${year}
+Total: **${totalViolations.toLocaleString()}**
+`
 )})
     },
     {
@@ -194,9 +214,14 @@ Inputs.table(data, {
       value: (G, _) => G.input(_)
     },
     {
-      inputs: ["md"],
-      value: (function(md){return(
-md`### Violations by Camera`
+      inputs: ["md","cameras","year"],
+      value: (function(md,cameras,year){return(
+md`### Recorded Red Light Violations by Camera
+
+There are **${cameras.length}** red light cameras installed on Chicago street intersections.
+
+#### Total Recorded Red Light Violations per Intersection with Camera in ${year}
+`
 )})
     },
     {
@@ -216,15 +241,23 @@ Inputs.table(violationsByCamera, {
     },
     {
       name: "viewof camera",
-      inputs: ["Inputs","cameraNames"],
-      value: (function(Inputs,cameraNames){return(
-Inputs.select(cameraNames, {label: 'Select Camera:'})
+      inputs: ["Inputs","cameraNames","md"],
+      value: (function(Inputs,cameraNames,md){return(
+Inputs.select(cameraNames, {label: md`### Select Intersection Camera:`})
 )})
     },
     {
       name: "camera",
       inputs: ["Generators","viewof camera"],
       value: (G, _) => G.input(_)
+    },
+    {
+      inputs: ["camera","year","totalViolationsForCamera","md"],
+      value: (function(camera,year,totalViolationsForCamera,md){return(
+md`### Red Light Violations Recorded by ${camera} Intersection Camera in ${year}
+
+Total: **${totalViolationsForCamera.toLocaleString()}**`
+)})
     },
     {
       name: "viewof violationsByCameraView",
@@ -251,7 +284,7 @@ md`## Data Queries and Filters`
     {
       name: "years",
       value: (function(){return(
-[2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021]
+[2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022]
 )})
     },
     {
@@ -278,7 +311,7 @@ md`## Data Queries and Filters`
       name: "query",
       inputs: ["year"],
       value: (function(year){return(
-`?$limit=50000&$where=violation_date between '${year}-01-01T00:00:00' and '${year}-12-31T23:59:59'`
+`?$limit=100000&$where=violation_date between '${year}-01-01T00:00:00' and '${year}-12-31T23:59:59'`
 )})
     },
     {
@@ -336,6 +369,25 @@ violationsByCamera
       inputs: ["violationsByCameraRate"],
       value: (function(violationsByCameraRate){return(
 violationsByCameraRate.objects().slice(0, 10)
+)})
+    },
+    {
+      name: "totalViolations",
+      inputs: ["violationsByCamera","op"],
+      value: (function(violationsByCamera,op){return(
+violationsByCamera.rollup({
+    count: d => op.sum(d.count)
+  }).objects()[0].count
+)})
+    },
+    {
+      name: "totalViolationsForCamera",
+      inputs: ["aq","data","camera","op"],
+      value: (function(aq,data,camera,op){return(
+aq.from(data.filter(d => d.intersection == camera))
+    .rollup({
+    count: d => op.sum(d.violations)
+  }).objects()[0].count
 )})
     },
     {
@@ -457,7 +509,7 @@ aq.op
     {
       name: "aq_version",
       value: (function(){return(
-'4.8.4'
+'5.0.0'
 )})
     },
     {
@@ -480,7 +532,7 @@ aq.op
   return function(dt, opt = {}) {
     // permit shorthand for limit
     if (typeof opt === 'number') opt = { limit: opt };
-    
+
     // marshal cell color options
     const color = { ...opt.color };
     if (typeof opt.color === 'function') {
@@ -558,7 +610,7 @@ function getGeoDataPoints(data) {
 };
 
 const notebook = {
-  id: "6e3224c9b7f299fd@354",
+  id: "6e3224c9b7f299fd@383",
   modules: [m0,m1,m2]
 };
 
