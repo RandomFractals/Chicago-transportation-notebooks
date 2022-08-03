@@ -18,6 +18,7 @@
         top: 8px;
         right: 8px;
         bottom: 8px;
+        max-width: 480px;
     }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/@hpcc-js/observable-md/dist/index.full.js" type="text/javascript" charset="utf-8"></script>
@@ -39,10 +40,13 @@
 
 Information about the vehicles that have been towed and impounded by the City of Chicago within the last 90 days.
 
-Data Source: [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Towed Vehicles](https://data.cityofchicago.org/Transportation/Towed-Vehicles/ygr5-vcbg)
+**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Towed Vehicles](https://data.cityofchicago.org/Transportation/Towed-Vehicles/ygr5-vcbg)
 \`
 
-md\`## Towed Vehicles\`
+md\`## Towed Vehicles in the last 90 days
+
+Total: **\${data.length.toLocaleString()}**
+\`
 
 Plot.plot({
   width: width,
@@ -71,7 +75,7 @@ Plot.plot({
         y: d => d.date.getUTCMonth(),
         text: d => d.count
       }
-    ) 
+    )
   ]
 })
 
@@ -107,7 +111,10 @@ towedColorPlot = vl.markBar()
   .height(200)
   .render()
 
-md\`## Data\`
+md\`## Data
+
+### Towed Vehicles by Make, Style and Color Counts
+\`
 
 viewof make = Inputs.select(towByMake, {
   label: 'Vehicle Make',
@@ -127,9 +134,20 @@ viewof color = Inputs.select(towByColor, {
   value: x => x.color
 })
 
+md\`
+### Data Summary
+\`;
+
 viewof dataSummaryView = SummaryTable(data, {label: 'Towed Vehicles Data'})
 
-viewof tableView = Inputs.table(data, {
+md\`
+### Towed Vehicles Data
+\`;
+
+viewof searchResults = Inputs.search(dataTable)
+
+viewof tableView = Inputs.table(searchResults, {
+  sort: 'date',
   reverse: true
 })
 
