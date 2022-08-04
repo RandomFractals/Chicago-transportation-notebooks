@@ -53,16 +53,19 @@ trafficSegmentsLayer = {
     getWidth: 8,
     getColor: d => colorScale(Number(d.current_speed)),
     getSourcePosition: d => [Number(d.start_longitude), Number(d.start_latitude)],
-    getTargetPosition: d => [Number(d.end_longitude),Number(d.end_latitude)],
+    getTargetPosition: d => [Number(d.end_longitude), Number(d.end_latitude)],
     onHover: onHover
   });
+
   deckgl.setProps({layers: [segmentsLayer]});
   return segmentsLayer;
 }
 
 md`## Data`
 
-viewof tableView = Inputs.table(dataTable, {
+viewof searchResults = Inputs.search(dataTable)
+
+viewof tableView = Inputs.table(searchResults, {
   columns,
   reverse: true
 })
@@ -75,7 +78,7 @@ columns = [
   'to_street',
   'street_heading',
   'street',
-  'direction',  
+  'direction',
   'segment_length',
   'current_speed',
   'start_longitude',
@@ -161,7 +164,7 @@ function onHover (info) {
       for <b>${data.segment_length}</b> miles<br />
       last updated on <b>${data.update_date_time.toLocaleDateString()}</b>
       at <b>${data.update_date_time.toLocaleTimeString()}</b>`;
-  } else { 
+  } else {
     tooltip.innerHTML = '';
   }
 }
@@ -209,10 +212,6 @@ mapbox-gl.css`
 md`## Imports`
 
 import { aq, op } from '@uwdata/arquero'
-
-d3 = require('d3-scale')
-
-Inputs = require('@observablehq/inputs')
 
 mapboxgl = require('mapbox-gl@^2.3.0/dist/mapbox-gl.js')
 

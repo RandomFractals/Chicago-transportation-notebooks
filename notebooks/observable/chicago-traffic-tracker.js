@@ -1,11 +1,11 @@
 // URL: https://observablehq.com/@randomfractals/chicago-traffic-tracker
 // Title: Chicago Traffic Tracker
 // Author: Taras Novak (@randomfractals)
-// Version: 145
+// Version: 151
 // Runtime version: 1
 
 const m0 = {
-  id: "5d009b86321f06fb@145",
+  id: "5d009b86321f06fb@151",
   variables: [
     {
       inputs: ["md"],
@@ -80,9 +80,10 @@ html `
     getWidth: 8,
     getColor: d => colorScale(Number(d.current_speed)),
     getSourcePosition: d => [Number(d.start_longitude), Number(d.start_latitude)],
-    getTargetPosition: d => [Number(d.end_longitude),Number(d.end_latitude)],
+    getTargetPosition: d => [Number(d.end_longitude), Number(d.end_latitude)],
     onHover: onHover
   });
+
   deckgl.setProps({layers: [segmentsLayer]});
   return segmentsLayer;
 }
@@ -95,10 +96,22 @@ md`## Data`
 )})
     },
     {
+      name: "viewof searchResults",
+      inputs: ["Inputs","dataTable"],
+      value: (function(Inputs,dataTable){return(
+Inputs.search(dataTable)
+)})
+    },
+    {
+      name: "searchResults",
+      inputs: ["Generators","viewof searchResults"],
+      value: (G, _) => G.input(_)
+    },
+    {
       name: "viewof tableView",
-      inputs: ["Inputs","dataTable","columns"],
-      value: (function(Inputs,dataTable,columns){return(
-Inputs.table(dataTable, {
+      inputs: ["Inputs","searchResults","columns"],
+      value: (function(Inputs,searchResults,columns){return(
+Inputs.table(searchResults, {
   columns,
   reverse: true
 })
@@ -124,7 +137,7 @@ md`## Data Queries and Filters`
   'to_street',
   'street_heading',
   'street',
-  'direction',  
+  'direction',
   'segment_length',
   'current_speed',
   'start_longitude',
@@ -257,7 +270,7 @@ function onHover (info) {
       for <b>${data.segment_length}</b> miles<br />
       last updated on <b>${data.update_date_time.toLocaleDateString()}</b>
       at <b>${data.update_date_time.toLocaleTimeString()}</b>`;
-  } else { 
+  } else {
     tooltip.innerHTML = '';
   }
 }
@@ -385,7 +398,7 @@ aq.op
     {
       name: "aq_version",
       value: (function(){return(
-'4.8.4'
+'5.0.0'
 )})
     },
     {
@@ -408,7 +421,7 @@ aq.op
   return function(dt, opt = {}) {
     // permit shorthand for limit
     if (typeof opt === 'number') opt = { limit: opt };
-    
+
     // marshal cell color options
     const color = { ...opt.color };
     if (typeof opt.color === 'function') {
@@ -450,7 +463,7 @@ aq.op
 };
 
 const notebook = {
-  id: "5d009b86321f06fb@145",
+  id: "5d009b86321f06fb@151",
   modules: [m0,m1]
 };
 
