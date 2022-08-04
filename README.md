@@ -53,3 +53,10 @@ You can also use [Observable JS](https://marketplace.visualstudio.com/items?item
 
 ![Observable JS View](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-ojs.png?raw=true
  "Observable JS View")
+
+## Quarto Doc View
+
+You can also use new [Quarto](https://marketplace.visualstudio.com/items?itemName=quarto.quarto) VSCode extension to view ported Chicago transportation OJS notebooks in [`.qmd` format](https://github.com/RandomFractals/Chicago-transportation-notebooks/tree/main/notebooks/quarto):
+
+![Quarto Preview](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-traffic-tracker-qmd-code.png?raw=true
+ "Quarto Preview")
