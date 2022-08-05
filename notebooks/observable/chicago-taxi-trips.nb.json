@@ -1,0 +1,412 @@
+{
+  "id": "db00010d81235f7b",
+  "slug": "chicago-taxi-trips",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "public",
+  "forks": 1,
+  "fork_of": null,
+  "update_time": "2022-08-05T14:18:54.226Z",
+  "publish_time": "2021-06-24T15:25:34.760Z",
+  "publish_version": 244,
+  "latest_version": 244,
+  "thumbnail": "30f1bd6c36507b17c3eaba45ca13ac1dc26252ae9754dc7ef9c969efd8404943",
+  "default_thumbnail": "30f1bd6c36507b17c3eaba45ca13ac1dc26252ae9754dc7ef9c969efd8404943",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak",
+    "type": "individual"
+  },
+  "creator": {
+    "id": "17b72db66175b428",
+    "github_login": "RandomFractals",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+    "login": "randomfractals",
+    "name": "Taras Novak",
+    "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+    "home_url": "https://www.linkedin.com/in/tarasnovak"
+  },
+  "authors": [
+    {
+      "id": "17b72db66175b428",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+      "name": "Taras Novak",
+      "login": "randomfractals",
+      "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+      "home_url": "https://www.linkedin.com/in/tarasnovak",
+      "github_login": "RandomFractals",
+      "approved": true,
+      "description": ""
+    }
+  ],
+  "collections": [
+    {
+      "id": "c30622739accf157",
+      "type": "public",
+      "slug": "arquero",
+      "title": "Arquero",
+      "description": "Notebooks using Arquero JS library for manipulating data.",
+      "update_time": "2021-06-08T11:51:29.570Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "default_thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "listing_count": 10,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "3a2bf0501500f229",
+      "type": "public",
+      "slug": "plot",
+      "title": "Plot",
+      "description": "Notebooks using new Plot library",
+      "update_time": "2021-06-08T11:51:15.611Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "86d3b4e977fabada222a78547b3add92c12b059b9587eaaaf54c8e0536629e35",
+      "thumbnail": "86d3b4e977fabada222a78547b3add92c12b059b9587eaaaf54c8e0536629e35",
+      "listing_count": 8,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "cf858224d6488195",
+      "type": "public",
+      "slug": "transportation",
+      "title": "Transportation",
+      "description": "Public transportation notebooks",
+      "update_time": "2021-06-04T03:34:03.975Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "default_thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "thumbnail": "ef160203c757f4375065e6434fd013225493e6b7c7ff98df254f9dfc055b60f1",
+      "listing_count": 16,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    },
+    {
+      "id": "3bf482fdf6a5e174",
+      "type": "public",
+      "slug": "vega",
+      "title": "Vega",
+      "description": "Random collections of my Vega notebooks in the works",
+      "update_time": "2018-09-13T16:28:32.315Z",
+      "pinned": false,
+      "ordered": false,
+      "custom_thumbnail": null,
+      "default_thumbnail": "30f1bd6c36507b17c3eaba45ca13ac1dc26252ae9754dc7ef9c969efd8404943",
+      "thumbnail": "30f1bd6c36507b17c3eaba45ca13ac1dc26252ae9754dc7ef9c969efd8404943",
+      "listing_count": 14,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 244,
+  "title": "Daily Chicago Taxi Trips",
+  "license": null,
+  "copyright": "",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "md`# Daily Chicago Taxi Trips\n\n**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Taxi Trips](https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew)\n\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 114,
+      "value": "md`## Taxi Trips Date`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 52,
+      "value": "viewof tripDate = Inputs.date({\n  label: md`### Select Date:`,\n  min: `2013-01-01`,\n  max: `${year}-12-31`,\n  value: `2022-06-30`,\n  required: true,\n  //submit: true,\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 90,
+      "value": "md`## Trips Serviced by Taxi Company Summary`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 82,
+      "value": "tripsByCompanyPlot = vl.markBar()\n  .data(tripsByCompany)\n  .encode(\n    vl.x().fieldO('company').axis({title: 'Company', labelAngle: 30}),\n    vl.y().fieldQ('count').axis({title: 'Count'}),\n    vl.tooltip().fieldN('count')\n  )\n  .height(200)\n  .render()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 101,
+      "value": "md`## Processed Trip Payment Types`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 104,
+      "value": "paymentTypePlot = vl.markBar().data(tripsByPaymentType).encode(\n  vl.y().fieldO('payment_type').sort({encoding: 'x'}).axis({title: 'Type'}),\n  vl.x().fieldQ('count').axis({title: 'Count'}),\n  vl.tooltip().fieldN('count')\n).width(width - 200).render()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 172,
+      "value": "md`## Trips by Start Time (every 15 minutes)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 157,
+      "value": "tripStartTimePlot = Plot.plot({\n  width: width,\n  height: 320,\n  x: {\n    label: 'time',\n    tickFormat: ''\n  },\n  marks: [\n    Plot.barY(tripsByStartTime, {\n      x: 'trip_start_time', \n      y: 'count', \n      fill: 'steelblue',\n      title: d => `${d.trip_start_time.toLocaleTimeString()}: ${d.count.toLocaleString()} trips`\n    })\n  ]\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 184,
+      "value": "md`## Average Trip Cost`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 187,
+      "value": "tripCostByStartTimePlot = {\n  const hover = vl.selectSingle('hover')\n    .on('mouseover')\n    .encodings('x')\n    .nearest(true)\n    .clear('moouseout')\n    .init({x: {year: year, month: 1, date: 1}});\n  \n  const lineAndPoint = vl.layer(vl.markLine(), vl.markPoint().transform(vl.filter(hover)))\n    .encode(\n      vl.y().fieldQ('cost'),\n      vl.color().fieldN('type')\n    );\n  \n  const rule = vl.markRule({strokeWidth: 0.5, tooltip: true})\n    .transform(vl.pivot('type').value('cost').groupby(['time']))\n    .encode(vl.opacity().value(0).if(hover, vl.value(0.7)),\n      vl.tooltip([\n        vl.fieldT('time'),\n        'fare',\n        'tolls',\n        'extras',      \n        'tips',\n        'total'\n      ])\n    ).select(hover);\n\n  return vl.layer(lineAndPoint, rule)\n    .encode(vl.x().fieldT('time'))\n    .data(tripCostByStartTime)\n    .width(width - 240)\n    .height(300)\n    .render();\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 120,
+      "value": "md`## Trips Geo Data Summary (${geoDataTable.totalRows().toLocaleString()} geo-located trips)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 71,
+      "value": "viewof geoDataSummaryView = SummaryTable(geoDataTable.objects(), {label: 'Taxi Trips Data'})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 124,
+      "value": "md`## Taxi Trips Data \n\nTotal: **${data.length.toLocaleString()}** trips`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 30,
+      "value": "viewof tableView = Inputs.table(data, {\n  columns: columns,\n  reverse: false\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 32,
+      "value": "md`## Trip Data Queries and Filters`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 14,
+      "value": "year = new Date().getFullYear()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 35,
+      "value": "columns = [\n  'trip_start_timestamp',\n  'trip_end_timestamp',\n  'trip_seconds',\n  'trip_miles',\n  'pickup_community_area',\n  'dropoff_community_area',\n  'fare',\n  'tips',\n  'tolls',\n  'extras',\n  'trip_total',\n  'payment_type',\n  'company',\n  'pickup_centroid_latitude',\n  'pickup_centroid_longitude',\n  'dropoff_centroid_latitude',\n  'dropoff_centroid_longitude',\n  'trip_id',\n  'taxi_id'\n]",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 17,
+      "value": "dataUrl = 'https://data.cityofchicago.org/resource/wrvz-psew.json'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 216,
+      "value": "tripsDate = tripDate.toISOString().substring(0, 10)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 19,
+      "value": "query = `?$limit=50000&$where=trip_start_timestamp between '${tripsDate}T00:00:00' and '${tripsDate}T23:59:59'`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 28,
+      "value": "data = await fetch(dataUrl + query).then(data => data.json())",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 43,
+      "value": "dataTable = aq.from(data)\n  .derive({\n    trip_start_time: d => op.parse_date(d.trip_start_timestamp),\n    trip_end_time: d => op.parse_date(d.trip_end_timestamp)\n  })\n  .orderby('trip_start_time')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 117,
+      "value": "geoDataTable = aq.from(\n    data.filter(d => d.trip_miles >= 0 &&\n      d['pickup_centroid_latitude'] &&\n      d['pickup_centroid_longitude'] &&\n      d['dropoff_centroid_latitude'] &&\n      d['dropoff_centroid_longitude'])\n  )\n  .derive({\n    trip_start_time: d => op.parse_date(d.trip_start_timestamp),\n    trip_end_time: d => op.parse_date(d.trip_end_timestamp)\n  })\n  .orderby('trip_start_time')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 80,
+      "value": "tripsByCompany = dataTable.groupby('company').count().orderby(aq.desc('count'))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 98,
+      "value": "tripsByPaymentType = dataTable.groupby('payment_type').count()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 148,
+      "value": "tripsByStartTime = dataTable.groupby('trip_start_time').count()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 179,
+      "value": "tripCostByStartTime = dataTable.select(\n    'trip_start_time',\n    'fare',\n    'tolls',\n    'extras',\n    'tips',\n    'trip_total'\n  )\n  .groupby('trip_start_time')\n  .rollup({\n    fare: d => op.average(d.fare),\n    tips: d => op.average(d.tips),\n    tolls: d => op.average(d.tolls),\n    extras: d => op.average(d.extras),\n    total: d => op.average(d.trip_total)\n  })\n  .fold(aq.not('trip_start_time'), {\n    as: ['type', 'cost']\n  })\n  .rename({trip_start_time: 'time'})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 9,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 12,
+      "value": "import { aq, op } from '@uwdata/arquero'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 69,
+      "value": "import {SummaryTable} from '@observablehq/summary-table'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}

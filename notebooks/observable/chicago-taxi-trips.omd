@@ -1,0 +1,192 @@
+
+# Daily Chicago Taxi Trips
+
+**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Taxi Trips](https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew)
+
+## Taxi Trips Date
+```
+viewof tripDate = Inputs.date({
+  label: md`### Select Date:`,
+  min: `2013-01-01`,
+  max: `${year}-12-31`,
+  value: `2022-06-30`,
+  required: true,
+  //submit: true,
+})
+```
+## Trips Serviced by Taxi Company Summary
+```
+tripsByCompanyPlot = vl.markBar()
+  .data(tripsByCompany)
+  .encode(
+    vl.x().fieldO('company').axis({title: 'Company', labelAngle: 30}),
+    vl.y().fieldQ('count').axis({title: 'Count'}),
+    vl.tooltip().fieldN('count')
+  )
+  .height(200)
+  .render()
+```
+## Processed Trip Payment Types
+```
+paymentTypePlot = vl.markBar().data(tripsByPaymentType).encode(
+  vl.y().fieldO('payment_type').sort({encoding: 'x'}).axis({title: 'Type'}),
+  vl.x().fieldQ('count').axis({title: 'Count'}),
+  vl.tooltip().fieldN('count')
+).width(width - 200).render()
+```
+## Trips by Start Time (every 15 minutes)
+```
+tripStartTimePlot = Plot.plot({
+  width: width,
+  height: 320,
+  x: {
+    label: 'time',
+    tickFormat: ''
+  },
+  marks: [
+    Plot.barY(tripsByStartTime, {
+      x: 'trip_start_time',
+      y: 'count',
+      fill: 'steelblue',
+      title: d => `${d.trip_start_time.toLocaleTimeString()}: ${d.count.toLocaleString()} trips`
+    })
+  ]
+})
+```
+## Average Trip Cost
+```
+tripCostByStartTimePlot = {
+  const hover = vl.selectSingle('hover')
+    .on('mouseover')
+    .encodings('x')
+    .nearest(true)
+    .clear('moouseout')
+    .init({x: {year: year, month: 1, date: 1}});
+
+  const lineAndPoint = vl.layer(vl.markLine(), vl.markPoint().transform(vl.filter(hover)))
+    .encode(
+      vl.y().fieldQ('cost'),
+      vl.color().fieldN('type')
+    );
+
+  const rule = vl.markRule({strokeWidth: 0.5, tooltip: true})
+    .transform(vl.pivot('type').value('cost').groupby(['time']))
+    .encode(vl.opacity().value(0).if(hover, vl.value(0.7)),
+      vl.tooltip([
+        vl.fieldT('time'),
+        'fare',
+        'tolls',
+        'extras',
+        'tips',
+        'total'
+      ])
+    ).select(hover);
+
+  return vl.layer(lineAndPoint, rule)
+    .encode(vl.x().fieldT('time'))
+    .data(tripCostByStartTime)
+    .width(width - 240)
+    .height(300)
+    .render();
+}
+```
+## Trips Geo Data Summary (${geoDataTable.totalRows().toLocaleString()} geo-located trips)
+```
+viewof geoDataSummaryView = SummaryTable(geoDataTable.objects(), {label: 'Taxi Trips Data'})
+```
+## Taxi Trips Data
+
+Total: **${data.length.toLocaleString()}** trips
+```
+viewof tableView = Inputs.table(data, {
+  columns: columns,
+  reverse: false
+})
+```
+## Trip Data Queries and Filters
+```
+year = new Date().getFullYear()
+
+columns = [
+  'trip_start_timestamp',
+  'trip_end_timestamp',
+  'trip_seconds',
+  'trip_miles',
+  'pickup_community_area',
+  'dropoff_community_area',
+  'fare',
+  'tips',
+  'tolls',
+  'extras',
+  'trip_total',
+  'payment_type',
+  'company',
+  'pickup_centroid_latitude',
+  'pickup_centroid_longitude',
+  'dropoff_centroid_latitude',
+  'dropoff_centroid_longitude',
+  'trip_id',
+  'taxi_id'
+]
+
+dataUrl = 'https://data.cityofchicago.org/resource/wrvz-psew.json'
+
+tripsDate = tripDate.toISOString().substring(0, 10)
+
+query = `?$limit=50000&$where=trip_start_timestamp between '${tripsDate}T00:00:00' and '${tripsDate}T23:59:59'`
+
+data = await fetch(dataUrl + query).then(data => data.json())
+
+dataTable = aq.from(data)
+  .derive({
+    trip_start_time: d => op.parse_date(d.trip_start_timestamp),
+    trip_end_time: d => op.parse_date(d.trip_end_timestamp)
+  })
+  .orderby('trip_start_time')
+
+geoDataTable = aq.from(
+    data.filter(d => d.trip_miles >= 0 &&
+      d['pickup_centroid_latitude'] &&
+      d['pickup_centroid_longitude'] &&
+      d['dropoff_centroid_latitude'] &&
+      d['dropoff_centroid_longitude'])
+  )
+  .derive({
+    trip_start_time: d => op.parse_date(d.trip_start_timestamp),
+    trip_end_time: d => op.parse_date(d.trip_end_timestamp)
+  })
+  .orderby('trip_start_time')
+
+tripsByCompany = dataTable.groupby('company').count().orderby(aq.desc('count'))
+
+tripsByPaymentType = dataTable.groupby('payment_type').count()
+
+tripsByStartTime = dataTable.groupby('trip_start_time').count()
+
+tripCostByStartTime = dataTable.select(
+    'trip_start_time',
+    'fare',
+    'tolls',
+    'extras',
+    'tips',
+    'trip_total'
+  )
+  .groupby('trip_start_time')
+  .rollup({
+    fare: d => op.average(d.fare),
+    tips: d => op.average(d.tips),
+    tolls: d => op.average(d.tolls),
+    extras: d => op.average(d.extras),
+    total: d => op.average(d.trip_total)
+  })
+  .fold(aq.not('trip_start_time'), {
+    as: ['type', 'cost']
+  })
+  .rename({trip_start_time: 'time'})
+```
+## Imports
+```
+import { aq, op } from '@uwdata/arquero'
+
+import {SummaryTable} from '@observablehq/summary-table'
+```
