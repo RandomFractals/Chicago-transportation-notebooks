@@ -1,0 +1,76 @@
+md`# Chicago Public Chauffeurs
+
+List of Chicago licensed Public Chauffeurs, who may operate a licensed Taxicab, Livery, or Horse-Drawn Carriage.
+
+Data Source: [Chicago Community Economic Development](https://data.cityofchicago.org/browse?q=community%20economic%20development&sortBy=relevance) / [Public Chauffeurs](https://data.cityofchicago.org/Community-Economic-Development/Public-Chauffeurs/97wa-y6ff)
+
+Chicago Data Portal: [Public Chauffeurs - Dashboard](https://data.cityofchicago.org/Community-Economic-Development/Public-Chauffeurs-Dashboard/3dz4-khtp)
+`
+
+md`## Data Summary`
+
+viewof dataSummaryView = SummaryTable(data, {label: 'Public Chauffeurs Data'})
+
+md`
+## License Type and Status Plots
+`;
+
+viewof licensePlots = {
+  const driverTypePlot = vl.markBar().data(driverTypeData).encode(
+    vl.x().fieldO('driver_type').axis({labelAngle: 60}),
+    vl.y().fieldQ('count'),
+    vl.tooltip().fieldN('count'),
+    vl.color().fieldN('driver_type')
+  ).height(200);
+
+  const licenseStatusPlot = vl.markBar().data(licenseStatusData).encode(
+    vl.x().fieldO('status').axis({labelAngle: 60}),
+    vl.y().fieldQ('count'),
+    vl.tooltip().fieldN('count'),
+    vl.color().fieldN('status')
+  ).height(200);
+
+  const licenseTypePlot = vl.markBar().data(licenseTypeData).encode(
+    vl.x().fieldO('license_type').axis({labelAngle: 60}),
+    vl.y().fieldQ('count'),
+    vl.tooltip().fieldN('count'),
+    vl.color().fieldN('license_type')
+  ).height(200);
+
+  return vl.hconcat(driverTypePlot, licenseStatusPlot, licenseTypePlot).render();
+}
+
+md`
+## Data
+`;
+
+viewof searchResults = Inputs.search(dataTable)
+
+viewof tableView = Inputs.table(searchResults, {
+  sort: 'date',
+  reverse: true
+})
+
+dataUrl = 'https://data.cityofchicago.org/resource/97wa-y6ff.json'
+
+query = `?$limit=50000`
+
+data = await fetch(dataUrl + query).then(data => data.json())
+
+dataTable = aq.from(data)
+  .derive({
+    date: d => op.parse_date(d.status_date)
+  })
+  .orderby('date')
+
+driverTypeData = dataTable.select('driver_type').groupby('driver_type').count().orderby(aq.desc('count'))
+
+licenseStatusData = dataTable.select('status').groupby('status').count().orderby(aq.desc('count'))
+
+licenseTypeData = dataTable.select('license_type').groupby('license_type').count().orderby(aq.desc('count'))
+
+md`## Imports`
+
+import { aq, op } from '@uwdata/arquero'
+
+import {SummaryTable} from '@observablehq/summary-table'
