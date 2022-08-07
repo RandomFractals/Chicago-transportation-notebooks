@@ -1,0 +1,88 @@
+md`# Chicago Public Passenger Vehicles
+
+A public passenger vehicle is a vehicle used for the transportation of passengers for hire by a public chauffeur. The list of public passenger vehicles includes licensed taxicabs (medallions), liveries, ambulances, medicars, charter-sightseeing buses, horse-drawn carriages, and pedicabs. For more information, please see [Public Passenger Vehicles (PPV)](https://www.chicago.gov/city/en/depts/bacp/provdrs/vehic.html) site.
+
+Data Source: [Chicago Community Economic Development](https://data.cityofchicago.org/browse?q=community%20economic%20development&sortBy=relevance) / [Public Passenger Vehicle Licenses](https://data.cityofchicago.org/Community-Economic-Development/Public-Passenger-Vehicle-Licenses/tfm3-3j95)
+
+Chicago Data Portal: [Public Passenger Vehicle Licenses - Dashboard](https://data.cityofchicago.org/Community-Economic-Development/Public-Passenger-Vehicle-Licenses-Dashboard/atnw-8huh)
+`
+
+md`## Data Summary`
+
+viewof dataSummaryView = SummaryTable(data, {label: 'Public Passenger Vehicles Data'})
+
+md`
+## Vehicle Types
+`;
+
+vehicleTypesPlot = vl.markBar().data(vehicleTypes).encode(
+  vl.x().fieldO('vehicle_type').axis({labelAngle: 60}),
+  vl.y().fieldQ('count'),
+  vl.tooltip().fieldN('count'),
+  vl.color().fieldN('vehicle_type')
+).height(200).render();
+
+md`
+## Vehicle Fuel Sources
+`;
+
+vehicleFuelSourcesPlot = vl.markBar().data(vehicleFuelSources).encode(
+  vl.x().fieldO('vehicle_fuel_source').axis({labelAngle: 60}),
+  vl.y().fieldQ('count'),
+  vl.tooltip().fieldN('count'),
+  vl.color().fieldN('vehicle_fuel_source')
+).height(200).render();
+
+md`
+## Vehicle Status Info
+`;
+
+vehicleStatusInfoPlot = vl.markBar().data(vehicleStatusData).encode(
+  vl.x().fieldO('status').axis({labelAngle: 60}),
+  vl.y().fieldQ('count'),
+  vl.tooltip().fieldN('count'),
+  vl.color().fieldN('status')
+).height(200).render();
+
+md`
+## Company Vehicles
+`;
+
+viewof companyVehiclesTable = Inputs.table(companyVehicles)
+
+md`
+## Data
+`;
+
+viewof searchResults = Inputs.search(data)
+
+viewof tableView = Inputs.table(searchResults, {
+  sort: 'record_id',
+  reverse: false
+})
+
+md`
+## Data Queries and Filters
+`;
+
+dataUrl = 'https://data.cityofchicago.org/resource/tfm3-3j95.json'
+
+query = `?$limit=20000`
+
+data = await fetch(dataUrl + query).then(data => data.json())
+
+dataTable = aq.from(data).orderby('status')
+
+vehicleTypes = dataTable.select('vehicle_type').groupby('vehicle_type').count().orderby(aq.desc('count'))
+
+vehicleFuelSources = dataTable.select('vehicle_fuel_source').groupby('vehicle_fuel_source').count().orderby(aq.desc('count'))
+
+vehicleStatusData = dataTable.select('status').groupby('status').count().orderby(aq.desc('count'))
+
+companyVehicles = dataTable.select('company_name').groupby('company_name').count().orderby(aq.desc('count'))
+
+md`## Imports`
+
+import {aq, op} from '@uwdata/arquero'
+
+import {SummaryTable} from '@observablehq/summary-table'
