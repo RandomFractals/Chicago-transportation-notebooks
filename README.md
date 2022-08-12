@@ -1,6 +1,7 @@
 # Chicago Transportation Notebooks
 Demo notebooks using public city of [Chicago Transportation datasets](https://data.cityofchicago.org/browse?category=Transportation).
 
+See [Observable Data Tools](https://github.com/RandomFractals/observable-data-tools) repository for a growing list of built-in Observable and custom data tools we use for our exploratory data anlysis of public datasets.
 ## [Observable JS Notebooks 📚](https://observablehq.com/collection/@randomfractals/transportation)
 
 ![Chicago Transportation Notebooks 📚 Collection](https://github.com/RandomFractals/Chicago-transportation-notebooks/blob/main/docs/images/chicago-transportation-notebooks-collection.png?raw=true
