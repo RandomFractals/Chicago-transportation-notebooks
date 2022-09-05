@@ -200,9 +200,9 @@
         },
         {
             "id": 4,
-            "value": "md`## Data`",
+            "value": "## Data",
             "pinned": false,
-            "mode": "js",
+            "mode": "md",
             "data": null,
             "name": ""
         },
@@ -224,9 +224,9 @@
         },
         {
             "id": 7,
-            "value": "md`## Data Queries and Filters`",
+            "value": "## Data Queries and Filters",
             "pinned": false,
-            "mode": "js",
+            "mode": "md",
             "data": null,
             "name": ""
         },
@@ -272,9 +272,9 @@
         },
         {
             "id": 13,
-            "value": "md`## Map Elements and Styles`",
+            "value": "## Map Elements and Styles",
             "pinned": false,
-            "mode": "js",
+            "mode": "md",
             "data": null,
             "name": ""
         },
@@ -344,9 +344,9 @@
         },
         {
             "id": 22,
-            "value": "md`## Imports`",
+            "value": "## Imports",
             "pinned": false,
-            "mode": "js",
+            "mode": "md",
             "data": null,
             "name": ""
         },
