@@ -1,0 +1,379 @@
+{
+    "id": "5d009b86321f06fb",
+    "slug": "chicago-traffic-tracker",
+    "trashed": false,
+    "description": "",
+    "likes": 0,
+    "publish_level": "public",
+    "forks": 0,
+    "fork_of": null,
+    "update_time": "2022-08-05T16:02:59.263Z",
+    "publish_time": "2021-06-16T20:39:41.819Z",
+    "publish_version": 152,
+    "latest_version": 152,
+    "thumbnail": "74965fc29c42bd77c3ec55c952a7229c35eaa27dd05ad6f916251185c9dce07e",
+    "default_thumbnail": "74965fc29c42bd77c3ec55c952a7229c35eaa27dd05ad6f916251185c9dce07e",
+    "roles": [],
+    "sharing": null,
+    "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual",
+        "tier": "basic"
+    },
+    "creator": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "tier": "basic"
+    },
+    "authors": [
+        {
+            "id": "17b72db66175b428",
+            "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+            "name": "Taras Novak",
+            "login": "randomfractals",
+            "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+            "home_url": "https://www.linkedin.com/in/tarasnovak",
+            "github_login": "RandomFractals",
+            "tier": "basic",
+            "approved": true,
+            "description": ""
+        }
+    ],
+    "collections": [
+        {
+            "id": "55a954f45c0be7c8",
+            "type": "public",
+            "slug": "deckgl",
+            "title": "DeckGL",
+            "description": "DeckGL maps",
+            "update_time": "2021-06-16T20:19:49.324Z",
+            "pinned": false,
+            "ordered": true,
+            "custom_thumbnail": null,
+            "default_thumbnail": "38c7f53b846da4e440f0c8bb1266c6f744884a3b6f4c56601d8bc7ee040492a7",
+            "thumbnail": "38c7f53b846da4e440f0c8bb1266c6f744884a3b6f4c56601d8bc7ee040492a7",
+            "listing_count": 5,
+            "parent_collection_count": 0,
+            "owner": {
+                "id": "17b72db66175b428",
+                "github_login": "RandomFractals",
+                "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+                "login": "randomfractals",
+                "name": "Taras Novak",
+                "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+                "home_url": "https://www.linkedin.com/in/tarasnovak",
+                "type": "individual",
+                "tier": "basic"
+            }
+        },
+        {
+            "id": "c30622739accf157",
+            "type": "public",
+            "slug": "arquero",
+            "title": "Arquero",
+            "description": "Notebooks using Arquero JS library for manipulating data.",
+            "update_time": "2021-06-08T11:51:29.570Z",
+            "pinned": false,
+            "ordered": false,
+            "custom_thumbnail": null,
+            "default_thumbnail": "decad83a2096c4016feab80c77757c4e3a5d6e2d87be0fee945112f79ddb2b72",
+            "thumbnail": "decad83a2096c4016feab80c77757c4e3a5d6e2d87be0fee945112f79ddb2b72",
+            "listing_count": 10,
+            "parent_collection_count": 0,
+            "owner": {
+                "id": "17b72db66175b428",
+                "github_login": "RandomFractals",
+                "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+                "login": "randomfractals",
+                "name": "Taras Novak",
+                "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+                "home_url": "https://www.linkedin.com/in/tarasnovak",
+                "type": "individual",
+                "tier": "basic"
+            }
+        },
+        {
+            "id": "cf858224d6488195",
+            "type": "public",
+            "slug": "transportation",
+            "title": "Transportation",
+            "description": "Public transportation notebooks",
+            "update_time": "2021-06-04T03:34:03.975Z",
+            "pinned": false,
+            "ordered": false,
+            "custom_thumbnail": null,
+            "default_thumbnail": "decad83a2096c4016feab80c77757c4e3a5d6e2d87be0fee945112f79ddb2b72",
+            "thumbnail": "decad83a2096c4016feab80c77757c4e3a5d6e2d87be0fee945112f79ddb2b72",
+            "listing_count": 16,
+            "parent_collection_count": 0,
+            "owner": {
+                "id": "17b72db66175b428",
+                "github_login": "RandomFractals",
+                "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+                "login": "randomfractals",
+                "name": "Taras Novak",
+                "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+                "home_url": "https://www.linkedin.com/in/tarasnovak",
+                "type": "individual",
+                "tier": "basic"
+            }
+        },
+        {
+            "id": "cc3985e6b82c86b0",
+            "type": "public",
+            "slug": "maps",
+            "title": "Maps",
+            "description": "Various Maps",
+            "update_time": "2018-09-28T13:20:05.815Z",
+            "pinned": false,
+            "ordered": false,
+            "custom_thumbnail": null,
+            "default_thumbnail": "decad83a2096c4016feab80c77757c4e3a5d6e2d87be0fee945112f79ddb2b72",
+            "thumbnail": "decad83a2096c4016feab80c77757c4e3a5d6e2d87be0fee945112f79ddb2b72",
+            "listing_count": 17,
+            "parent_collection_count": 0,
+            "owner": {
+                "id": "17b72db66175b428",
+                "github_login": "RandomFractals",
+                "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+                "login": "randomfractals",
+                "name": "Taras Novak",
+                "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+                "home_url": "https://www.linkedin.com/in/tarasnovak",
+                "type": "individual",
+                "tier": "basic"
+            }
+        }
+    ],
+    "files": [],
+    "comments": [],
+    "commenting_lock": null,
+    "suggestion_from": null,
+    "suggestions_to": [],
+    "version": 152,
+    "title": "Chicago Traffic Tracker",
+    "license": null,
+    "copyright": "",
+    "nodes": [
+        {
+            "id": 0,
+            "value": "# Chicago Traffic Tracker\r\n\r\n**Data Source:** [Chicago Transportation](https://data.cityofchicago.org/browse?category=Transportation) / [Chicago Traffic Tracker - Congestion Estimates by Segments](https://data.cityofchicago.org/Transportation/Chicago-Traffic-Tracker-Congestion-Estimates-by-Se/n4j6-wkkf)\r\n\r\nChicago Data Portal: [Chicago Traffic Tracker - Congestion Estimates by Segments Data](https://data.cityofchicago.org/Transportation/Chicago-Traffic-Tracker-Congestion-Estimates-by-Se/n4j6-wkkf/data)",
+            "pinned": false,
+            "mode": "md",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 1,
+            "value": "mapContainer = html `<div style=\"height:${width*.6 - 50}px\">\r\n  <div class=\"data-panel\">\r\n    <b>${dataTable.size.toLocaleString()}</b> Traffic Segments\r\n  </div>\r\n  <div id=\"tooltip\"></div>\r\n</div>`",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 2,
+            "value": "speedLegend = html `\r\n<div id=\"legend\">\r\n  <style>\r\n    #legend {\r\n      display: flex;\r\n      font-family: Helvetica, Arial, sans-serif;\r\n      font-size: 14px;\r\n    }\r\n    b {\r\n      vertical-align: center;\r\n      position: relative;\r\n      height: 30px;\r\n    }\r\n    svg {\r\n      margin: 0 15px;\r\n    }\r\n  </style>\r\n  <b>0 mph</b>\r\n  <svg height=\"20\" width=\"300\">\r\n    <defs>\r\n      <linearGradient id=\"grad1\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\r\n        <stop offset=\"0%\" style=\"stop-color:rgb(255,0,0);stop-opacity:1\" />\r\n        <stop offset=\"33%\" style=\"stop-color:rgb(255,255,0);stop-opacity:1\" />\r\n        <stop offset=\"100%\" style=\"stop-color:rgb(0,255,0);stop-opacity:1\" />\r\n      </linearGradient>\r\n    </defs>\r\n    <rect width=\"100%\" height=\"100%\" fill=\"url(#grad1)\" />\r\n  </svg>\r\n  <b>60 mph</b>\r\n</div>\r\n`",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 3,
+            "value": "trafficSegmentsLayer = {\r\n  const segmentsLayer = new deck.LineLayer({\r\n    id: 'trafficSegments',\r\n    data: dataTable.objects(),\r\n    opacity: 0.8,\r\n    pickable: true,\r\n    getWidth: 8,\r\n    getColor: d => colorScale(Number(d.current_speed)),\r\n    getSourcePosition: d => [Number(d.start_longitude), Number(d.start_latitude)],\r\n    getTargetPosition: d => [Number(d.end_longitude), Number(d.end_latitude)],\r\n    onHover: onHover\r\n  });\r\n  \r\n  deckgl.setProps({layers: [segmentsLayer]});\r\n  return segmentsLayer;\r\n}",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 4,
+            "value": "md`## Data`",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 5,
+            "value": "viewof searchResults = Inputs.search(dataTable)",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 6,
+            "value": "viewof tableView = Inputs.table(searchResults, {\r\n  columns,\r\n  reverse: true\r\n})",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 7,
+            "value": "md`## Data Queries and Filters`",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 8,
+            "value": "columns = [\r\n  'segment_id',\r\n  'from_street',\r\n  'to_street',\r\n  'street_heading',\r\n  'street',\r\n  'direction',  \r\n  'segment_length',\r\n  'current_speed',\r\n  'start_longitude',\r\n  'start_latitude',\r\n  'end_longitude',\r\n  'end_latitude',\r\n  'last_updated',\r\n  'update_date_time'\r\n]",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 9,
+            "value": "dataUrl = 'https://data.cityofchicago.org/resource/n4j6-wkkf.json'",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 10,
+            "value": "query = `?$limit=100000`",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 11,
+            "value": "data = await fetch(dataUrl + query).then(data => data.json())",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 12,
+            "value": "dataTable = aq.from(data)\r\n  .filter(d => d._traffic >= 0)\r\n  .rename({\r\n    segmentid: 'segment_id',\r\n    _direction: 'direction',\r\n    _fromst: 'from_street',\r\n    _tost: 'to_street',\r\n    _length: 'segment_length',\r\n    _strheading: 'street_heading',\r\n    _traffic: 'current_speed',\r\n    start_lon: 'start_longitude',\r\n    _lif_lat: 'start_latitude',\r\n    _lit_lon: 'end_longitude',\r\n    _lit_lat: 'end_latitude',\r\n    _last_updt: 'last_updated'\r\n  })\r\n  .derive({\r\n    update_date_time: d => op.parse_date(d.last_updated)\r\n  })\r\n  .orderby('current_speed')",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 13,
+            "value": "md`## Map Elements and Styles`",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 14,
+            "value": "deckgl = {\r\n  return new deck.DeckGL({\r\n    container: mapContainer,\r\n    map: mapboxgl,\r\n    mapboxAccessToken: '',\r\n    mapboxApiAccessToken: 'pk.eyJ1IjoiZGF0YXBpeHkiLCJhIjoiY2tnM3ZhZWJjMDE1ajJxbGY1eTNlemduciJ9.YZ9CJEza0hvAQmTRBhubmQ',\r\n    mapStyle: 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json',\r\n    initialViewState: {\r\n      latitude: 41.82,\r\n      longitude: -87.65,\r\n      zoom: 10,\r\n      minZoom: 8,\r\n      maxZoom: 15,\r\n      pitch: 0,\r\n      bearing: 0\r\n    },\r\n    controller: true\r\n  });\r\n}",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 15,
+            "value": "colorScale = (n) => {\r\n  let color = linearSpeedScale(n)\r\n  color = color.split(',')\r\n  color[0] = Number(color[0].substring(4, color[0].length))\r\n  color[1] = Number(color[1].substring(1, color[1].length))\r\n  color[2] = Number(color[2].substring(1, color[2].length-1))\r\n  return color\r\n}",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 16,
+            "value": "linearSpeedScale = d3.scaleLinear()\r\n  .domain([-1, 20, 60])\r\n  .range(['red', 'yellow', 'green']);",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 17,
+            "value": "tooltip = mapContainer.querySelector('#tooltip')",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 18,
+            "value": "function onHover (info) {\r\n  const data = info.object;\r\n  if (data) {\r\n    tooltip.style.left = `${info.x}px`;\r\n    tooltip.style.top = `${info.y}px`;\r\n    tooltip.innerHTML = `<b>${data.direction}</b> from <b>${data.from_street}</b> to <b>${data.to_street}</b>\r\n      on <b>${data.street_heading} ${data.street}</b> street<br />\r\n      esitmated <b>${Number(data.current_speed).toLocaleString()} mph</b> speed\r\n      for <b>${data.segment_length}</b> miles<br />\r\n      last updated on <b>${data.update_date_time.toLocaleDateString()}</b>\r\n      at <b>${data.update_date_time.toLocaleTimeString()}</b>`;\r\n  } else { \r\n    tooltip.innerHTML = '';\r\n  }\r\n}",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 19,
+            "value": "tooltipStyle = html `\r\n<style>\r\n#tooltip:empty {\r\n  display: none;\r\n}\r\n#tooltip {\r\n  font-family: Helvetica, Arial, sans-serif;\r\n  font-size: 12px;\r\n  position: absolute;\r\n  padding: 4px;\r\n  margin: 8px;\r\n  border-radius: 3px;\r\n  background: rgba(0, 0, 0, 0.7);\r\n  color: #fff;\r\n  max-width: 300px;\r\n  z-index: 9;\r\n  pointer-events: none;\r\n}\r\n</style>\r\n`",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 20,
+            "value": "dataPanelStyle = html `\r\n<style type=\"text/css\">\r\n.data-panel {\r\n  position: absolute;\r\n  top: 0;\r\n  font-family: Nunito, sans-serif;\r\n  font-size: 12px;\r\n  background-color: #f6f6f6;\r\n  padding: 8px;\r\n  border-radius: 3px;\r\n  box-shadow: 1px 2px 4px #888;\r\n  z-index: 10;\r\n}\r\n</style>\r\n`",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 21,
+            "value": "html`<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css' rel='stylesheet' />\r\nmapbox-gl.css`",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 22,
+            "value": "md`## Imports`",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 23,
+            "value": "import { aq, op } from '@uwdata/arquero'",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 24,
+            "value": "mapboxgl = require('mapbox-gl@^2.3.0/dist/mapbox-gl.js')",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 25,
+            "value": "deck = require.alias({\r\n  // optional dependencies\r\n  h3: {},\r\n  s2Geometry: {}\r\n})('deck.gl@^8.4.17/dist.min.js')",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        }
+    ],
+    "resolutions": []
+}
