@@ -1,0 +1,259 @@
+{
+    "id": "a4fda91cd9c4daae",
+    "slug": "chicago-public-chauffeurs",
+    "trashed": false,
+    "description": "",
+    "likes": 0,
+    "publish_level": "public",
+    "forks": 0,
+    "fork_of": {
+        "id": "bc073404747347f6",
+        "slug": "chicago-public-passenger-vehicles",
+        "title": "Chicago Public Passenger Vehicles",
+        "owner": {
+            "id": "17b72db66175b428",
+            "github_login": "RandomFractals",
+            "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+            "login": "randomfractals",
+            "name": "Taras Novak",
+            "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+            "home_url": "https://www.linkedin.com/in/tarasnovak",
+            "type": "individual",
+            "tier": "basic"
+        },
+        "version": 36
+    },
+    "update_time": "2022-08-06T13:00:58.383Z",
+    "publish_time": "2021-06-24T12:54:26.169Z",
+    "publish_version": 115,
+    "latest_version": 115,
+    "thumbnail": "61864655cd1340d8a48e80b440fa5c9d8bab22a14b67f29da40df26d50a0cbee",
+    "default_thumbnail": "61864655cd1340d8a48e80b440fa5c9d8bab22a14b67f29da40df26d50a0cbee",
+    "roles": [],
+    "sharing": null,
+    "owner": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "type": "individual",
+        "tier": "basic"
+    },
+    "creator": {
+        "id": "17b72db66175b428",
+        "github_login": "RandomFractals",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+        "login": "randomfractals",
+        "name": "Taras Novak",
+        "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+        "home_url": "https://www.linkedin.com/in/tarasnovak",
+        "tier": "basic"
+    },
+    "authors": [
+        {
+            "id": "17b72db66175b428",
+            "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+            "name": "Taras Novak",
+            "login": "randomfractals",
+            "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+            "home_url": "https://www.linkedin.com/in/tarasnovak",
+            "github_login": "RandomFractals",
+            "tier": "basic",
+            "approved": true,
+            "description": ""
+        }
+    ],
+    "collections": [
+        {
+            "id": "cf858224d6488195",
+            "type": "public",
+            "slug": "transportation",
+            "title": "Transportation",
+            "description": "Public transportation notebooks",
+            "update_time": "2021-06-04T03:34:03.975Z",
+            "pinned": false,
+            "ordered": false,
+            "custom_thumbnail": null,
+            "default_thumbnail": "decad83a2096c4016feab80c77757c4e3a5d6e2d87be0fee945112f79ddb2b72",
+            "thumbnail": "decad83a2096c4016feab80c77757c4e3a5d6e2d87be0fee945112f79ddb2b72",
+            "listing_count": 16,
+            "parent_collection_count": 0,
+            "owner": {
+                "id": "17b72db66175b428",
+                "github_login": "RandomFractals",
+                "avatar_url": "https://avatars.observableusercontent.com/avatar/57d3bf95c5ecfa9ee3b08dec1a71504412704a6788f769860bf9d5191e789336",
+                "login": "randomfractals",
+                "name": "Taras Novak",
+                "bio": "I map 🗺️ & graph  📈 data 🈸 ",
+                "home_url": "https://www.linkedin.com/in/tarasnovak",
+                "type": "individual",
+                "tier": "basic"
+            }
+        }
+    ],
+    "files": [],
+    "comments": [],
+    "commenting_lock": null,
+    "suggestion_from": null,
+    "suggestions_to": [],
+    "version": 115,
+    "title": "Chicago Public Chauffeurs",
+    "license": null,
+    "copyright": "",
+    "nodes": [
+        {
+            "id": 0,
+            "value": "# Chicago Public Chauffeurs\r\n\r\nList of Chicago licensed Public Chauffeurs, who may operate a licensed Taxicab, Livery, or Horse-Drawn Carriage. \r\n\r\nData Source: [Chicago Community Economic Development](https://data.cityofchicago.org/browse?q=community%20economic%20development&sortBy=relevance) / [Public Chauffeurs](https://data.cityofchicago.org/Community-Economic-Development/Public-Chauffeurs/97wa-y6ff)\r\n\r\nChicago Data Portal: [Public Chauffeurs - Dashboard](https://data.cityofchicago.org/Community-Economic-Development/Public-Chauffeurs-Dashboard/3dz4-khtp)",
+            "pinned": false,
+            "mode": "md",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 1,
+            "value": "## Data Summary",
+            "pinned": false,
+            "mode": "md",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 2,
+            "value": "viewof dataSummaryView = SummaryTable(data, {label: 'Public Chauffeurs Data'})",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 3,
+            "value": "## License Type and Status Plots",
+            "pinned": false,
+            "mode": "md",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 4,
+            "value": "viewof licensePlots = {\r\n  const driverTypePlot = vl.markBar().data(driverTypeData).encode(\r\n    vl.x().fieldO('driver_type').axis({labelAngle: 60}),\r\n    vl.y().fieldQ('count'),\r\n    vl.tooltip().fieldN('count'),\r\n    vl.color().fieldN('driver_type')\r\n  ).height(200);\r\n\r\n  const licenseStatusPlot = vl.markBar().data(licenseStatusData).encode(\r\n    vl.x().fieldO('status').axis({labelAngle: 60}),\r\n    vl.y().fieldQ('count'),\r\n    vl.tooltip().fieldN('count'),\r\n    vl.color().fieldN('status')\r\n  ).height(200);\r\n\r\n  const licenseTypePlot = vl.markBar().data(licenseTypeData).encode(\r\n    vl.x().fieldO('license_type').axis({labelAngle: 60}),\r\n    vl.y().fieldQ('count'),\r\n    vl.tooltip().fieldN('count'),\r\n    vl.color().fieldN('license_type')\r\n  ).height(200);\r\n  \r\n  return vl.hconcat(driverTypePlot, licenseStatusPlot, licenseTypePlot).render();\r\n}",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 5,
+            "value": "## Data",
+            "pinned": false,
+            "mode": "md",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 6,
+            "value": "viewof searchResults = Inputs.search(dataTable)",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 7,
+            "value": "viewof tableView = Inputs.table(searchResults, {\r\n  sort: 'date',\r\n  reverse: true\r\n})",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 8,
+            "value": "dataUrl = 'https://data.cityofchicago.org/resource/97wa-y6ff.json'",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 9,
+            "value": "query = `?$limit=50000`",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 10,
+            "value": "data = await fetch(dataUrl + query).then(data => data.json())",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 11,
+            "value": "dataTable = aq.from(data)\r\n  .derive({\r\n    date: d => op.parse_date(d.status_date)\r\n  })\r\n  .orderby('date')",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 12,
+            "value": "driverTypeData = dataTable.select('driver_type').groupby('driver_type').count().orderby(aq.desc('count'))",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 13,
+            "value": "licenseStatusData = dataTable.select('status').groupby('status').count().orderby(aq.desc('count'))",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 14,
+            "value": "licenseTypeData = dataTable.select('license_type').groupby('license_type').count().orderby(aq.desc('count'))",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 15,
+            "value": "## Imports",
+            "pinned": false,
+            "mode": "md",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 16,
+            "value": "import { aq, op } from '@uwdata/arquero'",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 17,
+            "value": "import {SummaryTable} from '@observablehq/summary-table'",
+            "pinned": false,
+            "mode": "js",
+            "data": null,
+            "name": ""
+        }
+    ],
+    "resolutions": [
+        {
+            "type": "notebook",
+            "specifier": "@uwdata/arquero",
+            "value": "79750b3b8e929d9d@226"
+        }
+    ]
+}
